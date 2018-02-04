@@ -17,6 +17,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'C:/srv/client_packages/')
+    path: path.resolve(__dirname, 'DIRECTORY OF THE SERVER')
   }
 };
