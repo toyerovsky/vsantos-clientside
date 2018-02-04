@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --config webpack.config.js"
   },
-  "author": "Przemysław Postrach",
+  "author": "vsantos dev team",
   "license": "ISC",
   "dependencies": {
     "types-ragemp-client": "github:pet-platoon/types-ragemp-client#next"
