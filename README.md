@@ -8,7 +8,7 @@
 4. Basic JavaScript knowlege
 
 ## Installation
-1. git clone https://github.com/toyerovsky/vsantos-client
+1. git clone https://github.com/toyerovsky/vsantos-clientside
 2. Go to the repo directory and open terminal window here
 3. type npm install
 
