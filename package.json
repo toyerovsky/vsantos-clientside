@@ -1,0 +1,19 @@
+{
+  "name": "vsantos",
+  "version": "1.0.0",
+  "description": "clientside scripts of vsantos ragemp server",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "author": "Przemysław Postrach",
+  "license": "ISC",
+  "dependencies": {
+    "types-ragemp-client": "github:pet-platoon/types-ragemp-client#next"
+  },
+  "devDependencies": {
+    "ts-loader": "^3.4.0",
+    "typescript": "^2.7.1",
+    "webpack": "^3.10.0"
+  }
+}
