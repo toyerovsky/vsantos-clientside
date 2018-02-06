@@ -26,7 +26,7 @@
         PrepareData();
     });
 
-    function Click(value)
+    function click(value)
     {
         var currentSelection = parseInt(value.getAttribute("dsIndex"));
 
@@ -34,7 +34,6 @@
         resourceCall("RequestBus", item.Time.toString(), item.Cost.toString(), currentSelection);   
     }
 
-    //Dostajemy dane w sekundach wyrzucamy w zale�no�ci od potrzeb
     function PrepareTime(seconds)
     {
         if (seconds < 60) return seconds.toString() + "s";
@@ -55,7 +54,7 @@
             var cost = row.insertCell();
 
             row.setAttribute("dsIndex", i.toString());
-            row.onclick = function() {Click(this)};
+            row.onclick = function() {click(this)};
 
             name.innerHTML = ds[i].Name.toString();
             time.innerHTML = PrepareTime(ds[i].Time);

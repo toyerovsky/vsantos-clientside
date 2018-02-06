@@ -1,3 +1,3 @@
-import { Test } from './scripts/Test';
+import { LoginScript } from './script/Test';
 
-new Test().start();
+new LoginScript().start();

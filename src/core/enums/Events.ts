@@ -1,4 +1,4 @@
-export enum Events {
+export enum RageEvent {
     entityCreated = "entityCreated",
     render = "render",
     playerJoin = "playerJoin",
@@ -17,4 +17,9 @@ export enum Events {
     playerExitCheckpoint = "playerExitCheckpoint",
     playerEnterColshape = "playerEnterColshape",
     playerExitColshape = "playerExitColshape",
-}
+};
+
+export enum Event {
+    playerLoginRequested = "playerLoginRequested",
+    playerLoginPassed = "playerLoginPassed",
+};
