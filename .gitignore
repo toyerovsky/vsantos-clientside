@@ -289,7 +289,7 @@ __pycache__/
 *.xsd.cs
 
 # Compiled code
-bundle.json
+bundle.js
 
 # Webpack config
 webpack.config.js
