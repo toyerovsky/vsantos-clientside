@@ -14,11 +14,14 @@ export class Test extends Script {
      */
     public start(): void {
         super.start();
-        new Browser("http://localhost:8080");
+        var browser = new Browser("http://localhost:8080", true);
 
-        // mp.events.add(Events.playerJoin, (...args: any[]) => {
-        //     mp.gui.chat.push("Witaj na serwerze!");
-        // });
-        // mp.gui.chat.push("Witaj na serwerze!");
-    }   
+        mp.events.add("testCefEvent", (...args: any[]) => {
+            mp.gui.chat.push("Test CEF event!");
+        });
+    }
+//
+    testCefEvent() {
+        mp.gui.chat.push("Test CEF function!");
+    }
 }

@@ -20,7 +20,7 @@
         </div>
     </div>
 <script>
-
+    
     document.addEventListener("DOMContentLoaded", function (event)
     {
         PrepareData();
@@ -34,7 +34,7 @@
         resourceCall("RequestBus", item.Time.toString(), item.Cost.toString(), currentSelection);   
     }
 
-    //Dostajemy dane w sekundach wyrzucamy w zale¿noœci od potrzeb
+    //Dostajemy dane w sekundach wyrzucamy w zaleï¿½noï¿½ci od potrzeb
     function PrepareTime(seconds)
     {
         if (seconds < 60) return seconds.toString() + "s";

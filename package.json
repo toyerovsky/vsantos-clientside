@@ -9,6 +9,7 @@
   "author": "vsantos dev team",
   "license": "ISC",
   "dependencies": {
+    "copy-webpack-plugin": "^4.3.1",
     "types-ragemp-client": "github:pet-platoon/types-ragemp-client#next"
   },
   "devDependencies": {
