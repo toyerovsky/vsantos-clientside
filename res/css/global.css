@@ -31,7 +31,7 @@ body{
     line-height: 0px;
 }
 
-.g{color: green;}
+.g{color: #81C784;}
 
 .desc
 {
@@ -46,11 +46,10 @@ body{
 	margin-right: auto;
 	margin-left: auto;
 	width: 450px;
-	background: white;
+	background: rgba(0,0,0,0.7);
 	padding: 20px;
-	color:#494949;
-	-webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.24);
-	border-top: 3px solid green;
+	color:white;
+	-webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.7);
 	font-size: 13px;
 }
 
@@ -64,24 +63,27 @@ body{
 }
 
 .login-panel button{
+	display:inline-block;
+    position:relative;
 	width: 100%;
 	padding: 15px;
-	background: green;
+	background: rgba(0,0,0,0);
 	color: white;
-	border: 0;
-	border-top: 3px #005f00 solid;
+	letter-spacing: 3px;
+	border: 3px solid #81C784;
+	font-size: 10px;
 }
+
 
 .login-panel-center{
 	margin-top: 20px;
 	margin-right: auto;
 	margin-left: auto;
 	width: 450px;
-	background: white;
+	background: rgba(0,0,0,0.7);
 	padding: 20px;
-	color:#494949;
-	-webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.24);
-	border-top: 3px solid green;
+	color:white;
+	-webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.7);
 	font-size: 13px;
 }
 
@@ -95,12 +97,15 @@ body{
 }
 
 .login-panel-center button{
+		display:inline-block;
+    position:relative;
 	width: 100%;
 	padding: 15px;
-	background: green;
+	background: rgba(0,0,0,0);
 	color: white;
-	border: 0;
-	border-top: 3px #005f00 solid;
+	letter-spacing: 3px;
+	border: 3px solid #81C784;
+	font-size: 10px;
 }
 
 .creator-desc
@@ -110,10 +115,9 @@ body{
 	margin-bottom: 0px;
 }
 
-.login-panel button:hover
+.login-panel-center button:hover
 {
 	cursor: pointer;
-	border-top: 3px #00d200 solid;
 }
 
 .slider
@@ -131,4 +135,80 @@ body{
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #bababa;
+}
+
+.character
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	text-align: center;
+	height: 220px;
+}
+
+.character img
+{
+	width: 80px;
+	height: 80px;
+	margin-top: 10px;
+	display: block;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.5);
+}
+
+.character h1
+{
+	text-align: center;
+	line-height: 40px;
+	color: white;
+}
+
+.ch-desc
+{
+	font-size: 20px;
+		color: white;
+}
+
+.login-panel button:before {
+  content: "";
+  position: absolute;
+  z-index:-1;
+  top: 0;  left: 0;  right: 0;  bottom: 0;
+  background: #81C784;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .3s ease-out;
+  cursor: pointer;
+}
+
+.login-panel button:hover:before{
+	transform: scaleX(1);
+	cursor: pointer;
+}
+
+
+.login-panel button:hover{
+	cursor: pointer;
+}
+
+.login-panel-center button:before {
+  content: "";
+  position: absolute;
+  z-index:-1;
+  top: 0;  left: 0;  right: 0;  bottom: 0;
+  background: #81C784;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .3s ease-out;
+  cursor: pointer;
+}
+
+.login-panel-center button:hover:before{
+	transform: scaleX(1);
+	cursor: pointer;
+}
+
+
+.login-panel button:hover{
+	cursor: pointer;
 }
