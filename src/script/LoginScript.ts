@@ -5,11 +5,11 @@ import { Event } from "../core/enums/Events";
 import Browser from "../core/Browser";
 
 class LoginData {
-    public login: string;
+    public email: string;
     public password: string;
 
-    constructor(login: string, password: string) {
-        this.login = login;
+    constructor(email: string, password: string) {
+        this.email = email;
         this.password = password;
     }
 }
@@ -18,17 +18,17 @@ class CharacterData {
     public name: string;
     public surname: string;
     public money: number;
-    public timePlayed: Date;
+    public playedTime: Date;
 
     constructor(name: string, surname: string, money: number, timePlayed: Date) {
         this.name = name;
         this.surname = surname;
         this.money = money;
-        this.timePlayed = timePlayed;
+        this.playedTime = timePlayed;
     }
 }
 
-export class LoginScript extends Script {
+export default class LoginScript extends Script {
     constructor() {
         super();
     }
@@ -38,17 +38,27 @@ export class LoginScript extends Script {
      */
     public start(): void {
         super.start();
-        var browser = new Browser("package://login_pyrpl/index.html", true);
+
+        mp.gui.chat.activate(false);
+        var loginCamera = mp.cameras.new("loginCamera");
+        loginCamera.setCoord(-1650, -1030, 50);
+        loginCamera.setRot(0, 0, 180, 0);
+        loginCamera.setActive(true);
+
+        var browser = new Browser("package://login/index.html", true);
 
         mp.events.add(Event.playerLoginRequested, (...args: any[]) => {
             mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
         });
 
         mp.events.add(Event.playerLoginPassed, (...args: any[]) => {
+            
             var characters: CharacterData[] = JSON.parse(args[0]);
             
-            browser.browser.url = "package://character_select_pyrpl/index.html";
+            browser.browser.url = "package://characterSelect/index.html";
             browser.browser.reload(false);
+            
+            mp.gui.chat.push(JSON.stringify(args[0]));
             browser.browser.execute(`prepareData(${JSON.stringify(characters)})`);
         });
 
