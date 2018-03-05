@@ -20,11 +20,11 @@ class CharacterData {
     public money: number;
     public playedTime: Date;
 
-    constructor(name: string, surname: string, money: number, timePlayed: Date) {
+    constructor(name: string, surname: string, money: number, playedTime: Date) {
         this.name = name;
         this.surname = surname;
         this.money = money;
-        this.playedTime = timePlayed;
+        this.playedTime = playedTime;
     }
 }
 
@@ -40,27 +40,32 @@ export default class LoginScript extends Script {
         super.start();
 
         mp.gui.chat.activate(false);
-        var loginCamera = mp.cameras.new("loginCamera");
-        loginCamera.setCoord(-1650, -1030, 50);
-        loginCamera.setRot(0, 0, 180, 0);
-        loginCamera.setActive(true);
 
-        var browser = new Browser("package://login/index.html", true);
+        this.setLoginCamera();
+
+        var browser: Browser = new Browser("package://login/index.html", true, false);
 
         mp.events.add(Event.playerLoginRequested, (...args: any[]) => {
             mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
         });
 
         mp.events.add(Event.playerLoginPassed, (...args: any[]) => {
-            
             var characters: CharacterData[] = JSON.parse(args[0]);
-            
-            browser.browser.url = "package://characterSelect/index.html";
-            browser.browser.reload(false);
-            
-            mp.gui.chat.push(JSON.stringify(args[0]));
-            browser.browser.execute(`prepareData(${JSON.stringify(characters)})`);
-        });
 
+            browser.changeUrl("package://characterSelect/index.html", true, false);
+            mp.gui.chat.push(JSON.stringify(args[0]));
+
+            
+            browser.execute("test();");
+            //browser.execute(`prepareData(${JSON.stringify(characters)})`);
+        });
+    }
+
+    private setLoginCamera() {
+        var loginCamera: MpCamera = mp.cameras.new("loginCamera");
+        loginCamera.setCoord(-1650, -1030, 50);
+        loginCamera.setRot(0, 0, 180, 0);
+        loginCamera.setActive(true);
+        mp.game.cam.renderScriptCams(true, false, 0, true, false);
     }
 }

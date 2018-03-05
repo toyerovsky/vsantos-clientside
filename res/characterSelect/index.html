@@ -1,29 +1,56 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Wybierz postać</title>
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="package://css/global.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
+
 <body onselectstart="return false;">
-	<div class="content-center">
+	<div ng-app="vrp" ng-controller="characterSelect">
+		<div class="content-center">
 			<div class="logo-center">
-				<span class="g">V</span>-Santos.pl<br />
+				<span class="g">V</span> Role Play
+				<br />
 			</div>
-			<div class="desc">		
+			<div class="desc">
 				<span class="desc-logo">Wybierz postać</span>
 			</div>
 			<div class="login-panel-center">
 				<div class="character">
-					<img src="../img/placeholder.jpg" alt="obrazek_postaci">
-					<h1>Jan Kowalski</h1>
-					<span class="ch-desc">$425 000 TEST</span><br />
+					<img src="package://img/placeholder.jpg" alt="obrazek_postaci">
+					<h1>{{ name }}</h1>
+					<span class="ch-desc">${{ money}}</span>
+					<br />
 					<span class="ch-desc">20:07 08/02/2018</span>
 				</div>
-				
-				</div>
 			</div>
+		</div>
 	</div>
+
+	<script>
+		var currentIndex = 0;
+		var characters = [];
+
+		var app = angular.module("vrp", []);
+
+		function test() {
+			alert("testInTest");
+		}
+
+		function prepareData(json) {
+			alert('test');
+			characters = JSON.parse(json);
+
+			app.controller("characterSelect", $scope => {
+				$scope.name = `${characters[currentIndex].name} ${characters[currentIndex].surname}`;
+				$scope.money = characters[currentIndex].money;
+			});
+		}
+	</script>
 </body>
+
 </html>
