@@ -1,8 +1,10 @@
 export enum RageEvent {
-    entityCreated = "entityCreated",
-    render = "render",
-    playerJoin = "playerJoin",
-    playerQuit = "playerQuit",
+    browserCreated = "browserCreated",
+    browserDomReady = "browserDomReady",
+    browserLoadingFailed = "browserLoadingFailed",
+    playerEnterCheckpoint = "playerEnterCheckpoint",
+    playerExitCheckpoint = "playerExitCheckpoint",
+
     playerDeath = "playerDeath",
     playerSpawn = "playerSpawn",
     playerResurrect = "playerResurrect",
@@ -13,8 +15,6 @@ export enum RageEvent {
     entityStreamIn = "entityStreamIn",
     entityStreamOut = "entityStreamOut",
     vehicleDeath = "vehicleDeath",
-    playerEnterCheckpoint = "playerEnterCheckpoint",
-    playerExitCheckpoint = "playerExitCheckpoint",
     playerEnterColshape = "playerEnterColshape",
     playerExitColshape = "playerExitColshape",
 };

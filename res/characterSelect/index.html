@@ -23,7 +23,7 @@
 				<div class="character">
 					<img src="package://img/placeholder.jpg" alt="obrazek_postaci">
 					<h1>{{ name }}</h1>
-					<span class="ch-desc">${{ money}}</span>
+					<span class="ch-desc">${{ money }}</span>
 					<br />
 					<span class="ch-desc">20:07 08/02/2018</span>
 				</div>
@@ -33,22 +33,16 @@
 
 	<script>
 		var currentIndex = 0;
-		var characters = [];
+		var characters = [{name: 'test', surname: 'testowy', money: 2000}];
 
-		var app = angular.module("vrp", []);
-
-		function test() {
-			alert("testInTest");
-		}
+		angular.module("vrp", []).controller("characterSelect", function ($scope) {
+			$scope.name = characters[currentIndex].name + " " + characters[currentIndex].surname;
+			$scope.money = characters[currentIndex].money;
+		});
 
 		function prepareData(json) {
-			alert('test');
 			characters = JSON.parse(json);
-
-			app.controller("characterSelect", $scope => {
-				$scope.name = `${characters[currentIndex].name} ${characters[currentIndex].surname}`;
-				$scope.money = characters[currentIndex].money;
-			});
+			$scope.$apply();
 		}
 	</script>
 </body>

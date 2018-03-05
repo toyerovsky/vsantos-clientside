@@ -1,7 +1,7 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
 
 import { Script } from "../core/Script";
-import { Event } from "../core/enums/Events";
+import { Event, RageEvent } from "../core/enums/Events";
 import Browser from "../core/Browser";
 
 class LoginData {
@@ -39,11 +39,9 @@ export default class LoginScript extends Script {
     public start(): void {
         super.start();
 
-        mp.gui.chat.activate(false);
-
         this.setLoginCamera();
 
-        var browser: Browser = new Browser("package://login/index.html", true, false);
+        var browser: Browser = new Browser("package://login/index.html", true, false, false);
 
         mp.events.add(Event.playerLoginRequested, (...args: any[]) => {
             mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
@@ -51,13 +49,8 @@ export default class LoginScript extends Script {
 
         mp.events.add(Event.playerLoginPassed, (...args: any[]) => {
             var characters: CharacterData[] = JSON.parse(args[0]);
-
-            browser.changeUrl("package://characterSelect/index.html", true, false);
-            mp.gui.chat.push(JSON.stringify(args[0]));
-
-            
-            browser.execute("test();");
-            //browser.execute(`prepareData(${JSON.stringify(characters)})`);
+            browser.changeUrl("package://characterSelect/index.html", true, false, false);
+            browser.execute(`prepareData('${JSON.stringify(characters)}')`);
         });
     }
 
