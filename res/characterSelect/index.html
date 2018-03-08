@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Wybierz postać</title>
-	<link rel="stylesheet" type="text/css" href="package://css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="login-panel-center">
 				<div class="character">
-					<img src="package://img/placeholder.jpg" alt="obrazek_postaci">
+					<img src="../img/placeholder.jpg" alt="obrazek_postaci">
 					<h1>{{ name }}</h1>
 					<span class="ch-desc">${{ money }}</span>
 					<br />
@@ -32,18 +32,13 @@
 	</div>
 
 	<script>
-		var currentIndex = 0;
-		var characters = [{name: 'test', surname: 'testowy', money: 2000}];
-
-		angular.module("vrp", []).controller("characterSelect", function ($scope) {
-			$scope.name = characters[currentIndex].name + " " + characters[currentIndex].surname;
-			$scope.money = characters[currentIndex].money;
-		});
-
-		function prepareData(json) {
-			characters = JSON.parse(json);
-			$scope.$apply();
-		}
+		angular.module("vrp", []).controller("characterSelect", function ($scope, $http) {
+			$http.get("http://localhost:53416/api/characters/2")
+			.then((response) => {
+				$scope.name = response.data.name + " " + response.data.surname;
+				$scope.money = response.data.money;
+			});
+		});		
 	</script>
 </body>
 
