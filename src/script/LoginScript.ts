@@ -3,6 +3,7 @@
 import { Script } from "../core/Script";
 import { Event, RageEvent } from "../core/enums/Events";
 import Browser from "../core/Browser";
+import LocalPlayer from "../core/LocalPlayer";
 
 class LoginData {
     public email: string;
@@ -48,6 +49,8 @@ export default class LoginScript extends Script {
         });
 
         mp.events.add(Event.playerLoginPassed, (...args: any[]) => {
+            var localPlayer: LocalPlayer = LocalPlayer.getLocalPlayer();
+            localPlayer.login(args[1]);
             var characters: CharacterData[] = JSON.parse(args[0]);
             browser.changeUrl("package://characterSelect/index.html", true, false, false);
             browser.execute(`prepareData('${JSON.stringify(characters)}')`);
