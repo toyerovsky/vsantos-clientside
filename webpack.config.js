@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.ts',
   plugins: [
     new CopyWebpackPlugin([{
-      from: './res', to: 'DIRECTORY OF THE SERVER/client_packages'
+      from: './res', to: 'C:/RAGEMP/server-files/client_packages'
     }], { force: true }),
   ],
   module: {
@@ -23,6 +23,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'DIRECTORY OF THE SERVER/client_packages')
+    path: path.resolve(__dirname, 'C:/RAGEMP/server-files/client_packages')
   },
 };
