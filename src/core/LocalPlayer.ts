@@ -1,7 +1,7 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
 
 import * as ConstantNames from './constant/ConstantNames';
-
+import Notifier from './notifications/Notifier';
 export default class LocalPlayer {
     /**
      * getLocalPlayer
@@ -18,6 +18,11 @@ export default class LocalPlayer {
     private _characterId: number;
     public get characterId(): number {
         return this._characterId;
+    }
+
+    private _notifier: Notifier;
+    public get mainNotifier(): Notifier {
+        return this._notifier;
     }
 
     constructor() {
