@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/iziToast.min.css">
+    
+</head>
+
+<body>
+
+    <script src="js/iziToast.min.js" type="text/javascript"></script>
+    <script>
+
+
+        var characters = [];
+
+        function setCharacters(json) {
+            characters = JSON.Parse(json);
+            showToast(characters[0],characters[1],characters[2],characters[3],characters[4]);
+        }
+
+        window.nokurwa = function() {
+            iziToast.show({
+                title: 'Hey',
+                message: 'What would you like to add?'
+            });
+        }
+
+        function showToast(type,message_,close_ = false, position_ = "bottomRight",timeout_ = 5000){
+
+            let backgroundColor_;
+            let icon; 
+            let title;
+
+            switch (type){
+                case 0:
+                    backgroundColor_ = "#3aaa90";
+                    title = "INFO";
+                    icon = "";
+                    break;
+                case 1:
+                    backgroundColor_ = "#8c157c";
+                    title = "OSTRZEZENIE";
+                    icon = "";
+                    break;
+                case 2:
+                    backgroundColor_ = "#ff0000";
+                    title = "ERROR";
+                    icon = "";
+                    break;
+            }
+
+            iziToast.show({
+                messageSize: "20",
+                title: title,
+                message: message_,
+                close: close_,
+                position: position_,
+                timeout: timeout_,
+                backgroundColor: backgroundColor_,
+                messageColor: "white"
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

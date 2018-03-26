@@ -1,9 +1,10 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
-
 import { Script } from "../core/Script";
 import { Event, RageEvent } from "../core/enums/Events";
 import Browser from "../core/Browser";
 import LocalPlayer from "../core/LocalPlayer";
+import Notifier from "../core/notifications/Notifier";
+import { NTypes } from "../core/enums/NTypes";
 
 class LoginData {
     public email: string;
@@ -43,6 +44,10 @@ export default class LoginScript extends Script {
         this.setLoginCamera();
 
         var browser: Browser = new Browser("package://login/index.html", true, false, false);
+        var noti: Notifier = new Notifier;
+
+        noti.init(NTypes.WARNING,"TEST1","TEST2");
+        noti.start();
 
         mp.events.add(Event.playerLoginRequested, (...args: any[]) => {
             mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
