@@ -4,13 +4,13 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Wybierz postać</title>
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="package://css/global.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 
 <body onselectstart="return false;">
-	<div ng-app="vrp" ng-controller="characterSelect">
+	<div id="container" ng-app="vrp" ng-controller="characterSelect">
 		<div class="content-center">
 			<div class="logo-center">
 				<span class="g">V</span> Role Play
@@ -20,25 +20,52 @@
 				<span class="desc-logo">Wybierz postać</span>
 			</div>
 			<div class="login-panel-center">
-				<div class="character">
-					<img src="../img/placeholder.jpg" alt="obrazek_postaci">
-					<h1>{{ name }}</h1>
-					<span class="ch-desc">${{ money }}</span>
+				<div class="character" ng-repeat="character in characters | filter:(characters.indexOf(character) == $index)">
+					<img src="package://img/placeholder.jpg" alt="obrazek_postaci">
+					<h1>{{ characters[indexer].name }} {{ characters[indexer].surname }}</h1>
+					<span class="ch-desc">${{ characters[indexer].money }}</span>
 					<br />
 					<span class="ch-desc">20:07 08/02/2018</span>
 				</div>
+				<button ng-click="next()">Nastepna</button>
+				<button ng-click="prev()">Poprzednia</button>
 			</div>
 		</div>
 	</div>
-
 	<script>
-		angular.module("vrp", []).controller("characterSelect", function ($scope, $http) {
-			$http.get("http://localhost:53416/api/characters/2")
-			.then((response) => {
-				$scope.name = response.data.name + " " + response.data.surname;
-				$scope.money = response.data.money;
+		function prepareData() {
+			var scope = angular.element(document.getElementById('container')).scope();
+			scope.$apply(function ($scope) {
+				$scope.getData();
 			});
-		});		
+		}
+
+		angular.module("vrp", []).controller("characterSelect", function ($scope, $http) {
+			$scope.characters = [{
+				name: "test",
+				surname: "qwe",
+				money: 0
+			}];
+
+			$scope.indexer = 0;
+
+			$scope.next = () => {
+				if (characters.length - 1 < index)
+					$scope.indexer++;
+			}
+
+			$scope.prev = () => {
+				if (index > 0)
+					--$scope.indexer;
+			}
+
+			$scope.getData = () => {
+				$http.get(`http://localhost:53416/api/characters/${window.accountId}/account`)
+					.then((response) => {
+						characters = response.data;
+					});
+			}
+		});
 	</script>
 </body>
 

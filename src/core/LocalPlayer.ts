@@ -1,23 +1,49 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
 
-import * as ConstantNames from './constant/ConstantNames';
 import Notifier from './notifications/Notifier';
+import Browser from './Browser';
+
 export default class LocalPlayer {
-    /**
-     * getLocalPlayer
-     */
-    public static getLocalPlayer() {
-        return JSON.parse(localStorage.getItem(ConstantNames.localStoragePlayer));
+
+    private _showCursor: boolean;
+    public get showCursor(): boolean {
+        return this._showCursor;
+    }
+    public set showCursor(v: boolean) {
+        this._showCursor = v;
+        mp.gui.cursor.visible = v;
     }
 
-    private _accountId: number;
-    public get accountId(): number {
-        return this._accountId;
+    private _showHud: boolean;
+    public get showHud(): boolean {
+        return this._showHud;
+    }
+    public set showHud(v: boolean) {
+        this._showHud = v;
+        mp.game.ui.displayHud(v);
     }
 
-    private _characterId: number;
-    public get characterId(): number {
-        return this._characterId;
+    private _showRadar: boolean;
+    public get showRadar(): boolean {
+        return this._showRadar;
+    }
+    public set showRadar(v: boolean) {
+        this._showRadar = v;
+        mp.game.ui.displayRadar(v);
+    }
+
+    private _showChat: boolean;
+    public get showChat(): boolean {
+        return this._showChat;
+    }
+    public set showChat(v: boolean) {
+        this._showChat = v;
+        mp.gui.chat.activate(v);
+    }
+
+    private _token: string;
+    public get token(): string {
+        return this._token;
     }
 
     private _notifier: Notifier;
@@ -25,27 +51,21 @@ export default class LocalPlayer {
         return this._notifier;
     }
 
-    constructor() {
-        localStorage.setItem(ConstantNames.localStoragePlayer, JSON.stringify(this))
+
+    private _mainBrowser: Browser;
+    public get currentBrowser(): Browser {
+        return this._mainBrowser;
+    }
+    public set currentBrowser(v: Browser) {
+        this._mainBrowser = v;
     }
 
     /**
      * login
      */
-    public login(accountId: number) {
-        this._accountId = accountId;
-        this.save();
-    }
-
-    /**
-     * selectCharacter
-     */
-    public selectCharacter(characterId: number) {
-        this._characterId = characterId;
-        this.save();
-    }
-
-    private save() {
-        localStorage.setItem(ConstantNames.localStoragePlayer, JSON.stringify(this));
+    public login(token: string) {
+        this._token = token;
     }
 }
+
+export const localPlayer: LocalPlayer = new LocalPlayer();

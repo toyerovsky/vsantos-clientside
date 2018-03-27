@@ -1,11 +1,9 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
 
+import { localPlayer } from './LocalPlayer';
+import { RageEvent } from './enums/Event';
+
 export default class Browser {
-
-    private _showHud: boolean = true;
-    private _showCursor: boolean = false;
-    private _showChat: boolean = true;
-
     private _tempCommands: string[] = [];
     private _ready: boolean = false;
 
@@ -14,17 +12,32 @@ export default class Browser {
         return this._browser;
     }
 
-    constructor(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
+    private _show: boolean = true;
+    public get show(): boolean {
+        return this._show;
+    }
+    public set show(value: boolean) {
+        this._show = value;
+        if (value)
+            this._browser.execute("document.getElementsByTagName('BODY')[0].style.display = 'block'");
+        else
+            this._browser.execute("document.getElementsByTagName('BODY')[0].style.display = 'none'");
+    }
+
+    constructor(url: string, showCursor: boolean = true, showHud: boolean = true, showChat: boolean = true, hideOnStart: boolean = false) {
         this._browser = mp.browsers.new(url);
+        if (hideOnStart)
+            this.show = false;
         this.setHud(showCursor, showHud, showChat);
+        this._ready = true;
     }
 
     changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
         this._ready = false;
         this.setHud(showCursor, showHud, showChat);
-        this.browser.execute(`window.location = '${url}'`);
-        
-        mp.events.add('browserDomReady', (browser) => {
+        this.browser.execute(`window.location.href = '${url}'`);
+
+        mp.events.add(RageEvent.browserDomReady, (browser) => {
             this._ready = true;
             this._tempCommands.forEach(command => {
                 this.execute(command);
@@ -33,26 +46,19 @@ export default class Browser {
         });
     }
 
+
     execute(code: string) {
-        if (this._ready)
+        if (this._ready) {
             this.browser.execute(code);
-        else
+        } else {
             this._tempCommands.push(code);
+        }
     }
 
     private setHud(showCursor: boolean, showHud: boolean, showChat: boolean) {
-        if (showCursor != this._showCursor) {
-            this._showCursor = showCursor;
-            mp.gui.cursor.visible = showCursor;
-        }
-        if (showHud != this._showHud) {
-            this._showHud = showHud;
-            mp.game.ui.displayHud(showHud);
-            mp.game.ui.displayRadar(showHud);
-        }
-        if (showChat != this._showChat) {
-            this._showChat = showChat;
-            mp.gui.chat.activate(showChat);
-        }
+        localPlayer.showCursor = showCursor;
+        localPlayer.showHud = showHud;
+        localPlayer.showRadar = showHud;
+        localPlayer.showChat = showChat;
     }
 }

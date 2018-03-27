@@ -1,10 +1,9 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
-import { Script } from "../core/Script";
-import { Event, RageEvent } from "../core/enums/Events";
+
+import IScript from "../core/interfaces/IScript";
+import { Event, RageEvent } from "../core/enums/Event";
 import Browser from "../core/Browser";
-import LocalPlayer from "../core/LocalPlayer";
-import Notifier from "../core/notifications/Notifier";
-import { NTypes } from "../core/enums/NTypes";
+import { localPlayer } from "../core/LocalPlayer";
 
 class LoginData {
     public email: string;
@@ -30,36 +29,25 @@ class CharacterData {
     }
 }
 
-export default class LoginScript extends Script {
-    constructor() {
-        super();
+const _characterSelectBrowser: Browser = new Browser("package://characterSelect/index.html", true, false, false, true);
+const _loginBrowser: Browser = new Browser("package://login/index.html", true, false, false);
+
+export default class LoginScript implements IScript {
+    /**
+     * @param args 
+     * args[0] WebApi token 
+     * args[1] AccountId
+     */
+    private playerLoginPassHandler(...args: any[]): void {
+        localPlayer.login(args[0]);
+        _characterSelectBrowser.execute(`window.accountId = '${args[1]}';`);
+        _loginBrowser.browser.destroy();
+        _characterSelectBrowser.execute('prepareData()');
+        _characterSelectBrowser.show = true;
     }
 
-    /**
-     * start
-     */
-    public start(): void {
-        super.start();
-
-        this.setLoginCamera();
-
-        var browser: Browser = new Browser("package://login/index.html", true, false, false);
-        var noti: Notifier = new Notifier;
-
-        noti.init(NTypes.WARNING,"TEST1","TEST2");
-        noti.start();
-
-        mp.events.add(Event.playerLoginRequested, (...args: any[]) => {
-            mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
-        });
-
-        mp.events.add(Event.playerLoginPassed, (...args: any[]) => {
-            var localPlayer: LocalPlayer = LocalPlayer.getLocalPlayer();
-            localPlayer.login(args[1]);
-            var characters: CharacterData[] = JSON.parse(args[0]);
-            browser.changeUrl("package://characterSelect/index.html", true, false, false);
-            browser.execute(`prepareData('${JSON.stringify(characters)}')`);
-        });
+    private playerLoginRequestedHandler(...args: any[]): void {
+        mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
     }
 
     private setLoginCamera() {
@@ -68,5 +56,15 @@ export default class LoginScript extends Script {
         loginCamera.setRot(0, 0, 180, 0);
         loginCamera.setActive(true);
         mp.game.cam.renderScriptCams(true, false, 0, true, false);
+    }
+
+    /**
+     * start
+     */
+    public start(): void {
+        mp.players.local.freezePosition(true);
+        this.setLoginCamera();
+        mp.events.add(Event.playerLoginRequested, this.playerLoginRequestedHandler);
+        mp.events.add(Event.playerLoginPassed, this.playerLoginPassHandler);
     }
 }

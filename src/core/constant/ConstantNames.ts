@@ -1,3 +1,1 @@
-// <localStorage>
-export const localStoragePlayer = "localStoragePlayer";
-// </localStorage>
+/// Shared data keys

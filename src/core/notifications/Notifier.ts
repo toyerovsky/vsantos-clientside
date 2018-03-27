@@ -1,4 +1,4 @@
-import { NTypes } from "../enums/NTypes";
+import { NotificationType } from "../enums/NotificationType";
 import Browser from "../Browser";
 export default class Notifier {
 
