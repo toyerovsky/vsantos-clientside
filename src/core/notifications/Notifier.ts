@@ -2,6 +2,7 @@ import { NotificationType } from "../enums/NotificationType";
 import Browser from "../Browser";
 export default class Notifier {
 
+<<<<<<< Updated upstream
     browser: Browser = new Browser("package://toast/index.html", true, false, false);
     type: NTypes = NTypes.INFO;
     data: Array<string> = [];
@@ -28,6 +29,11 @@ export default class Notifier {
         }
         this.type = type;
         this.data = [title,message,background,messageColor];
+=======
+    public init(ntype: NotificationType, value: string){
+        var browser: Browser = new Browser("package://toast/index.html", true, false, false);
+        browser.execute('showToast(${JSON.stringify([0,"Testowa wiadomosc"])})');
+>>>>>>> Stashed changes
     }
 
 
