@@ -39,7 +39,6 @@ export default class LoginScript implements IScript {
      * args[0] WebApi token 
      * args[1] AccountId
      */
-<<<<<<< Updated upstream
     private playerLoginPassHandler(...args: any[]): void {
         localPlayer.login(args[0]);
         _characterSelectBrowser.execute(`window.accountId = '${args[1]}';`);
@@ -47,25 +46,6 @@ export default class LoginScript implements IScript {
         _characterSelectBrowser.execute('prepareData()');
         _characterSelectBrowser.show = true;
     }
-=======
-    public start(): void {
-        super.start();
-
-        this.setLoginCamera();
-
-        var browser: Browser = new Browser("package://login/index.html", true, false, false);
-
-        mp.events.add(Event.playerNotifyRequest, (player: LocalPlayer,ntype,title,message) => {
-            var n: Notifier = player.mainNotifier;
-            var type: NTypes = n.getTypeById(ntype);
-            n.init(type,title,message);
-        });
-
-        mp.events.add(Event.playerLoginRequested, (...args: any[]) => {
-            mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
-        });
->>>>>>> Stashed changes
-
     private playerLoginRequestedHandler(...args: any[]): void {
         mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
     }
@@ -92,6 +72,7 @@ export default class LoginScript implements IScript {
             var n: Notifier = player.mainNotifier;
             var type: NotificationType = n.getTypeById(ntype);
             n.init(type,title,message);
+            n.start();
         });
     }
 }
