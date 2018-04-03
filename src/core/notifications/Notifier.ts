@@ -12,7 +12,6 @@ export default class Notifier {
         b.execute(`parseData('${JSON.stringify(this.data)}')`);
     }
 
-    // Blagam nie uzywajmy w tym projekcie WIELKICH LITER 
     public init(type: NotificationType, title: string, message: string) {
         this.data = [];
         let background = "purple";
@@ -30,6 +29,20 @@ export default class Notifier {
         }
         this.type = type;
         this.data = [title, message, background, messageColor];
+    }
+
+    public getTypeById(id: number){
+        switch(id){
+            case 0:
+                return NotificationType.Info;
+                break;
+            case 1:
+                return NotificationType.Warning;
+                break;
+            case 2:
+                return NotificationType.Error;
+                break;
+        }
     }
 
 
