@@ -2,7 +2,7 @@
 
 import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
-import { localPlayer } from "./../core/LocalPlayer";
+import { player } from "./../core/LocalPlayer";
 
 export default class DevToolsScript implements IScript {
 
@@ -15,19 +15,19 @@ export default class DevToolsScript implements IScript {
     }
 
     private showHud() {
-        localPlayer.showHud = !localPlayer.showHud;
+        player.showHud = !player.showHud;
     }
 
     private showRadar() {
-        localPlayer.showRadar = !localPlayer.showRadar;
+        player.showRadar = !player.showRadar;
     }
 
     private showChat() {
-        localPlayer.showChat = !localPlayer.showChat;
+        player.showChat = !player.showChat;
     }
 
     private showCursor() {
-        localPlayer.showCursor = !localPlayer.showCursor;
+        player.showCursor = !player.showCursor;
     }
 
     /**

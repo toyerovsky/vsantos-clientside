@@ -1,10 +1,10 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+
 import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
 import Browser from "../core/Browser";
-import LocalPlayer, { localPlayer } from "../core/LocalPlayer";
-import Notifier from "../core/notifications/Notifier";
 import { NotificationType } from "../core/enums/NotificationType";
+import { player } from "../core/LocalPlayer";
 
 class LoginData {
     public email: string;
@@ -40,13 +40,13 @@ export default class LoginScript implements IScript {
      * args[1] AccountId
      */
     private playerLoginPassHandler(...args: any[]): void {
-        localPlayer.login(args[0]);
+        player.login(args[0]);
         _characterSelectBrowser.execute(`window.accountId = '${args[1]}';`);
-        _loginBrowser.browser.destroy();
+        _loginBrowser.mpBrowser.destroy();
         _characterSelectBrowser.execute('prepareData()');
         _characterSelectBrowser.show = true;
     }
-    
+
     private playerLoginRequestedHandler(...args: any[]): void {
         mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
     }

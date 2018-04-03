@@ -1,10 +1,9 @@
 /// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
 
-import Notifier from './notifications/Notifier';
+import Notifier from './Notifier';
 import Browser from './Browser';
 
 export default class LocalPlayer {
-
     private _showCursor: boolean;
     public get showCursor(): boolean {
         return this._showCursor;
@@ -47,10 +46,12 @@ export default class LocalPlayer {
     }
 
     private _notifier: Notifier;
-    public get mainNotifier(): Notifier {
+    public get notifier(): Notifier {
         return this._notifier;
     }
-
+    public set notifier(value: Notifier) {
+        this._notifier = value;
+    }
 
     private _mainBrowser: Browser;
     public get currentBrowser(): Browser {
@@ -68,4 +69,4 @@ export default class LocalPlayer {
     }
 }
 
-export const localPlayer: LocalPlayer = new LocalPlayer();
+export const player: LocalPlayer = new LocalPlayer();

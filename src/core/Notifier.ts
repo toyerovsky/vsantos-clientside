@@ -1,14 +1,14 @@
-import { NotificationType } from "../enums/NotificationType";
-import Browser from "../Browser";
+import { NotificationType } from "./enums/NotificationType";
+import Browser from "./Browser";
 
 export default class Notifier {
+    constructor(notifierBrowser: Browser) {
+        this._notifierBrowser = notifierBrowser;
+    }
 
-    browser: Browser = new Browser("package://toast/index.html", true, false, false);
-    type: NotificationType = NotificationType.Info;
-    data: Array<string> = [];
+    private _notifierBrowser: Browser;
 
     public notify(type: NotificationType, message: string, title: string = "") {
-        this.data = [];
         let background = "purple";
         let messageColor = "white";
 
@@ -28,10 +28,7 @@ export default class Notifier {
         if (title == "")
             title = this.getTitle(type);
 
-        this.type = type;
-        this.data = [title, message, background, messageColor];
-        
-        this.browser.execute(`parseData('${JSON.stringify(this.data)}')`);
+        this._notifierBrowser.execute(`parseData('${JSON.stringify([title, message, background, messageColor])}')`);
     }
 
     private getTitle(notificationType: NotificationType): string {
