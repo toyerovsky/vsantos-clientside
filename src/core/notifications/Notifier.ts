@@ -32,6 +32,20 @@ export default class Notifier {
         this.data = [title, message, background, messageColor];
     }
 
+    public getTypeById(id: number){
+        switch(id){
+            case 0:
+                return NTypes.INFO;
+                break;
+            case 1:
+                return NTypes.WARNING;
+                break;
+            case 2:
+                return NTypes.ERROR;
+                break;
+        }
+    }
+
 
 
 
