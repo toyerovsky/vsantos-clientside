@@ -13,5 +13,9 @@ export enum RageEvent {
 export enum Event {
     playerLoginRequested = "playerLoginRequested",
     playerLoginPassed = "playerLoginPassed",
+<<<<<<< HEAD
     playerNotifyRequest = "playerNotifyRequest"
+=======
+    notifierRequest = "playerNotifyRequest"
+>>>>>>> master
 };

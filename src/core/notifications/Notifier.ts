@@ -34,6 +34,7 @@ export default class Notifier {
     public getTypeById(id: number){
         switch(id){
             case 0:
+<<<<<<< HEAD
                 return NotificationType.Info;
                 break;
             case 1:
@@ -41,6 +42,15 @@ export default class Notifier {
                 break;
             case 2:
                 return NotificationType.Error;
+=======
+                return NTypes.INFO;
+                break;
+            case 1:
+                return NTypes.WARNING;
+                break;
+            case 2:
+                return NTypes.ERROR;
+>>>>>>> master
                 break;
         }
     }
