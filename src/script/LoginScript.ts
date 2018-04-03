@@ -46,11 +46,10 @@ export default class LoginScript implements IScript {
         _characterSelectBrowser.execute('prepareData()');
         _characterSelectBrowser.show = true;
     }
+    
     private playerLoginRequestedHandler(...args: any[]): void {
         mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
     }
-
-    
 
     private setLoginCamera() {
         var loginCamera: MpCamera = mp.cameras.new("loginCamera");
@@ -68,11 +67,5 @@ export default class LoginScript implements IScript {
         this.setLoginCamera();
         mp.events.add(Event.playerLoginRequested, this.playerLoginRequestedHandler);
         mp.events.add(Event.playerLoginPassed, this.playerLoginPassHandler);
-        mp.events.add(Event.playerNotifyRequest, (player: LocalPlayer,ntype,title,message) => {
-            var n: Notifier = player.mainNotifier;
-            var type: NotificationType = n.getTypeById(ntype);
-            n.init(type,title,message);
-            n.start();
-        });
     }
 }

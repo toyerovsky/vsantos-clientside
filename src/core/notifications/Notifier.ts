@@ -7,15 +7,11 @@ export default class Notifier {
     type: NotificationType = NotificationType.Info;
     data: Array<string> = [];
 
-    public start() {
-        var b = this.browser;
-        b.execute(`parseData('${JSON.stringify(this.data)}')`);
-    }
-
-    public init(type: NotificationType, title: string, message: string) {
+    public notify(type: NotificationType, message: string, title: string = "") {
         this.data = [];
         let background = "purple";
         let messageColor = "white";
+
         switch (type) {
             case NotificationType.Info:
                 background = "grey"
@@ -27,36 +23,23 @@ export default class Notifier {
                 background = "red";
                 break;
         }
+
+        // zrobilem tak zeby nie trzeba bylo za kazdym razem ustawiac tytulu
+        if (title == "")
+            title = this.getTitle(type);
+
         this.type = type;
         this.data = [title, message, background, messageColor];
+        
+        this.browser.execute(`parseData('${JSON.stringify(this.data)}')`);
     }
 
-    public getTypeById(id: number){
-        switch(id){
-            case 0:
-<<<<<<< HEAD
-                return NotificationType.Info;
-                break;
-            case 1:
-                return NotificationType.Warning;
-                break;
-            case 2:
-                return NotificationType.Error;
-=======
-                return NTypes.INFO;
-                break;
-            case 1:
-                return NTypes.WARNING;
-                break;
-            case 2:
-                return NTypes.ERROR;
->>>>>>> master
-                break;
-        }
+    private getTitle(notificationType: NotificationType): string {
+        if (notificationType == NotificationType.Info)
+            return "Info";
+        else if (notificationType == NotificationType.Warning)
+            return "Ostrzeżenie";
+        else
+            return "Błąd";
     }
-
-
-
-
-
 }
