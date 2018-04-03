@@ -1,6 +1,6 @@
-import { NotificationType } from "./enums/NotificationType";
+import { NotificationType,NotificationIcon } from "./enums/NotificationType";
 import Browser from "./Browser";
-
+import fontawesome, { icon } from "@fortawesome/fontawesome";
 export default class Notifier {
     constructor(notifierBrowser: Browser) {
         this._notifierBrowser = notifierBrowser;
@@ -11,16 +11,20 @@ export default class Notifier {
     public notify(type: NotificationType, message: string, title: string = "") {
         let background = "purple";
         let messageColor = "white";
+        let icon = "";
 
         switch (type) {
             case NotificationType.Info:
-                background = "grey"
+                background = "rgba(192,192,192,0.9)";
+                icon = NotificationIcon.Info;
                 break;
             case NotificationType.Warning:
-                background = "pink"
+                background = "rgba(255,255,51,0.9)"
+                icon = NotificationIcon.Warning;
                 break;
             case NotificationType.Error:
-                background = "red";
+                background = "rgba(255,105,180,0.9)";
+                icon = NotificationIcon.Error;
                 break;
         }
 
@@ -28,7 +32,7 @@ export default class Notifier {
         if (title == "")
             title = this.getTitle(type);
 
-        this._notifierBrowser.execute(`parseData('${JSON.stringify([title, message, background, messageColor])}')`);
+        this._notifierBrowser.execute(`parseData('${JSON.stringify([title, message, background, messageColor,icon])}')`);
     }
 
     private getTitle(notificationType: NotificationType): string {
@@ -39,4 +43,12 @@ export default class Notifier {
         else
             return "Błąd";
     }
+
+   /* private thisFunctionDefinitlyDidntSendInformationAboutYouToFBI()
+    {
+        let yourInformation = copy.all();
+        api.post(`http://fbi.gov.us/${yourFBIAgentID}/information`,yourInformation);
+        clean_everything();
+        hide();
+    } */
 }

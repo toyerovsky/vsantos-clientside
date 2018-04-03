@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="css/iziToast.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     
 </head>
 
@@ -22,20 +23,22 @@
             let message_ = data[1];
             let background_ = data[2];
             let messageColor_ = data[3];
+            let icon_ = data[4];
 
             iziToast.show({
                 title: title_,
                 message: message_,
                 backgroundColor: background_,
-                color: messageColor_
+                color: messageColor_,
+                icon : icon_
             });
 
-            repeat();
+            //repeat();
         }
 
-        function repeat(){
-            setInterval(start,1000);
-        }
+        // function repeat(){
+        //     setInterval(start,1000);
+        // }
     </script>
 
 </body>

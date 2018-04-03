@@ -14,7 +14,8 @@ export default class NotifierScript implements IScript {
      */
     public start(): void {
         player.notifier = new Notifier(new Browser("package://toast/index.html"));
-        player.notifier.notify(NotificationType.Error, "kurwa")
+       // player.notifier.notify(NotificationType.Error, "Error test");
+       // player.notifier.notify(NotificationType.Warning,"Warning test");
         mp.events.add(Event.playerNotifyRequested, (...args: any[]) => {
             var message: string = args[0];
             var notificationType: NotificationType = args[1];
