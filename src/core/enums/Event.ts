@@ -15,4 +15,5 @@ export enum Event {
     playerLoginPassed = "playerLoginPassed",
     playerNotifyRequested = "playerNotifyRequested",
     characterSelectRequested = "characterSelectRequested",
+    characterMoneyChangeRequested = "characterMoneyChangeRequested"
 };

@@ -2,8 +2,18 @@
 
 import Notifier from './Notifier';
 import Browser from './Browser';
+import { Event, RageEvent } from './enums/Event';
 
 export default class LocalPlayer {
+
+    private _defaultCamera: MpCamera;
+    public get defaultCamera(): MpCamera {
+        return this._defaultCamera;
+    }
+    public set defaultCamera(v: MpCamera) {
+        this._defaultCamera = v;
+    }
+
     private _showCursor: boolean;
     public get showCursor(): boolean {
         return this._showCursor;
@@ -40,6 +50,14 @@ export default class LocalPlayer {
         mp.gui.chat.activate(v);
     }
 
+    private _showMoney: boolean;
+    public get showMoney(): boolean {
+        return this._showMoney;
+    }
+    public set showMoney(v: boolean) {
+        this._showMoney = v;
+    }
+
     private _token: string;
     public get token(): string {
         return this._token;
@@ -66,6 +84,41 @@ export default class LocalPlayer {
      */
     public login(token: string) {
         this._token = token;
+    }
+
+    private _moneyInWallet: number = 0.00;
+
+    /**
+     * selectCharacter
+     */
+    public selectCharacter(characterIndex: number) {
+        mp.events.callRemote(Event.characterSelectRequested, characterIndex);
+        mp.events.add(Event.characterMoneyChangeRequested, (...args: any[]) => {
+            this._moneyInWallet = parseFloat(args[0]);
+        });
+
+        mp.events.add(RageEvent.render, (...args: any[]) => {
+            if (this.showMoney) {
+                mp.game.graphics.drawText(`$${this._moneyInWallet.toFixed(2)}`, [0.95, 0.05],
+                    {
+                        font: 7,
+                        color: [238, 255, 252, 250],
+                        scale: [0.70, 0.70],
+                        outline: true
+                    });
+            }
+        })
+
+        this.showChat = true;
+        this.showCursor = false;
+        this.showHud = true;
+        this.showRadar = true;
+        this.showMoney = true;
+
+        this.defaultCamera = mp.cameras.new("gameplay");
+        this.defaultCamera.setActive(true);
+        mp.game.cam.renderScriptCams(false, false, 0, true, true);
+        mp.players.local.freezePosition(false);
     }
 }
 

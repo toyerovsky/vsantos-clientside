@@ -56,16 +56,8 @@ export default class LoginScript implements IScript {
 
     private characterSelectRequested(...args: any[]): void {
         var characterIndex: number = args[0];
-        mp.events.callRemote(Event.characterSelectRequested, characterIndex);
+        player.selectCharacter(characterIndex);
         _characterSelectBrowser.destroy();
-        player.showChat = true;
-        player.showCursor = false;
-        player.showHud = true;
-        player.showRadar = true;
-
-        var defaultCamera: MpCamera = mp.cameras.new("gameplay");
-        defaultCamera.setActive(true);
-        mp.game.cam.renderScriptCams(false, false, 0, true, true);
     }
 
     private setLoginCamera() {
