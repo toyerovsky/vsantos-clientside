@@ -29,7 +29,8 @@ export default class Browser {
         this._mpBrowser = mp.browsers.new(url);
         if (hideOnStart)
             this.show = false;
-        this.setHud(showCursor, showHud, showChat);
+        if (!(showCursor && showHud && showChat))
+            this.setHud(showCursor, showHud, showChat);
         this._ready = true;
     }
 

