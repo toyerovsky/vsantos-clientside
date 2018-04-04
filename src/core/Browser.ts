@@ -34,7 +34,7 @@ export default class Browser {
         this._ready = true;
     }
 
-    changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
+    public changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
         this._ready = false;
         this.setHud(showCursor, showHud, showChat);
         this.mpBrowser.execute(`window.location.href = '${url}'`);
@@ -48,7 +48,7 @@ export default class Browser {
         });
     }
 
-    execute(code: string) {
+    public execute(code: string) {
         if (this._ready) {
             this.mpBrowser.execute(code);
         } else {
@@ -61,5 +61,12 @@ export default class Browser {
         player.showHud = showHud;
         player.showRadar = showHud;
         player.showChat = showChat;
+    }
+
+    /**
+     * destroys the current browser
+     */
+    public destroy() {
+        this.mpBrowser.destroy();
     }
 }

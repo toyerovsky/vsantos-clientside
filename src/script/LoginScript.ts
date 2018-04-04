@@ -40,15 +40,32 @@ export default class LoginScript implements IScript {
      * args[1] AccountId
      */
     private playerLoginPassHandler(...args: any[]): void {
-        player.login(args[0]);
-        _characterSelectBrowser.execute(`window.accountId = '${args[1]}';`);
-        _loginBrowser.mpBrowser.destroy();
+        var token: string = args[0];
+        var accountId: number = args[1];
+
+        player.login(token);
+        _characterSelectBrowser.execute(`window.accountId = '${accountId}';`);
+        _loginBrowser.destroy();
         _characterSelectBrowser.execute('prepareData()');
         _characterSelectBrowser.show = true;
     }
 
     private playerLoginRequestedHandler(...args: any[]): void {
         mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
+    }
+
+    private characterSelectRequested(...args: any[]): void {
+        var characterIndex: number = args[0];
+        mp.events.callRemote(Event.characterSelectRequested, characterIndex);
+        _characterSelectBrowser.destroy();
+        player.showChat = true;
+        player.showCursor = false;
+        player.showHud = true;
+        player.showRadar = true;
+
+        var defaultCamera: MpCamera = mp.cameras.new("gameplay");
+        defaultCamera.setActive(true);
+        mp.game.cam.renderScriptCams(false, false, 0, true, true);
     }
 
     private setLoginCamera() {
@@ -65,7 +82,10 @@ export default class LoginScript implements IScript {
     public start(): void {
         mp.players.local.freezePosition(true);
         this.setLoginCamera();
+
+        // set the rage mp events
         mp.events.add(Event.playerLoginRequested, this.playerLoginRequestedHandler);
         mp.events.add(Event.playerLoginPassed, this.playerLoginPassHandler);
+        mp.events.add(Event.characterSelectRequested, this.characterSelectRequested);
     }
 }

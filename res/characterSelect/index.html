@@ -20,7 +20,8 @@
 				<span class="desc-logo">Wybierz postać</span>
 			</div>
 			<div class="login-panel-center">
-				<div class="character" ng-repeat="character in characters | filter:(characters.indexOf(character) == $index)">
+				<!-- ng-repeat="character in characters | filter:(characters.indexOf(character) == $index)" -->
+				<div class="character">
 					<img src="package://img/placeholder.jpg" alt="obrazek_postaci">
 					<h1>{{ characters[indexer].name }} {{ characters[indexer].surname }}</h1>
 					<span class="ch-desc">${{ characters[indexer].money }}</span>
@@ -29,10 +30,16 @@
 				</div>
 				<button ng-click="next()">Nastepna</button>
 				<button ng-click="prev()">Poprzednia</button>
+				<button onclick="select()">Wybierz</button>
 			</div>
 		</div>
 	</div>
 	<script>
+		function select() {
+			// getting indexer from angular scope
+			mp.trigger('characterSelectRequested', angular.element(document.getElementById('container')).scope().indexer);
+		}
+
 		function prepareData() {
 			var scope = angular.element(document.getElementById('container')).scope();
 			scope.$apply(function ($scope) {
@@ -41,13 +48,8 @@
 		}
 
 		angular.module("vrp", []).controller("characterSelect", function ($scope, $http) {
-			$scope.characters = [{
-				name: "test",
-				surname: "qwe",
-				money: 0
-			}];
-
 			$scope.indexer = 0;
+			$scope.characters = [];
 
 			$scope.next = () => {
 				if (characters.length - 1 < index)
@@ -62,7 +64,7 @@
 			$scope.getData = () => {
 				$http.get(`http://localhost:53416/api/characters/${window.accountId}/account`)
 					.then((response) => {
-						characters = response.data;
+						$scope.characters = response.data;
 					});
 			}
 		});

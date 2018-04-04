@@ -13,5 +13,6 @@ export enum RageEvent {
 export enum Event {
     playerLoginRequested = "playerLoginRequested",
     playerLoginPassed = "playerLoginPassed",
-    playerNotifyRequested = "playerNotifyRequested"
+    playerNotifyRequested = "playerNotifyRequested",
+    characterSelectRequested = "characterSelectRequested",
 };
