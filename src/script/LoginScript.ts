@@ -65,7 +65,7 @@ export default class LoginScript implements IScript {
         loginCamera.setCoord(-1650, -1030, 50);
         loginCamera.setRot(0, 0, 180, 0);
         loginCamera.setActive(true);
-        mp.game.cam.renderScriptCams(true, false, 0, true, false);
+        mp.game.cam.renderScriptCams(true, false, 2, true, false);
     }
 
     /**
