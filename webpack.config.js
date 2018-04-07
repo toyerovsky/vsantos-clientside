@@ -1,5 +1,18 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+var webpack = require('webpack');
+var plugins = [];
+
+    plugins.push(
+        /**
+         * IgnorePlugin will skip any require
+         * that matches the following regex.
+         */
+        new webpack.IgnorePlugin(/res/)
+   
+    );
+
+
 
 module.exports = {
   entry: './src/index.ts',
@@ -17,6 +30,7 @@ module.exports = {
       }
     ]
   },
+  plugins: plugins,
   watch: true,
   resolve: {
     extensions: ['.ts', '.js', 'html', 'css']

@@ -9,13 +9,43 @@
   "author": "vsantos dev team",
   "license": "ISC",
   "dependencies": {
+    "@angular/animations": "^5.2.9",
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "@angular/forms": "^5.2.9",
+    "@angular/http": "^5.2.9",
+    "@angular/platform-browser": "^5.2.9",
+    "@angular/platform-browser-dynamic": "^5.2.9",
+    "@angular/router": "^5.2.9",
     "@fortawesome/fontawesome": "^1.1.5",
+    "angular": "^1.6.9",
     "copy-webpack-plugin": "^4.5.1",
-    "types-ragemp-client": "github:pet-platoon/types-ragemp-client#next"
+    "core-js": "^2.5.4",
+    "rxjs": "^5.5.8",
+    "types-ragemp-client": "github:pet-platoon/types-ragemp-client#next",
+    "zone.js": "^0.8.25"
   },
   "devDependencies": {
     "ts-loader": "^3.5.0",
-    "typescript": "^2.7.2",
-    "webpack": "^3.11.0"
+    "typescript": "^2.8.1",
+    "webpack": "^3.11.0",
+    "@angular/cli": "~1.7.3",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.1.2",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1"
   }
 }
