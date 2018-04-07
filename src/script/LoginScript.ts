@@ -30,7 +30,7 @@ class CharacterData {
     }
 }
 
-const _characterSelectBrowser: Browser = new Browser("package://characterSelect/index.html", true, false, false, true);
+const _characterSelectBrowser: Browser = new Browser("package://character-select/index.html", true, false, false, true);
 const _loginBrowser: Browser = new Browser("package://login/index.html", true, false, false);
 
 export default class LoginScript implements IScript {
