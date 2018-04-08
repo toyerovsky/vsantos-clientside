@@ -28,7 +28,7 @@ export default class FlyScript implements IScript {
     }
 
     private _freeCamHandler = (...args: any[]) => {
-        var cameraRotation: MpVector3 = new mp.Vector3(this.flyCamera.getRot(2).x, this.flyCamera.getRot(2).y, this.flyCamera.getRot(2).z);
+        var cameraRotation: MpVector3 = this.flyCamera.getRot(2);
         var cameraPosition: MpVector3 = this.flyCamera.getCoord();
         mp.players.local.position = new mp.Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z - 2.5);
 
