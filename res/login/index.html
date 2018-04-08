@@ -29,10 +29,27 @@
 	</div>
 
 	<script>
+
+		/*
+		Bez opoznienia, kiedy gracz kliknie kilka razy zaloguj
+		wyrzuci go z wiadomoscia "Kto jest juz zalogowany"
+		*/
+
+		function sleep (time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+
+
+		var canClick = true;
 		document.getElementById("accept").onclick = function () {
+			if(!canClick) return;
 			var email = document.getElementById("email").value;
 			var password = document.getElementById("password").value;
 			mp.trigger('playerLoginRequested', email, password);
+			canClick = false;
+			sleep(3000).then(() =>{
+				canClick = true;
+			});
 		};
 	</script>
 </body>
