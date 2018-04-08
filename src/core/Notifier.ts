@@ -2,17 +2,13 @@ import { NotificationType, NotificationIcon } from "./enums/NotificationType";
 import Browser from "./Browser";
 
 export default class Notifier {
-    constructor(notifierBrowser: Browser) {
-        this._notifierBrowser = notifierBrowser;
-    }
-
-    private _notifierBrowser: Browser;
+    private _notifierBrowser: Browser = new Browser("package://toast/index.html");
 
     public notify(type: NotificationType, message: string, title: string = "") {
         let background = "purple";
         let messageColor = "white";
         let icon = "";
-        
+
         switch (type) {
             case NotificationType.Info:
                 background = "rgba(192,192,192,0.9)";

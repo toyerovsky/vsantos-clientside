@@ -13,7 +13,7 @@ export default class NotifierScript implements IScript {
      * start
      */
     public start(): void {
-        player.notifier = new Notifier(new Browser("package://toast/index.html"));
+        player.notifier = new Notifier();
 
         mp.events.add(Event.playerNotifyRequested, (...args: any[]) => {
             var message: string = args[0];

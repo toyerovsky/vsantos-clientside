@@ -30,37 +30,37 @@ class CharacterData {
     }
 }
 
-const _characterSelectBrowser: Browser = new Browser("package://character-select/index.html", true, false, false, true);
-const _loginBrowser: Browser = new Browser("package://login/index.html", true, false, false);
-
 export default class LoginScript implements IScript {
+    private _characterSelectBrowser: Browser = new Browser("package://character-select/index.html", true, false, false, true);
+    private _loginBrowser: Browser = new Browser("package://login/index.html", true, false, false);
+
     /**
      * @param args 
      * args[0] WebApi token 
      * args[1] AccountId
      */
-    private playerLoginPassHandler(...args: any[]): void {
+    private playerLoginPassHandler = (...args: any[]) => {
         var token: string = args[0];
         var accountId: number = args[1];
 
         player.login(token);
-        _characterSelectBrowser.execute(`window.accountId = '${accountId}';`);
-        _loginBrowser.destroy();
-        _characterSelectBrowser.execute('prepareData()');
-        _characterSelectBrowser.show = true;
+        this._characterSelectBrowser.execute(`window.accountId = '${accountId}';`);
+        this._loginBrowser.destroy();
+        this._characterSelectBrowser.execute('prepareData()');
+        this._characterSelectBrowser.show = true;
     }
 
-    private playerLoginRequestedHandler(...args: any[]): void {
+    private playerLoginRequestedHandler = (...args: any[]) => {
         mp.events.callRemote(Event.playerLoginRequested, JSON.stringify(new LoginData(args[0], args[1])));
     }
 
-    private characterSelectRequested(...args: any[]): void {
+    private characterSelectRequested = (...args: any[]) => {
         var characterIndex: number = args[0];
         player.selectCharacter(characterIndex);
-        _characterSelectBrowser.destroy();
+        this._characterSelectBrowser.destroy();
     }
 
-    private setLoginCamera() {
+    private setLoginCamera(): void {
         var loginCamera: MpCamera = mp.cameras.new("loginCamera");
         loginCamera.setCoord(-1650, -1030, 50);
         loginCamera.setRot(0, 0, 180, 0);
