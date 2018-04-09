@@ -115,10 +115,18 @@ export default class LocalPlayer {
         this.showRadar = true;
         this.showMoney = true;
 
+        this.restoreDefaultCamera();
+        
+        mp.players.local.freezePosition(false);
+    }
+
+    /**
+     * restoreDefaultCamera
+     */
+    public restoreDefaultCamera() {
         this.defaultCamera = mp.cameras.new("gameplay");
         this.defaultCamera.setActive(true);
         mp.game.cam.renderScriptCams(false, false, 0, true, true);
-        mp.players.local.freezePosition(false);
     }
 }
 
