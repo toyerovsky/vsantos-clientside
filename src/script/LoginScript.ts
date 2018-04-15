@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+/// <reference path="../../node_modules/@types/ragemp-c/index.d.ts" />
 
 import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
@@ -61,7 +61,7 @@ export default class LoginScript implements IScript {
     }
 
     private setLoginCamera(): void {
-        var loginCamera: MpCamera = mp.cameras.new("loginCamera");
+        var loginCamera: CameraMp = mp.cameras.new("loginCamera");
         loginCamera.setCoord(-1650, -1030, 50);
         loginCamera.setRot(0, 0, 180, 0);
         loginCamera.setActive(true);

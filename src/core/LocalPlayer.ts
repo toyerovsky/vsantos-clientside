@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+/// <reference path="../../node_modules/@types/ragemp-c/index.d.ts" />
 
 import Notifier from './Notifier';
 import Browser from './Browser';
@@ -6,11 +6,18 @@ import { Event, RageEvent } from './enums/Event';
 
 export default class LocalPlayer {
 
-    private _defaultCamera: MpCamera;
-    public get defaultCamera(): MpCamera {
+    private _hasMugshotBoard: boolean;
+    public get hasMugshotBoard(): boolean {
+        return this._hasMugshotBoard;
+    }
+    public set hasMugshotBoard(v: boolean) {
+        this._hasMugshotBoard = v;
+    }
+    private _defaultCamera: CameraMp;
+    public get defaultCamera(): CameraMp {
         return this._defaultCamera;
     }
-    public set defaultCamera(v: MpCamera) {
+    public set defaultCamera(v: CameraMp) {
         this._defaultCamera = v;
     }
 
@@ -116,7 +123,7 @@ export default class LocalPlayer {
         this.showMoney = true;
 
         this.restoreDefaultCamera();
-        
+
         mp.players.local.freezePosition(false);
     }
 
@@ -128,6 +135,8 @@ export default class LocalPlayer {
         this.defaultCamera.setActive(true);
         mp.game.cam.renderScriptCams(false, false, 0, true, true);
     }
+
+
 }
 
 export const player: LocalPlayer = new LocalPlayer();

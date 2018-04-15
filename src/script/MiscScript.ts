@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+/// <reference path="../../node_modules/@types/ragemp-c/index.d.ts" />
 
 import IScript from "../core/interfaces/IScript";
 import { player } from "./../core/LocalPlayer";

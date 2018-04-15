@@ -16,5 +16,8 @@ export enum Event {
     playerNotifyRequested = "playerNotifyRequested",
     characterSelectRequested = "characterSelectRequested",
     characterMoneyChangeRequested = "characterMoneyChangeRequested",
-    playerFreeCamRequested = "playerFreeCamRequested"
+    playerFreeCamRequested = "playerFreeCamRequested",
+    playerZoneManagerRequested = "playerZoneManagerRequested",
+    playerMugshotRequested = "playerMugshotRequested",
+    playerMugshotDestroyRequested = "playerMugshotDestroyRequested", 
 };

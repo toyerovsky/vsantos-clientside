@@ -1,15 +1,15 @@
-/// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+/// <reference path="../../node_modules/@types/ragemp-c/index.d.ts" />
 
 import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
 import { player } from "./../core/LocalPlayer";
 
 export default class FlyScript implements IScript {
-    private _flyCamera: MpCamera = null;
-    public get flyCamera(): MpCamera {
+    private _flyCamera: CameraMp = null;
+    public get flyCamera(): CameraMp {
         return this._flyCamera;
     }
-    public set flyCamera(v: MpCamera) {
+    public set flyCamera(v: CameraMp) {
         this._flyCamera = v;
     }
 
@@ -27,10 +27,10 @@ export default class FlyScript implements IScript {
     }
 
     private _freeCamHandler = (...args: any[]) => {
-        var defaultCameraRotation: MpVector3 = player.defaultCamera.getRot(2);
+        var defaultCameraRotation: Vector3Mp = player.defaultCamera.getRot(2);
 
         this.flyCamera.setRot(defaultCameraRotation.x, defaultCameraRotation.y, defaultCameraRotation.z, 2);
-        var flyCameraCoord: MpVector3 = this.flyCamera.getCoord();
+        var flyCameraCoord: Vector3Mp = this.flyCamera.getCoord();
 
         mp.players.local.position = new mp.Vector3(flyCameraCoord.x, flyCameraCoord.y, flyCameraCoord.z);
         mp.players.local.setRotation(defaultCameraRotation.x, defaultCameraRotation.y, defaultCameraRotation.z, 2, true);
@@ -44,7 +44,7 @@ export default class FlyScript implements IScript {
 
         if (mp.keys.isDown(87)) // w
         {
-            var oldPosition: MpVector3 = this.flyCamera.getCoord();
+            var oldPosition: Vector3Mp = this.flyCamera.getCoord();
             var defaultCameraDirection = player.defaultCamera.getDirection();
             this.flyCamera.setCoord(
                 oldPosition.x + defaultCameraDirection.x * speed,

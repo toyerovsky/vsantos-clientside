@@ -20,23 +20,20 @@
     "@angular/router": "^5.2.9",
     "@fortawesome/fontawesome": "^1.1.5",
     "angular": "^1.6.9",
-    "copy-webpack-plugin": "^4.5.1",
-    "core-js": "^2.5.4",
-    "rxjs": "^5.5.8",
-    "types-ragemp-client": "github:pet-platoon/types-ragemp-client#next",
-    "zone.js": "^0.8.25"
+    "core-js": "^2.5.5",
+    "rxjs": "^5.5.10",
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "ts-loader": "^3.5.0",
-    "typescript": "^2.8.1",
-    "webpack": "^3.11.0",
     "@angular/cli": "~1.7.3",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "~6.0.60",
+    "@types/node": "^6.0.106",
+    "@types/ragemp-c": "github:CocaColaBear/types-ragemp-c#master",
     "codelyzer": "^4.0.1",
+    "copy-webpack-plugin": "^4.5.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
@@ -45,7 +42,10 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "ts-loader": "^3.5.0",
     "ts-node": "~4.1.0",
-    "tslint": "~5.9.1"
+    "tslint": "~5.9.1",
+    "typescript": "^2.8.1",
+    "webpack": "^3.11.0"
   }
 }

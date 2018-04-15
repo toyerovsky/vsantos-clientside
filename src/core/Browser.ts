@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+/// <reference path="../../node_modules/@types/ragemp-c/index.d.ts" />
 
 import { player } from './LocalPlayer';
 import { RageEvent } from './enums/Event';
@@ -7,8 +7,8 @@ export default class Browser {
     private _tempCommands: string[] = [];
     private _ready: boolean = false;
 
-    private _mpBrowser: MpBrowser;
-    public get mpBrowser(): MpBrowser {
+    private _mpBrowser: BrowserMp;
+    public get mpBrowser(): BrowserMp {
         return this._mpBrowser;
     }
 

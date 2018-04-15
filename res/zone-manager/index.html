@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Wybierz postać</title>
+	<link rel="stylesheet" type="text/css" href="package://css/global.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body onselectstart="return false;">
+	<div id="container" ng-app="vrp" ng-controller="characterSelect">
+		<div class="content-center">
+			<div class="logo-center">
+				<span class="g">V</span> Role Play
+				<br />
+			</div>
+			<div class="desc">
+				<span class="desc-logo">Wybierz postać</span>
+			</div>
+			<div class="login-panel-center">
+				<div class="character">
+					<img src="package://img/placeholder.jpg" alt="obrazek_postaci">
+					<h1>{{ characters[indexer].name }} {{ characters[indexer].surname }}</h1>
+					<span class="ch-desc">${{ characters[indexer].money }}</span>
+					<br />
+					<span class="ch-desc">20:07 08/02/2018</span>
+				</div>
+				<button ng-click="next()">Nastepna</button>
+				<button ng-click="prev()">Poprzednia</button>
+				<button onclick="select()">Wybierz</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		angular.module("vrp", []).controller("characterSelect", function ($scope, $http) {
+			$scope.indexer = 0;
+			$scope.characters = [];
+
+			$scope.next = () => {
+				if (characters.length - 1 < index)
+					$scope.indexer++;
+			}
+
+			$scope.prev = () => {
+				if (index > 0)
+					--$scope.indexer;
+			}
+
+			$scope.getData = () => {
+				$http.get(`http://localhost:53416/api/characters/${window.accountId}/account`)
+					.then((response) => {
+						$scope.characters = response.data;
+					});
+			}
+		});
+	</script>
+</body>
+
+</html>

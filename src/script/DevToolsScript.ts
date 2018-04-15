@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/types-ragemp-client/index.d.ts" />
+/// <reference path="../../node_modules/@types/ragemp-c/index.d.ts" />
 
 import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
@@ -30,7 +30,7 @@ export default class DevToolsScript implements IScript {
                     mp.events.add(RageEvent.render, this.devToolsHandler);
                 }
                 else {
-                    mp.keys.unbind(122, this.showCursor); // F11
+                    mp.keys.unbind(122, false, this.showCursor); // F11
                     mp.events.remove(RageEvent.render, this.devToolsHandler);
                 }
             }
