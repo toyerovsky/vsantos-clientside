@@ -10,7 +10,7 @@ export default class ZoneManagerScript implements IScript {
      * playerZoneManagerRequestedHandler
      */
     public playerZoneManagerRequestedHandler = (...args: any[]) => {
-        player.currentBrowser.changeUrl("zone-manager/index.html", true, true, false);
+        player.mainBrowser.changeUrl("zone-manager/index.html", true, true, false);
     }
 
     /**

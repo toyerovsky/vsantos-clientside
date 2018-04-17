@@ -20,4 +20,8 @@ export enum Event {
     playerZoneManagerRequested = "playerZoneManagerRequested",
     playerMugshotRequested = "playerMugshotRequested",
     playerMugshotDestroyRequested = "playerMugshotDestroyRequested", 
+    
+    requestWheelMenu = "requestWheelMenu",
+    useWheelMenuItem = "useWheelMenuItem",
+    showWheelMenu = "showWheelMenu",
 };
