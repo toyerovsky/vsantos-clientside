@@ -27,7 +27,7 @@ export default class WheelMenuScript implements IScript {
             let endPosition = new mp.Vector3(
                 startPosition.x + Math.sin((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
                 startPosition.y + Math.cos((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
-                startPosition.z);
+                startPosition.z - 1);
 
             let hitObject = mp.raycasting.testPointToPoint(startPosition, endPosition, 0, 2 | 8);
             if (hitObject != null) {
@@ -38,6 +38,9 @@ export default class WheelMenuScript implements IScript {
             }
         });
 
-        mp.events.add(Event.useWheelMenuItem, (name: string) => mp.events.callRemote(Event.useWheelMenuItem, name));
+        mp.events.add(Event.useWheelMenuItem, (name: string) => {
+            mp.events.callRemote(Event.useWheelMenuItem, name)
+            player.mainBrowser.show = false;
+        });
     }
 }

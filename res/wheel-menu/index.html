@@ -21,20 +21,18 @@
             var wheelMenuDataSource = [];
 
             json.forEach(j => {
-                wheelMenuDataSource.push(`imgsrc:icons/${j.name}.svg`);
+                wheelMenuDataSource.push(`imgsrc:icons/${j.name}.png`);
             });
 
             wheel.initWheel(wheelMenuDataSource);
-
             for (var i = 0; i < wheel.navItems.length; i++) {
-                wheel.navItems[i].name = wheelMenuDataSource[i];
+                wheel.navItems[i].name = json[i].name;
                 wheel.navItems[i].navigateFunction = function () {
-                    mp.trigger('useWheelMenuItem', wheel.navItems[i].name);
+                    mp.trigger('useWheelMenuItem', this.name);
                 };
             }
 
             wheel.createWheel();
-
         }
     </script>
 </head>
