@@ -2,9 +2,17 @@
 
 import Notifier from './Notifier';
 import Browser from './Browser';
+import Timer from './timer/Timer';
 import { Event, RageEvent } from './enums/Event';
 
 export default class LocalPlayer {
+    private _timers: Timer[];
+    public get timers(): Timer[] {
+        return this._timers;
+    }
+    public set timers(v: Timer[]) {
+        this._timers = v;
+    }
 
     private _hasMugshotBoard: boolean;
     public get hasMugshotBoard(): boolean {
@@ -137,8 +145,6 @@ export default class LocalPlayer {
         this.defaultCamera.setActive(true);
         mp.game.cam.renderScriptCams(false, false, 0, true, true);
     }
-
-
 }
 
 export const player: LocalPlayer = new LocalPlayer();

@@ -39,13 +39,9 @@ export default class DevToolsScript implements IScript {
 
     private devToolsHandler() {
         let textToDraw = `Pozycja:\n
-            X: ${mp.players.local.position.x}\n
-            Y: ${mp.players.local.position.y}\n
-            Z: ${mp.players.local.position.z}\n
-            Rotacja:\n
-            Pitch: ${mp.players.local.getPitch()}\n
-            Roll: ${mp.players.local.getRoll()}\n
-            Yaw: ${mp.players.local.getRotation(2).z}\n
+            X: ${mp.players.local.position.x} 
+            Y: ${mp.players.local.position.y} 
+            Z: ${mp.players.local.position.z} 
             
             F11 Kursor`;
 

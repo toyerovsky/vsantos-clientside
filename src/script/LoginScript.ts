@@ -3,7 +3,6 @@
 import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
 import Browser from "../core/Browser";
-import { NotificationType } from "../core/enums/NotificationType";
 import { player } from "../core/LocalPlayer";
 
 class LoginData {
