@@ -21,6 +21,7 @@ export default class BwTimerScript implements IScript {
             dateToDraw.setMilliseconds(Date.now() + timer.elapsed);
             mp.game.graphics.drawText(dateToDraw.toTimeString(), [mp.players.local.position.x, mp.players.local.position.y, mp.players.local.position.z], {
                 font: 4,
+                centre: false,
                 color: [255, 255, 255, 185],
                 scale: [1.2, 1.2],
                 outline: true,
