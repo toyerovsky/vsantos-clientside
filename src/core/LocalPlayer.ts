@@ -79,10 +79,10 @@ export default class LocalPlayer {
     }
 
     private _mainBrowser: Browser;
-    public get currentBrowser(): Browser {
+    public get mainBrowser(): Browser {
         return this._mainBrowser;
     }
-    public set currentBrowser(v: Browser) {
+    public set mainBrowser(v: Browser) {
         this._mainBrowser = v;
     }
 
@@ -125,6 +125,8 @@ export default class LocalPlayer {
         this.restoreDefaultCamera();
 
         mp.players.local.freezePosition(false);
+
+        this.mainBrowser = new Browser("package://empty/empty.html", false, true, true, true);
     }
 
     /**

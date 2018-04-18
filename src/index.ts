@@ -5,6 +5,7 @@ import FlyScript from './script/FlyScript';
 import MiscScript from './script/MiscScript';
 import ZoneManagerScript from './script/ZoneManagerScript';
 import MugshotScript from './script/MugshotScript';
+import WheelMenuScript from './script/WheelMenuScript';
 
 
 new LoginScript().start();
@@ -14,3 +15,4 @@ new MiscScript().start();
 new FlyScript().start();
 new ZoneManagerScript().start();
 new MugshotScript().start();
+new WheelMenuScript().start();
