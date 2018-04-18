@@ -1,4 +1,6 @@
-import { NotificationType, NotificationIcon } from "./enums/NotificationType";
+import { NotificationIcon } from "./enums/Notifications/NotificationIcon";
+import { NotificationType } from "./enums/Notifications/NotificationType";
+
 import Browser from "./Browser";
 
 export default class Notifier {
@@ -23,7 +25,6 @@ export default class Notifier {
                 icon = NotificationIcon.Error;
                 break;
         }
-
         // zrobilem tak zeby nie trzeba bylo za kazdym razem ustawiac tytulu
         if (title == "")
             title = this.getTitle(type);

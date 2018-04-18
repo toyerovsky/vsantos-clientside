@@ -4,7 +4,7 @@ import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
 import { player } from "../core/LocalPlayer";
 import Notifier from "../core/Notifier";
-import { NotificationType } from "../core/enums/NotificationType";
+import { NotificationType } from "../core/enums/Notifications/NotificationType";
 import Browser from "../core/Browser";
 
 export default class NotifierScript implements IScript {
