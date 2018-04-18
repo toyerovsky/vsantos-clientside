@@ -6,31 +6,24 @@ import { player } from "../core/LocalPlayer";
 import Browser from "../core/Browser";
 import { start } from "repl";
 import Notifier from "../core/Notifier";
-import { NotificationType } from "../core/enums/NotificationType";
+import { NotificationType } from "../core/enums/Notifications/NotificationType";
 
 export default class SpeedometrScript implements IScript {
 
     /**
      * start
      */
-
     public start(): void {
-       mp.events.add("onPlayerEnterVehicle",(seat)=>{
-        if(seat == 0)
-        {
-            player.notifier = new Notifier();
-            let speed = mp.players.local.vehicle.getSpeed();
-            player.notifier.notify(NotificationType.Info,speed.toString(),'[Debug]Speedo');
-            mp.events.add('render', () => {
+        mp.events.add(RageEvent.playerEnterVehicle, (seat) => {
+            if (seat == 0) {
+                player.notifier = new Notifier();
                 let speed = mp.players.local.vehicle.getSpeed();
-            player.notifier.notify(NotificationType.Info,speed.toString(),'[Debug]Speedo');
-            });
-        }
-       });
-
-       
-
-       
-        
+                player.notifier.notify(NotificationType.Info, speed.toString(), '[Debug]Speedo');
+                mp.events.add(RageEvent.playerLeaveVehicle, () => {
+                    let speed = mp.players.local.vehicle.getSpeed();
+                    player.notifier.notify(NotificationType.Info, speed.toString(), '[Debug]Speedo');
+                });
+            }
+        });
     }
 }

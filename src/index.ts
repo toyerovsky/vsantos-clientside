@@ -7,6 +7,7 @@ import ZoneManagerScript from './script/ZoneManagerScript';
 import MugshotScript from './script/MugshotScript';
 import WheelMenuScript from './script/WheelMenuScript';
 import BwTimerScript from './script/BwTimerScript';
+import SpeedometrScript from './script/SpeedometrScript';
 
 new LoginScript().start();
 new DevToolsScript().start();
@@ -17,3 +18,4 @@ new ZoneManagerScript().start();
 new MugshotScript().start();
 new WheelMenuScript().start();
 new BwTimerScript().start();
+new SpeedometrScript().start();

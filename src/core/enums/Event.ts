@@ -6,7 +6,9 @@ export enum RageEvent {
     playerExitCheckpoint = "playerExitCheckpoint",
     playerEnterColshape = "playerEnterColshape",
     playerExitColshape = "playerExitColshape",
-
+    playerEnterVehicle = "playerEnterVehicle",
+    playerStartEnterVehicle = "playerStartEnterVehicle",
+    playerLeaveVehicle = "playerLeaveVehicle",
     render = "render",
 };
 
@@ -19,10 +21,10 @@ export enum Event {
     playerFreeCamRequested = "playerFreeCamRequested",
     playerZoneManagerRequested = "playerZoneManagerRequested",
     playerMugshotRequested = "playerMugshotRequested",
-    playerMugshotDestroyRequested = "playerMugshotDestroyRequested", 
+    playerMugshotDestroyRequested = "playerMugshotDestroyRequested",
     playerBwTimerRequested = "playerTimerRequested",
     playerBwTimerDestroyRequested = "playerTimerDestroyRequested",
-    
+
     requestWheelMenu = "requestWheelMenu",
     useWheelMenuItem = "useWheelMenuItem",
     showWheelMenu = "showWheelMenu",

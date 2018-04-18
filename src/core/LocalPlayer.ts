@@ -116,7 +116,7 @@ export default class LocalPlayer {
             if (this.showMoney) {
                 mp.game.graphics.drawText(`$${this._moneyInWallet.toFixed(2)}`, [0.95, 0.05],
                     {
-                        font : 7,
+                        font: 7,
                         centre: false,
                         color: [238, 255, 252, 250],
                         scale: [0.70, 0.70],

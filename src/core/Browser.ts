@@ -4,6 +4,14 @@ import { player } from './LocalPlayer';
 import { RageEvent } from './enums/Event';
 
 export default class Browser {
+    private _url: string;
+    public get url(): string {
+        return this._url;
+    }
+    public set url(v: string) {
+        this._url = v;
+    }
+
     private _tempCommands: string[] = [];
     private _ready: boolean = false;
 
@@ -17,6 +25,14 @@ export default class Browser {
         return this._show;
     }
 
+    private _tempCommandsHandler = (browser) => {
+        this._ready = true;
+        this._tempCommands.forEach(command => {
+            this.execute(command);
+        });
+        this._tempCommands = [];
+    }
+
     public set show(value: boolean) {
         this._show = value;
         if (value)
@@ -26,6 +42,7 @@ export default class Browser {
     }
 
     constructor(url: string, showCursor: boolean = true, showHud: boolean = true, showChat: boolean = true, hideOnStart: boolean = false) {
+        this.url = url;
         this._mpBrowser = mp.browsers.new(url);
         if (hideOnStart)
             this.show = false;
@@ -35,17 +52,13 @@ export default class Browser {
     }
 
     public changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
-        this._ready = false;
         this.setHud(showCursor, showHud, showChat);
-        this.mpBrowser.execute(`window.location.href = '${url}'`);
-
-        mp.events.add(RageEvent.browserDomReady, (browser) => {
-            this._ready = true;
-            this._tempCommands.forEach(command => {
-                this.execute(command);
-            });
-            this._tempCommands = [];
-        });
+        if (url != this.url) {
+            this._ready = false;
+            this.url = url;
+            this.mpBrowser.execute(`window.location.href = '${url}'`);
+            mp.events.add(RageEvent.browserDomReady, this._tempCommandsHandler);
+        }
     }
 
     public execute(code: string) {

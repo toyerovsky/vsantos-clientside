@@ -23,31 +23,24 @@ export default class WheelMenuScript implements IScript {
         mp.events.add(Event.showWheelMenu, (...args: any[]) => this.requestWheelMenuHandler(args[0]));
 
         mp.keys.bind(192 /* ` */, false, () => {
-            if (player.mainBrowser.show === true) {
-                player.mainBrowser.show = false;
-                player.showCursor = false;
-            }
-            else {
-                let startPosition = mp.players.local.position;
-                //player.mainBrowser.show = !player.mainBrowser.show;
-                let endPosition = new mp.Vector3(
-                    startPosition.x + Math.sin((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
-                    startPosition.y + Math.cos((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
-                    startPosition.z - 1);
+            let startPosition = mp.players.local.position;
+            // straight line in front of player
+            let endPosition = new mp.Vector3(
+                startPosition.x + Math.sin((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
+                startPosition.y + Math.cos((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
+                startPosition.z - 1);
 
-                let hitObject = mp.raycasting.testPointToPoint(startPosition, endPosition, 0, 2 | 8);
-                if (hitObject != null) {
-                    mp.events.callRemote(Event.requestWheelMenu,
-                        hitObject.entity.getVariable("Id"),
-                        hitObject.entity.type
-                    );
-                }
+            let hitObject = mp.raycasting.testPointToPoint(startPosition, endPosition, 0, 2 | 8);
+            if (hitObject != null) {
+                mp.events.callRemote(Event.requestWheelMenu,
+                    hitObject.entity.getVariable("Id"),
+                    hitObject.entity.type
+                );
             }
-
         });
 
         mp.events.add(Event.useWheelMenuItem, (name: string) => {
-            mp.events.callRemote(Event.useWheelMenuItem, name)
+            mp.events.callRemote(Event.useWheelMenuItem, name);
             player.mainBrowser.show = false;
             player.showCursor = false;
         });
