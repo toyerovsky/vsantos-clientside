@@ -53,6 +53,7 @@ export default class DevToolsScript implements IScript {
             {
                 font: 4,
                 color: [255, 255, 255, 255],
+                centre: false,
                 scale: [0.35, 0.35],
                 outline: true
             });

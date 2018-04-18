@@ -21,8 +21,16 @@ export default class SpeedometrScript implements IScript {
             player.notifier = new Notifier();
             let speed = mp.players.local.vehicle.getSpeed();
             player.notifier.notify(NotificationType.Info,speed.toString(),'[Debug]Speedo');
+            mp.events.add('render', () => {
+                let speed = mp.players.local.vehicle.getSpeed();
+            player.notifier.notify(NotificationType.Info,speed.toString(),'[Debug]Speedo');
+            });
         }
        });
+
+       
+
+       
         
     }
 }
