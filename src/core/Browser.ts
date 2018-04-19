@@ -25,7 +25,7 @@ export default class Browser {
         return this._show;
     }
 
-    private _tempCommandsHandler = (browser:Browser) => {
+    private _tempCommandsHandler = (browser:any) => {
         this._ready = true;
         this._tempCommands.forEach(command => {
             this.execute(command);

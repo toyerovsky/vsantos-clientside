@@ -29,7 +29,7 @@ export default class WheelMenuScript implements IScript {
             }
             else {
                 let startPosition = mp.players.local.position;
-                // straight line in front of player
+                //player.mainBrowser.show = !player.mainBrowser.show; 
                 let endPosition = new mp.Vector3(
                     startPosition.x + Math.sin((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
                     startPosition.y + Math.cos((-mp.players.local.getRotation(2).z * Math.PI) / 180) * 1.5,
@@ -47,7 +47,7 @@ export default class WheelMenuScript implements IScript {
         });
 
         mp.events.add(Event.useWheelMenuItem, (name: string) => {
-            mp.events.callRemote(Event.useWheelMenuItem, name);
+            mp.events.callRemote(Event.useWheelMenuItem, name)
             player.mainBrowser.show = false;
             player.showCursor = false;
         });
