@@ -24,6 +24,9 @@ export enum Event {
     playerMugshotDestroyRequested = "playerMugshotDestroyRequested",
     playerBwTimerRequested = "playerTimerRequested",
     playerBwTimerDestroyRequested = "playerTimerDestroyRequested",
+    
+    onPlayerEnterVehicle = "onPlayerEnterVehicle",
+
 
     requestWheelMenu = "requestWheelMenu",
     useWheelMenuItem = "useWheelMenuItem",
