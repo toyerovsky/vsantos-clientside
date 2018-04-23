@@ -8,9 +8,9 @@ import Speedometr from "../core/Speedometr";
 export default class SpeedometrScript implements IScript {
     private speedometrHandler = () => {
         let veh = mp.players.local.vehicle;
-        let speed = veh.getSpeed()*3.6;
-        let rpm = veh.rpm*10;
-        let gear = (veh.gear == 0) ? 'R' : veh.gear;
+        let speed = veh.getSpeed() * 3.6;
+        let rpm = veh.rpm * 10;
+        let gear = veh.gear;
         player.speedometr.setSpeed(speed);
         player.speedometr.setRPM(rpm);
         player.speedometr.setGear(gear);
@@ -25,19 +25,19 @@ export default class SpeedometrScript implements IScript {
         player.speedometr.hideSpeedo();
         mp.events.add(Event.onPlayerEnterVehicle, (vehicle, seat) => {
             //setTimeout(() => {
-           
+
             player.speedometr.showSpeedo();
             player.speedometr.setSpeed(0);
             player.speedometr.setRPM(0);
             player.speedometr.setGear(0);
-            let speed = vehicle.getSpeed()*3.6;
-            let rpm = vehicle.rpm*10;
+            let speed = vehicle.getSpeed() * 3.6;
+            let rpm = vehicle.rpm * 10;
             let gear = vehicle.gear;
-            
+
             player.speedometr.setSpeed(speed);
             player.speedometr.setRPM(rpm);
             player.speedometr.setGear(gear);
-           // mp.gui.chat.push(speed.toString());
+            // mp.gui.chat.push(speed.toString());
             mp.events.add(RageEvent.render, this.speedometrHandler);
             // }, 2500);
 
