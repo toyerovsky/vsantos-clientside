@@ -113,10 +113,23 @@
             .negative(false)
             .decimals(0);
 
+        var segGear = iopctrl.segdisplay()
+            .width(40)
+            .digitCount(1)
+            .negative(false)
+            .decimals(0);
+
+            
+
         svg.append("g")
             .attr("class", "segdisplay")
             .attr("transform", "translate(130, 200)")
             .call(segDisplay);
+        
+        svg.append("g")
+            .attr("class","segdisplay")
+            .attr("transform", "translate(130, 100)")
+            .call(segGear);
 
         svg.append("g")
             .attr("class", "gauge")
@@ -131,6 +144,10 @@
 
         function setRPM(rpm) {
             gauge.value(rpm);
+        }
+
+        function setGear(gear){
+            segGear.value(gear);
         }
 
     </script>

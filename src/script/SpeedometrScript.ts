@@ -10,8 +10,10 @@ export default class SpeedometrScript implements IScript {
         let veh = mp.players.local.vehicle;
         let speed = veh.getSpeed()*3.6;
         let rpm = veh.rpm*10;
+        let gear = (veh.gear == 0) ? 'R' : veh.gear;
         player.speedometr.setSpeed(speed);
         player.speedometr.setRPM(rpm);
+        player.speedometr.setGear(gear);
         //mp.gui.chat.push(speed.toString());
     };
 
@@ -27,11 +29,14 @@ export default class SpeedometrScript implements IScript {
             player.speedometr.showSpeedo();
             player.speedometr.setSpeed(0);
             player.speedometr.setRPM(0);
+            player.speedometr.setGear(0);
             let speed = vehicle.getSpeed()*3.6;
             let rpm = vehicle.rpm*10;
+            let gear = vehicle.gear;
             
             player.speedometr.setSpeed(speed);
             player.speedometr.setRPM(rpm);
+            player.speedometr.setGear(gear);
            // mp.gui.chat.push(speed.toString());
             mp.events.add(RageEvent.render, this.speedometrHandler);
             // }, 2500);
@@ -40,6 +45,7 @@ export default class SpeedometrScript implements IScript {
                 mp.events.remove(RageEvent.render, this.speedometrHandler);
                 player.speedometr.setSpeed(0);
                 player.speedometr.setRPM(0);
+                player.speedometr.setGear(0);
                 player.speedometr.hideSpeedo();
             });
         });

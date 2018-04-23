@@ -51,14 +51,28 @@ export default class Browser {
         this._ready = true;
     }
 
-    public changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
-        this.setHud(showCursor, showHud, showChat);
-        if (url != this.url) {
-            this._ready = false;
-            this.url = url;
-            this.mpBrowser.execute(`window.location.href = '${url}'`);
-            mp.events.add(RageEvent.browserDomReady, this._tempCommandsHandler);
-        }
+    // public changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) {
+    //     this.setHud(showCursor, showHud, showChat);
+    //     if (url != this.url) {
+    //         this._ready = false;
+    //         this.url = url;
+    //         this.mpBrowser.execute(`window.location.href = '${url}'`);
+    //         mp.events.add(RageEvent.browserDomReady, this._tempCommandsHandler);
+    //     }
+    // }
+
+    public changeUrl(url: string, showCursor: boolean = true, showHud: boolean = true, showChat = true) { 
+        this._ready = false; 
+        this.setHud(showCursor, showHud, showChat); 
+        this.mpBrowser.execute(`window.location.href = '${url}'`); 
+ 
+        mp.events.add(RageEvent.browserDomReady, (browser) => { 
+            this._ready = true; 
+            this._tempCommands.forEach(command => { 
+                this.execute(command); 
+            }); 
+            this._tempCommands = []; 
+        }); 
     }
 
     public execute(code: string) {

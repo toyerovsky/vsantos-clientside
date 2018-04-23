@@ -23,4 +23,8 @@ export default class Speedometr{
     public setRPM(rpm:number): void{
         this._speedometrbrowser.execute(`setRPM(${rpm})`);
     }
+
+    public setGear(gear :number):void{
+        this._speedometrbrowser.execute(`setGear(${gear})`);
+    }
 }
