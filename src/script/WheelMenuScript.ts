@@ -4,6 +4,7 @@ import IScript from "../core/interfaces/IScript";
 import { Event, RageEvent } from "../core/enums/Event";
 import { player } from "../core/LocalPlayer";
 import Browser from "../core/Browser";
+import WheelMenu from "../core/WheelMenu";
 
 export default class WheelMenuScript implements IScript {
 
@@ -11,7 +12,11 @@ export default class WheelMenuScript implements IScript {
      * playerWheelMenuRequestedHandler
      */
     public requestWheelMenuHandler(jsonDataSource: string) {
-        player.mainBrowser.changeUrl("package://wheel-menu/index.html", true, true, false);
+        player.mainBrowser.changeUrl("package://wheel-menu/index.html", true, true, true);
+        // player.wheelMenu = new WheelMenu();
+        // player.wheelMenu.init(jsonDataSource);
+        // player.wheelMenu.show();
+        
         player.mainBrowser.execute(`init(${jsonDataSource})`);
         player.mainBrowser.show = true;
     }
@@ -27,6 +32,10 @@ export default class WheelMenuScript implements IScript {
                 player.mainBrowser.show = false;
                 player.showCursor = false;
             }
+            // if(player.wheelMenu.showStatus === true){
+            //     player.wheelMenu.hide();
+            //     player.showCursor = false;
+            // }
             else {
                 let startPosition = mp.players.local.position;
                 //player.mainBrowser.show = !player.mainBrowser.show; 
@@ -50,6 +59,8 @@ export default class WheelMenuScript implements IScript {
             mp.events.callRemote(Event.useWheelMenuItem, name)
             player.mainBrowser.show = false;
             player.showCursor = false;
+            // player.wheelMenu.hide();
+            // player.showCursor = false;
         });
     }
 }

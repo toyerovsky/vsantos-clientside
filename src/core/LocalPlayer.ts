@@ -5,6 +5,7 @@ import Browser from './Browser';
 import Timer from './timer/Timer';
 import { Event, RageEvent } from './enums/Event';
 import Speedometr from './Speedometr';
+import WheelMenu from './WheelMenu';
 
 export default class LocalPlayer {
     private _timers: Timer[];
@@ -94,6 +95,14 @@ export default class LocalPlayer {
     public set speedometr(s : Speedometr){
         this._speedometr = s;
     }
+
+   private _wheelMenu : WheelMenu;
+   public get wheelMenu():WheelMenu{
+       return  this._wheelMenu;
+   }
+   public set wheelMenu(w : WheelMenu){
+       this._wheelMenu = w;
+   }
 
     private _mainBrowser: Browser;
     public get mainBrowser(): Browser {
