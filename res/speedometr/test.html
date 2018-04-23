@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Speedometer</title>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
+
+    <script type="text/javascript" src="./vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="./vendor/iopctrl.js"></script>
+
+
+
+
+    <style>
+        body {
+            font: 16px arial;
+        }
+
+        #speedocanv {
+            width: 320px;
+            height: 240px;
+            position: fixed;
+            bottom: 0;
+
+            right: 0;
+            margin-bottom: 2em;
+        }
+
+        .unselectable {
+            -moz-user-select: -moz-none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* css formats for the gauge */
+
+        .gauge .domain {
+            stroke-width: 2px;
+            stroke: #aaa;
+        }
+
+        .gauge .tick line {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        .gauge line {
+            stroke: #fff;
+        }
+
+        .gauge .arc,
+        .gauge .cursor {
+            opacity: 0;
+        }
+
+        .gauge .major {
+            fill: #fff;
+            font-size: 20px;
+            font-family: 'Play', verdana, sans-serif;
+            font-weight: normal;
+        }
+
+        .gauge .indicator {
+            stroke: #EE3311;
+            fill: #000;
+            stroke-width: 4px;
+        }
+
+        /* css formats for the segment display */
+
+        .segdisplay .on {
+            fill: #EF0000;
+
+        }
+
+        .segdisplay .off {
+            fill: #EF0000;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="speedocanv">
+        <span id="speedometer"></span>
+    </div>
+
+    <script>
+        var svg = d3.select("#speedometer")
+            .append("svg:svg")
+            .attr("width", 400)
+            .attr("height", 400);
+
+
+        var gauge = iopctrl.arcslider()
+            .radius(120)
+            .events(false)
+            .indicator(iopctrl.defaultGaugeIndicator);
+        gauge.axis().orient("in")
+            .normalize(true)
+            .ticks(12)
+            .tickSubdivide(3)
+            .tickSize(10, 8, 10)
+            .tickPadding(5)
+            .scale(d3.scale.linear()
+                .domain([0, 10])
+                .range([-3 * Math.PI / 4, 3 * Math.PI / 4]));
+
+        var segDisplay = iopctrl.segdisplay()
+            .width(80)
+            .digitCount(3)
+            .negative(false)
+            .decimals(0);
+
+        svg.append("g")
+            .attr("class", "segdisplay")
+            .attr("transform", "translate(130, 200)")
+            .call(segDisplay);
+
+        svg.append("g")
+            .attr("class", "gauge")
+            .call(gauge);
+
+        segDisplay.value(0);
+        gauge.value(0);
+
+        function setSpeed(speed) {
+            segDisplay.value(speed);
+        }
+
+        function setRPM(rpm) {
+            gauge.value(rpm);
+        }
+
+    </script>
+</body>

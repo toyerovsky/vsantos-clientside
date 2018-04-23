@@ -4,6 +4,7 @@ import Notifier from './Notifier';
 import Browser from './Browser';
 import Timer from './timer/Timer';
 import { Event, RageEvent } from './enums/Event';
+import Speedometr from './Speedometr';
 
 export default class LocalPlayer {
     private _timers: Timer[];
@@ -84,6 +85,14 @@ export default class LocalPlayer {
     }
     public set notifier(value: Notifier) {
         this._notifier = value;
+    }
+
+    private _speedometr : Speedometr;
+    public get speedometr():Speedometr{
+        return this._speedometr;
+    }
+    public set speedometr(s : Speedometr){
+        this._speedometr = s;
     }
 
     private _mainBrowser: Browser;
