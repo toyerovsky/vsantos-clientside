@@ -1,0 +1,22 @@
+<div *ngIf="character" id="container">
+  <div class="content-center">
+    <div class="logo-center">
+      <span class="g">V</span> Role Play
+      <br />
+    </div>
+    <div class="desc">
+      <span class="desc-logo">Wybierz postać</span>
+    </div>
+    <div class="v-panel-center">
+      <div class="character">
+        <img src="package://img/placeholder.jpg" alt="obrazek_postaci">
+        <h1>{{ character.name }} {{ character.surname }}</h1>
+        <span class="ch-desc">${{ character.money }}</span>
+        <br />
+        <span class="ch-desc">{{character.lastLogin}}</span>
+      </div>
+      <button (click)="next()">Nastepna</button>
+      <button (click)="prev()">Poprzednia</button>
+      <button (click)="select()">Wybierz</button>
+    </div>
+  </div>
