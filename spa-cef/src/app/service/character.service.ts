@@ -1,3 +1,5 @@
+import { environment } from '../../environments/environment';
+
 import { CharacterModel } from '../models/CharacterModel';
 
 import { Injectable } from '@angular/core';
@@ -14,6 +16,6 @@ export class CharacterService {
     }
 
     public getByAccountId(accountId: number): Observable<CharacterModel[]> {
-        return this._http.get<CharacterModel[]>(`api/character/account/${accountId}`);
+        return this._http.get<CharacterModel[]>(`${environment.apiUrl}/api/character/account/${accountId}`);
     }
 }

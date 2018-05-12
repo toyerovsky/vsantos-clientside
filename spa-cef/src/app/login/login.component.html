@@ -1,4 +1,4 @@
-<div class="content-center">
+<div *ngIf="loginModel" class="content-center">
   <div class="logo-center">
     <span class="g">V</span> Role Play
     <br />
@@ -9,11 +9,10 @@
   <div class="v-panel-center">
     <span class="log-desc">E-Mail:</span>
     <br />
-    <input [(ngModel)]="_login.email" type="email"></input>
+    <input [(ngModel)]="loginModel.email" type="email" placeholder="E-Mail" />
     <span class="log-desc">Hasło:</span>
     <br />
-    <input [(ngModel)]="_login.password" type="password"></input>
-    <button (click))="login()">Zaloguj się!</button>
+    <input [(ngModel)]="loginModel.password" type="password" placeholder="Hasło" />
+    <button (click)="login()">Zaloguj się!</button>
   </div>
 </div>
-</body>

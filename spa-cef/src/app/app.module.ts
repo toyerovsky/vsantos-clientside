@@ -10,19 +10,24 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CharacterSelectComponent } from './character-select/character-select.component';
 
+// services
+import { AccountService } from './service/account.service';
+import { CharacterService } from './service/character.service';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    CharacterSelectComponent
-  ],
   imports: [
+
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    CharacterSelectComponent
+  ],
+  providers: [AccountService, CharacterService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

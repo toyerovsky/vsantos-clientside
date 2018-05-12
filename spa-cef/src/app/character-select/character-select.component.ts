@@ -14,18 +14,19 @@ export class CharacterSelectComponent implements OnInit {
 
   private _currentIndex: number = 0;
   private _characters: CharacterModel[];
-  private _characterService: CharacterService;
-  private _accountService: AccountService;
 
-  constructor(characterService: CharacterService, accountService: AccountService) {
-    this._characterService = characterService;
-    this._accountService = accountService;
+  constructor(
+    private _characterService: CharacterService,
+    private _accountService: AccountService
+  ) {
   }
 
   ngOnInit() {
     this._characterService.getByAccountId(this._accountService.id)
-      .subscribe(characters => this._characters = characters);
-    this.character = this._characters[this._currentIndex];
+      .subscribe((characters => {
+        this._characters = characters;
+        this.character = this._characters[this._currentIndex];
+      }));
   }
 
   next() {
