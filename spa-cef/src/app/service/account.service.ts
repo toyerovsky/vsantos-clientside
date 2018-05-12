@@ -12,11 +12,7 @@ export class AccountService {
         return this._id;
     }
 
-    private _http: HttpClient;
-
-    constructor(http: HttpClient) {
-        this._http = http;
-    }
+    constructor(private _http: HttpClient) { }
 
     public login(email: string, password: string): Observable<number> {
         let observable = this._http.post<number>(`${environment.apiUrl}/api/account/login/`, { email, password });
