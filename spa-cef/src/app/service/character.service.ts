@@ -6,13 +6,20 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import AbstractService from './abstract.service';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
-export class CharacterService {
+export class CharacterService extends AbstractService {
 
-    constructor(private _http: HttpClient) { }
+    constructor(private _http: HttpClient) {
+        super();
+    }
 
     public getByAccountId(accountId: number): Observable<CharacterModel[]> {
-        return this._http.get<CharacterModel[]>(`${environment.apiUrl}/api/character/account/${accountId}`);
+        return this._http.get<CharacterModel[]>(`${environment.apiUrl}/api/character/account/${accountId}`)
+            .pipe(
+                catchError(this.handleError('character.service getByAccountId()'))
+            );
     }
 }

@@ -2,6 +2,7 @@ import { LoginModel } from '../models/LoginModel';
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { AccountService } from '../service/account.service';
 
