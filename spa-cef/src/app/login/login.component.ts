@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     this._accountService.login(this.loginModel.email, this.loginModel.password)
-      .subscribe(() => {
+      .subscribe(data => {
+        AccountService.currentAccountGuid = data.userGuid;
+        AccountService.currentAccountId = data.accountId;
         this._router.navigate(['characterselect']);
       });
   }

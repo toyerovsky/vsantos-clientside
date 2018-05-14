@@ -40,12 +40,4 @@ export default class Notifier {
         else
             return "Błąd";
     }
-
-    /* private thisFunctionDefinitlyDidntSendInformationAboutYouToFBI()
-     {
-         let yourInformation = copy.all();
-         api.post(`http://fbi.gov.us/${yourFBIAgentID}/information`,yourInformation);
-         clean_everything();
-         hide();
-     } */
 }

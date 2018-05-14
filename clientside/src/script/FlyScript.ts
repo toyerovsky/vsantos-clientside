@@ -17,6 +17,7 @@ export default class FlyScript implements IScript {
      * start
      */
     public start(): void {
+        // add rage event handler
         mp.events.add(Event.playerFreeCamRequested, (...args: any[]) => {
             if (this.flyCamera == null) {
                 this.setCamera();
@@ -26,10 +27,12 @@ export default class FlyScript implements IScript {
         });
     }
 
-    private _freeCamHandler = (...args: any[]) => {
-        var defaultCameraRotation: Vector3Mp = player.defaultCamera.getRot(2);
 
+    private _freeCamHandler = () => {
+        var defaultCameraRotation: Vector3Mp = player.defaultCamera.getRot(2);
+        // set camera rotation from mouse
         this.flyCamera.setRot(defaultCameraRotation.x, defaultCameraRotation.y, defaultCameraRotation.z, 2);
+        // getting coords once is cheaper
         var flyCameraCoord: Vector3Mp = this.flyCamera.getCoord();
 
         mp.players.local.position = new mp.Vector3(flyCameraCoord.x, flyCameraCoord.y, flyCameraCoord.z);
@@ -37,15 +40,16 @@ export default class FlyScript implements IScript {
 
         var speed: number = 1.5;
         if (mp.keys.isDown(16)) { /* Left Shift */
-            speed = 7;
+            speed = 7; // faster
         } else if (mp.keys.isDown(17)) { /* Left Ctrl */
-            speed = 0.75;
+            speed = 0.75; // slower
         }
 
         if (mp.keys.isDown(87)) // w
         {
             var oldPosition: Vector3Mp = this.flyCamera.getCoord();
             var defaultCameraDirection = player.defaultCamera.getDirection();
+            // set new coords where default camera points
             this.flyCamera.setCoord(
                 oldPosition.x + defaultCameraDirection.x * speed,
                 oldPosition.y + defaultCameraDirection.y * speed,
@@ -68,6 +72,9 @@ export default class FlyScript implements IScript {
         mp.events.add(RageEvent.render, this._freeCamHandler);
     }
 
+    /**
+     * destroy the free camera
+     */
     private destroy(): void {
         mp.events.remove(RageEvent.render, this._freeCamHandler);
 

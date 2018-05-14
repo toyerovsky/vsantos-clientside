@@ -82,9 +82,10 @@ export default class MugshotScript implements IScript {
             this.textHandle.destroy();
         if (this.scaleformHandle != null)
             mp.game.graphics.setScaleformMovieAsNoLongerNeeded(this.scaleformHandle);
-        if (this.renderTargetID != null)
-            mp.game.ui.releaseNamedRendertarget(mp.game.joaat(MugShotScriptConsts.renderTargetName)); // should be renderTargetName string but says "expected Number", whatever
-
+        if (this.renderTargetID != null) {
+            // should be renderTargetName string but says "expected Number", whatever
+            mp.game.ui.releaseNamedRendertarget(mp.game.joaat(MugShotScriptConsts.renderTargetName));
+        }
         this.boardHandle = null;
         this.textHandle = null;
         this.scaleformHandle = null;

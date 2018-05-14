@@ -16,13 +16,12 @@ export class CharacterSelectComponent implements OnInit {
   private _characters: CharacterModel[];
 
   constructor(
-    private _characterService: CharacterService,
-    private _accountService: AccountService
+    private _characterService: CharacterService
   ) {
   }
 
   ngOnInit() {
-    this._characterService.getByAccountId(this._accountService.id)
+    this._characterService.getByAccountId(AccountService.currentAccountId)
       .subscribe((characters => {
         this._characters = characters;
         this.character = this._characters[this._currentIndex];
