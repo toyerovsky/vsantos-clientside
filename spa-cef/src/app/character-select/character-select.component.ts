@@ -39,7 +39,7 @@ export class CharacterSelectComponent implements OnInit {
   }
 
   select() {
-    var mp: any;
+    // @ts-ignore
     mp.trigger('characterSelectRequested', this._currentIndex);
   }
 }
