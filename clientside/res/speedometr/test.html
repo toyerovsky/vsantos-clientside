@@ -73,6 +73,17 @@
             fill: #EF0000;
 
         }
+        .segdisplayMillage .on{
+            fill: black;
+           
+        }
+
+        .segdisplayMillage .off{
+            fill: black;
+            stroke: black;
+            opacity: 0.15;
+            
+        }
 
         .segdisplay .off {
             fill: #EF0000;
@@ -119,6 +130,12 @@
             .negative(false)
             .decimals(0);
 
+        var segMillage = iopctrl.segdisplay()
+            .width(80)
+            .digitCount(6)
+            .negative(false)
+            .decimals(0);
+
             
 
         svg.append("g")
@@ -130,6 +147,11 @@
             .attr("class","segdisplay")
             .attr("transform", "translate(130, 100)")
             .call(segGear);
+        svg.append("g")
+            .attr("class","segdisplayMillage")
+            .attr("color","black")
+            .attr("transform","translate(130,250)")
+            .call(segMillage);
 
         svg.append("g")
             .attr("class", "gauge")
@@ -148,6 +170,10 @@
 
         function setGear(gear){
             segGear.value(gear);
+        }
+
+        function setMillage(millage){
+            segMillage.value(millage);
         }
 
     </script>
