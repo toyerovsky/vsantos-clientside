@@ -1,0 +1,76 @@
+<ng-container *ngIf="character">
+  <!-- #region main-->
+  <main>
+    <section class="content">
+      <!-- #region character-details -->
+      <section class="character-info">
+        <span class="information">
+          <span class="static-text">Imie i Nazwisko: </span>
+          {{character.name}} {{character.surname}}
+        </span>
+
+        <span class="information">
+          <span class="static-text">Stan konta: </span>
+          ${{character.money}}
+        </span>
+
+        <span class="information">
+          <span class="static-text">Ostanie logowanie: </span>
+          {{character.lastLoginTime}}
+        </span>
+      </section>
+      <!-- #endregion character-details -->
+
+      <!-- #region player_characters -->
+      <section class="characters">
+
+        <div class="character">
+          <img src="https://i.imgur.com/oI37y0a.jpg" />
+        </div>
+
+        <div class="character">
+          <img src="https://i.imgur.com/oI37y0a.jpg" />
+        </div>
+
+        <div class="character clicked">
+          <img src="https://i.imgur.com/oI37y0a.jpg" />
+        </div>
+
+        <div class="character">
+          <img src="https://i.imgur.com/oI37y0a.jpg" />
+        </div>
+
+        <div class="character">
+          <img src="https://i.imgur.com/oI37y0a.jpg" />
+        </div>
+      </section>
+      <!-- #endregion player_characters -->
+
+      <!-- #region buttons -->
+      <section class="action-buttons">
+        <button (click)="prev()" class="btn-change previous">
+          Wcześniejsza postać
+        </button>
+
+        <button (click)="select()" class="btn-change start">
+          Graj
+        </button>
+
+        <button (click)="next()" class="btn-change next">
+          Następna postać
+        </button>
+      </section>
+      <!-- #endregion buttons -->
+    </section>
+  </main>
+  <!-- #endregion main-->
+
+  <!-- #region vlogo -->
+  <span class="vlogo">
+    <p>
+      <span style="color:green;">V</span> Role Play
+    </p>
+  </span>
+  <!-- #endregion vlogo-->
+</ng-container>
+

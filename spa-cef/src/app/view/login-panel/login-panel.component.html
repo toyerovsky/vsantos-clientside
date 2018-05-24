@@ -1,0 +1,45 @@
+<ng-container *ngIf="loginModel">
+  <!-- #region main-->
+  <main>
+    <section class="login-box">
+      <header class="title">
+        Zaloguj się
+      </header>
+
+      <div class="form">
+        <input [(ngModel)]="loginModel.email" type="text" name="email" placeholder="E-Mail" autocomplete="off">
+
+
+        <input [(ngModel)]="loginModel.password" type="password" name="password" placeholder="Hasło" autocomplete="off">
+
+      </div>
+
+      <div class="under-form">
+        <div class="left-box">
+          <a>Załóż konto za pomocą forum</a>
+        </div>
+
+        <div class="right-box">
+          <button (click)="login()">
+            Zaloguj się
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- #endregion main-->
+
+  <!-- #region vlogo -->
+    <span class="vlogo">
+      <p>
+        <span style="color:green;">V</span> Role Play
+      </p>
+    </span>
+  <!-- #endregion vlogo-->
+
+  <!-- #region error_space -->
+    <!-- <section class="alert error">
+      <span style="color: #be4444;">Błąd</span> sprawdź dane logowania!
+    </section> -->
+  <!-- #endregion error_space -->
+</ng-container>

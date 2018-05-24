@@ -7,8 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 // components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { CharacterSelectComponent } from './character-select/character-select.component';
+import { LoginPanelComponent } from "./view/login-panel/login-panel.component";
+import { CharacterSelectorComponent } from "./view/character-selector/character-selector.component";
 
 // services
 import { AccountService } from './service/account.service';
@@ -24,8 +24,8 @@ import { CharacterService } from './service/character.service';
   ],
   declarations: [
     AppComponent,
-    LoginComponent,
-    CharacterSelectComponent
+    LoginPanelComponent,
+    CharacterSelectorComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],

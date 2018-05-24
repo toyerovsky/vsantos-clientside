@@ -1,0 +1,158 @@
+main {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  width: 100%;
+  height: auto;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.507);
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .content {
+  width: 70%;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  overflow: hidden;
+}
+main .content .character-info {
+  width: 100%;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+main .content .character-info .information {
+  margin: 0em 1em;
+  font-size: 1.1em;
+}
+main .content .character-info .information .static-text {
+  color: #a7b9a8;
+}
+main .content .characters {
+  width: 100%;
+  height: 219px;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+main .content .characters .character {
+  width: 200px;
+  height: 200px;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  overflow: auto;
+  margin: 0em 1em;
+  margin-bottom: 1.2em;
+  border: 2px solid #000;
+  background: #000;
+  -webkit-filter: grayscale(60%);
+  filter: grayscale(60%);
+  opacity: .6;
+  border-radius: .3em;
+  -webkit-transition: opacity .3s linear, grayscale .3s linear, -webkit-filter .3s linear;
+  transition: opacity .3s linear, grayscale .3s linear, -webkit-filter .3s linear;
+  transition: opacity .3s linear, grayscale .3s linear, filter .3s linear;
+  transition: opacity .3s linear, grayscale .3s linear, filter .3s linear, -webkit-filter .3s linear;
+  -webkit-transition: opacity .3s linear, filter .3s linear;
+}
+main .content .characters .character:hover {
+  opacity: 1;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
+}
+main .content .characters .character img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+main .content .characters .clicked {
+  opacity: 1;
+  border: 3px solid #6fa854;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+main .content .characters .clicked:hover {
+  -webkit-box-shadow: none;
+}
+main .content .characters .clicked:hover img {
+  cursor: default;
+}
+main .content .action-buttons {
+  width: 97%;
+  height: auto;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .content .action-buttons .btn-change {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  padding: .5em 1em;
+  margin: 0em 0em;
+  font-size: 1.1em;
+  font-weight: medium;
+  border-radius: .3em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-transition: color .3s linear, -webkit-box-shadow .3s linear;
+  transition: color .3s linear, -webkit-box-shadow .3s linear;
+  transition: box-shadow .3s linear, color .3s linear;
+  transition: box-shadow .3s linear, color .3s linear, -webkit-box-shadow .3s linear;
+}
+main .content .action-buttons .btn-change:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+main .content .action-buttons .btn-change:nth-child(2) {
+  margin: 0em 10em;
+}
+main .content .action-buttons .start {
+  background-color: #6fa854;
+  margin: 0;
+  padding: .5em 2em;
+}
+main .content .action-buttons .start:hover {
+  -webkit-box-shadow: inset 0 -3.25em 0 0 #a8eb89;
+          box-shadow: inset 0 -3.25em 0 0 #a8eb89;
+}
+main .content .action-buttons .previous:hover {
+  -webkit-box-shadow: inset 0 -3.25em 0 0 #bd5555;
+          box-shadow: inset 0 -3.25em 0 0 #bd5555;
+}
+main .content .action-buttons .next:hover {
+  -webkit-box-shadow: inset 0 -3.25em 0 0 #4e89d6;
+          box-shadow: inset 0 -3.25em 0 0 #4e89d6;
+}
