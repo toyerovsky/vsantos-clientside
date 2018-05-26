@@ -1,0 +1,40 @@
+@font-face{
+    font-family: 'SignPainter-HouseScript';
+    src: url('/assets/fonts/SignPainter-HouseScript.ttf');
+}
+
+// Local color palette
+$text-box-color:#777777;
+
+
+.family-photos{
+    width: 100%;
+    box-sizing: border-box!important;
+
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .photo{
+        width: 50%;
+
+        // height: 3em;
+
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.text-box{
+    display: block;
+    width: 100%;
+    padding-top: .5em;
+    margin-bottom: -.65em;
+
+    font-family: 'SignPainter-HouseScript';
+    color: $text-box-color;
+    font-size: 1.4em;
+    text-align: center;
+}

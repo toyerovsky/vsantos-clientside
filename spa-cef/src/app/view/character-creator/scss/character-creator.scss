@@ -1,0 +1,113 @@
+@import './subcategories.scss';
+
+@font-face{
+    font-family: 'SignPainter-HouseScript';
+    src: url('/assets/fonts/SignPainter-HouseScript.ttf');
+}
+
+// Local colr palette
+$creator-box-background: hsla(0, 0%, 0%, 0.733);
+
+$header-background: hsla(120, 42%, 49%, 0.863);
+
+$category-color: #ffffff;
+$category-color-hover: #000000;
+$category-background-hover: #ffffff;
+
+$warningMes-color: #888b89;
+$saveFirst-background: #44b156;
+$saveFirst-color: #ffffff;
+$saveFirst-background-hover: #ffffff;
+$saveFirst-color-hover: #000000;
+
+$footer-border: #242424;
+
+main{
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 26em;
+  max-height: 35em;
+  background-color: $creator-box-background;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
+
+
+  header {
+    width: 100%;
+    height: 1.5em;
+    line-height: 1.7em;
+    padding-left: .3em; // font-family: 'Merienda', cursive;
+    font-family: 'SignPainter-HouseScript';
+    font-weight: medium;
+    font-size: 3em;
+    background-color: $header-background;
+    text-transform: capitalize;
+  }
+}
+
+.content {
+  max-height: 25em;
+  .menu {
+    display: block;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    box-sizing: border-box;
+  }
+  .category {
+    width: 100%;
+    li {
+      display: block;
+      width: 100%;
+      height: 2em;
+      line-height: 2em;
+      box-sizing: border-box;
+      margin-top: 1em;
+      padding-left: 1em;
+      color: $category-color;
+      transition: backgrond .2s ease-in;
+      &:hover {
+        cursor: pointer;
+        color: $category-color-hover;
+        background-color: $category-background-hover;
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  margin: 1em 0em;
+  text-align: center;
+  padding-top: 1em;
+  border-top: 1px solid $footer-border;
+  .warningMes {
+    display: block;
+    width: 100%;
+    padding: 0em .5em;
+    margin-bottom: 1em;
+    font-size: .9em;
+    color: $warningMes-color;
+    text-align: left;
+  }
+  .saveFirst {
+    margin-top: 1em;
+    padding: .3em 1.3em;
+    outline: none;
+    border: none;
+    font-size: 1.1em;
+    background-color: $saveFirst-background;
+    color: $saveFirst-color;
+    border-radius: .1em;
+    -webkit-transition: box-shadow .3s linear;
+    transition: box-shadow .3s linear;
+    &:hover {
+      cursor: pointer;
+      box-shadow: inset 0 -3.25em 0 0 $saveFirst-background-hover;
+      color: $saveFirst-color-hover;
+    }
+  }
+}
+
