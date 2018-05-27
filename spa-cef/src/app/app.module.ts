@@ -16,7 +16,9 @@ import { CharacterCreatorAppearanceComponent } from './view/character-creator/el
 import { CharacterCreatorAppearanceRootsComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-appearance-roots/character-creator-appearance-roots.component';
 import { CharacterCreatorFeaturesComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-features/character-creator-features.component';
 import { CharacterCreatorMoreAppearanceComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-more-appearance/character-creator-more-appearance.component';
-
+import { CharacterCreatorClothesComponent } from './view/character-creator/elements/character-creator-clothes/character-creator-clothes.component';
+import { CharacterCreatorCarComponent } from './view/character-creator/elements/character-creator-car/character-creator-car.component';
+import { CharacterCreatorCarModelsComponent } from './view/character-creator/elements/character-creator-car/character-creator-car-models/character-creator-car-models.component';
 // components
 // services
 @NgModule({
@@ -36,7 +38,10 @@ import { CharacterCreatorMoreAppearanceComponent } from './view/character-creato
     CharacterCreatorAppearanceComponent,
     CharacterCreatorAppearanceRootsComponent,
     CharacterCreatorFeaturesComponent,
-    CharacterCreatorMoreAppearanceComponent
+    CharacterCreatorMoreAppearanceComponent,
+    CharacterCreatorClothesComponent,
+    CharacterCreatorCarComponent,
+    CharacterCreatorCarModelsComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],
