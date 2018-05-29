@@ -74,9 +74,9 @@ export default class LocalPlayer {
         this._showMoney = v;
     }
 
-    private _token: string;
-    public get token(): string {
-        return this._token;
+    private _userToken: string;
+    public get userToken(): string {
+        return this._userToken;
     }
 
     private _notifier: Notifier;
@@ -106,8 +106,8 @@ export default class LocalPlayer {
     /**
      * login
      */
-    public login(token: string) {
-        this._token = token;
+    public login(userToken: string) {
+        this._userToken = userToken;
     }
 
     private _moneyInWallet: number = 0.00;

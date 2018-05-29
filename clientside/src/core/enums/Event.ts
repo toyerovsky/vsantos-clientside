@@ -10,6 +10,7 @@ export enum RageEvent {
     playerStartEnterVehicle = "playerStartEnterVehicle",
     playerLeaveVehicle = "playerLeaveVehicle",
     render = "render",
+    playerQuit = "playerQuit",
 };
 
 export enum Event {
