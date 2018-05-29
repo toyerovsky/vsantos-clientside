@@ -9,22 +9,13 @@ export default class LoginScript implements IScript {
 
     /** 
      * handler sends login request from client to server
-     * @param {string} email
-     * @param {string} password
+     * @param {string} userGuid
      */
-    private _playerLoginRequestedHandler = (email: string, password: string) => {
+    private _playerLoginRequestedHandler = (userGuid: string) => {
+        player.login(userGuid);
         mp.events.callRemote(
-            Event.playerLoginRequested,
-            JSON.stringify({ email, password })
+            Event.playerLoginRequested, userGuid
         );
-    }
-
-    /** 
-     * handler is called after successfull login
-     * @param {string} token WebApi token
-     */
-    private _playerLoginPassHandler = (token: string) => {
-        player.login(token);
     }
 
     /**
@@ -57,7 +48,6 @@ export default class LoginScript implements IScript {
         player.mainBrowser = new Browser("http://localhost:4200/login", true, false, false);
         // set the rage mp event handlers
         mp.events.add(Event.playerLoginRequested, this._playerLoginRequestedHandler);
-        mp.events.add(Event.playerLoginPassed, this._playerLoginPassHandler);
         mp.events.add(Event.characterSelectRequested, this._characterSelectRequested);
     }
 }
