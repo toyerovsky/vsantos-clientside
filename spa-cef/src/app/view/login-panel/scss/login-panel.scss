@@ -10,9 +10,8 @@ $form-input-border-bottom-focus: #6fc44e;
 $left-box-color: #cacaca;
 $left-box-color-hover: #ffffff;
 $button-color: #fff;
-$button-color-hover: #000;
 $button-background: #66c963;
-$button-border-hover: #ffffff;
+$button-background-hover: #4fc94b;
 .login-box {
     width: 26em;
     height: auto;
@@ -53,8 +52,6 @@ $button-border-hover: #ffffff;
             outline: none;
             border: none;
             border-bottom: 2px solid $form-input-border-bottom;
-            -webkit-transition: color .3s linear, border .3s linear;
-            transition: color .3s linear, border .3s linear;
             &::placeholder {
                 color: $form-placeholder;
             }
@@ -86,7 +83,6 @@ $button-border-hover: #ffffff;
             a {
                 color: $left-box-color;
                 text-decoration: none;
-                -webkit-transition: color .3s linear;
                 &:hover {
                     cursor: pointer;
                     color: $left-box-color-hover;
@@ -107,11 +103,9 @@ $button-border-hover: #ffffff;
                 font-weight: medium;
                 background: $button-background;
                 color: $button-color;
-                transition: box-shadow .3s linear;
                 &:hover {
                     cursor: pointer;
-                    box-shadow: inset 0 -3.25em 0 0 $button-border-hover;
-                    color: $button-color-hover;
+                    background: $button-background-hover;
                 }
             }
         }
