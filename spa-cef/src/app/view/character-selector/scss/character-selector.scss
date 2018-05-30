@@ -110,7 +110,7 @@ main{
         background-color: $btn-start-background;
         color: $btn-change-color;
         text-transform: uppercase;
-        padding: .5em 3.5em;
+        padding: .5em 3em;
         margin: 0em 0em;
         font-size: 1.5em;
         font-weight: medium;
@@ -121,6 +121,11 @@ main{
           cursor: pointer;
           background-color: $btn-start-background-hover;
         }
+      }
+
+      .new_character{
+        margin-left: 3vw;
+        padding: .5em 1.7em;
       }
     }
   }

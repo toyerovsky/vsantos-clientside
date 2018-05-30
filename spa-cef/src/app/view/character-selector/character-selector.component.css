@@ -115,7 +115,7 @@ main .content .action-buttons .btn-change {
   background-color: #6fa854;
   color: #f5f5f5;
   text-transform: uppercase;
-  padding: .5em 3.5em;
+  padding: .5em 3em;
   margin: 0em 0em;
   font-size: 1.5em;
   font-weight: medium;
@@ -128,4 +128,8 @@ main .content .action-buttons .btn-change {
 main .content .action-buttons .btn-change:hover {
   cursor: pointer;
   background-color: #56bb27;
+}
+main .content .action-buttons .new_character {
+  margin-left: 3vw;
+  padding: .5em 1.7em;
 }
