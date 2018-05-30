@@ -11,7 +11,7 @@ export default class LoginScript implements IScript {
      * handler sends login request from client to server
      * @param {string} userGuid
      */
-    private _playerLoginRequestedHandler = (userGuid: string) => {
+    private playerLoginRequestedHandler(userGuid: string): void {
         player.login(userGuid);
     }
 
@@ -19,7 +19,7 @@ export default class LoginScript implements IScript {
      * handler is called after character is selected
      * @param {number} characterIndex
      */
-    private _characterSelectRequested = (accountId: number, characterIndex: number) => {
+    private characterSelectRequested(accountId: number, characterIndex: number): void {
         // select character with given index on list
         player.selectCharacter(accountId, characterIndex);
         // hide character select browser
@@ -44,7 +44,7 @@ export default class LoginScript implements IScript {
         // show login browser to player
         player.mainBrowser = new Browser("http://localhost:4200/login", true, false, false);
         // set the rage mp event handlers
-        mp.events.add(Event.playerLoginRequested, this._playerLoginRequestedHandler);
-        mp.events.add(Event.characterSelectRequested, this._characterSelectRequested);
+        mp.events.add(Event.playerLoginRequested, this.playerLoginRequestedHandler);
+        mp.events.add(Event.characterSelectRequested, this.characterSelectRequested);
     }
 }

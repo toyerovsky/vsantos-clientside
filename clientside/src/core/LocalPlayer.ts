@@ -116,8 +116,9 @@ export default class LocalPlayer {
      * selectCharacter
      */
     public selectCharacter(accountId: number, characterIndex: number) {
+        mp.gui.chat.push(this.userToken);
         mp.events.callRemote(Event.characterSelectRequested,
-            this._userToken,
+            this.userToken,
             accountId,
             characterIndex
         );

@@ -34,9 +34,10 @@ export class LoginPanelComponent implements OnInit {
           // TODO: error handling via notification
           return;
         }
-        alert(data);
         AccountService.currentAccountGuid = data.userGuid;
         AccountService.currentAccountId = data.accountId;
+        // @ts-ignore
+        mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
         this._router.navigate(["characterselector"]);
       });
   }
