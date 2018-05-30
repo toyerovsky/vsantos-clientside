@@ -38,6 +38,6 @@ export class CharacterSelectorComponent implements OnInit {
 
   select() {
     // @ts-ignore
-    mp.trigger("characterSelectRequested", this._currentIndex);
+    mp.trigger("characterSelectRequested", AccountService.currentAccountId, this._currentIndex);
   }
 }

@@ -115,8 +115,13 @@ export default class LocalPlayer {
     /**
      * selectCharacter
      */
-    public selectCharacter(characterIndex: number) {
-        mp.events.callRemote(Event.characterSelectRequested, characterIndex);
+    public selectCharacter(accountId: number, characterIndex: number) {
+        mp.events.callRemote(Event.characterSelectRequested,
+            this._userToken,
+            accountId,
+            characterIndex
+        );
+
         mp.events.add(Event.characterMoneyChangeRequested, (...args: any[]) => {
             this._moneyInWallet = parseFloat(args[0]);
         });

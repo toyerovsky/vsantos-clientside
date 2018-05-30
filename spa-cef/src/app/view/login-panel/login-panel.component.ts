@@ -30,9 +30,10 @@ export class LoginPanelComponent implements OnInit {
     this._accountService
       .login(this.loginModel.email, this.loginModel.password)
       .subscribe(data => {
+        alert(data);
         AccountService.currentAccountGuid = data.userGuid;
         AccountService.currentAccountId = data.accountId;
-        this._router.navigate(["characterselect"]);
+        this._router.navigate(["characterselector"]);
       });
   }
 }

@@ -7,7 +7,7 @@ import { RageEvent, Event } from "../core/enums/Event";
 export default class LogOutScript implements IScript {
 
     private _playerlogOutHandler = (...args: any[]) => {
-        const config = require("../config/config.json");
+        const config = require("../config.json");
 
         fetch(`${config.apiUrl}/account/logout`, {
             body: JSON.stringify({

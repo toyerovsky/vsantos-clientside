@@ -20,20 +20,22 @@ const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginPanelComponent },
     { path: 'characterselector', component: CharacterSelectorComponent },
-    { path: 'charactercreator', component: CharacterCreatorComponent, children: [
-      {path: '', component: CharacterCreatorMenuComponent},
-      {path: 'appearance', component: CharacterCreatorAppearanceComponent},
-        {path: 'roots', component: CharacterCreatorAppearanceRootsComponent},
-        {path: 'features', component: CharacterCreatorFeaturesComponent},
-        {path: 'moreappearance', component: CharacterCreatorMoreAppearanceComponent},
-      {path: 'clothes', component: CharacterCreatorClothesComponent},
-      {path: 'car', component: CharacterCreatorCarComponent},
-        {path: 'carmodels', component: CharacterCreatorCarModelsComponent}
-    ]}
+    {
+        path: 'charactercreator', component: CharacterCreatorComponent, children: [
+            { path: '', component: CharacterCreatorMenuComponent },
+            { path: 'appearance', component: CharacterCreatorAppearanceComponent },
+            { path: 'roots', component: CharacterCreatorAppearanceRootsComponent },
+            { path: 'features', component: CharacterCreatorFeaturesComponent },
+            { path: 'moreappearance', component: CharacterCreatorMoreAppearanceComponent },
+            { path: 'clothes', component: CharacterCreatorClothesComponent },
+            { path: 'car', component: CharacterCreatorCarComponent },
+            { path: 'carmodels', component: CharacterCreatorCarModelsComponent }
+        ]
+    }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes )],
+    imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -13,18 +13,15 @@ export default class LoginScript implements IScript {
      */
     private _playerLoginRequestedHandler = (userGuid: string) => {
         player.login(userGuid);
-        mp.events.callRemote(
-            Event.playerLoginRequested, userGuid
-        );
     }
 
     /**
      * handler is called after character is selected
      * @param {number} characterIndex
      */
-    private _characterSelectRequested = (characterIndex: number) => {
+    private _characterSelectRequested = (accountId: number, characterIndex: number) => {
         // select character with given index on list
-        player.selectCharacter(characterIndex);
+        player.selectCharacter(accountId, characterIndex);
         // hide character select browser
         player.mainBrowser.show = false;
     }
