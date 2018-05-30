@@ -11,33 +11,33 @@ import { CharacterService } from './../../service/character.service';
 })
 export class CharacterSelectorComponent implements OnInit {
   public character: CharacterModel;
+  public characters: CharacterModel[];
 
   private _currentIndex: number = 0;
-  private _characters: CharacterModel[];
 
-  constructor(private _characterService: CharacterService) {}
+  constructor(private _characterService: CharacterService) { }
 
   ngOnInit() {
     this._characterService
       .getByAccountId(AccountService.currentAccountId)
       .subscribe(characters => {
-        this._characters = characters;
-        this.character = this._characters[this._currentIndex];
+        this.characters = characters;
+
+        if (this.characters.length <= 0) {
+          // notify player about no characters on his account
+          return;
+        }
+
+        this.character = characters[0];
       });
   }
 
-  next() {
-    if (this._characters.length - 1 < this._currentIndex)
-      this.character = this._characters[++this._currentIndex];
-  }
-
-  prev() {
-    if (this._currentIndex > 0)
-      this.character = this._characters[--this._currentIndex];
+  clickHandler(character: CharacterModel) {
+    this.character = character;
   }
 
   select() {
     // @ts-ignore
-    mp.trigger("characterSelectRequested", AccountService.currentAccountId, this._currentIndex);
+    mp.trigger("characterSelectRequested", AccountService.currentAccountId, this.characters.indexOf(this.character));
   }
 }
