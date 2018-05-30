@@ -22,14 +22,18 @@ export class LoginPanelComponent implements OnInit {
   constructor(
     private _accountService: AccountService,
     private _router: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   login() {
     this._accountService
       .login(this.loginModel.email, this.loginModel.password)
       .subscribe(data => {
+        if (typeof (data) == undefined) {
+          // TODO: error handling via notification
+          return;
+        }
         alert(data);
         AccountService.currentAccountGuid = data.userGuid;
         AccountService.currentAccountId = data.accountId;
