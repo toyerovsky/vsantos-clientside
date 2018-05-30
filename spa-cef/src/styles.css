@@ -33,7 +33,7 @@
 }
 
 body {
-  background: transparent;
+  background: transparent !important;
   font-family: 'Poppins', sans-serif;
   color: #fff;
 }
