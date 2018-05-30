@@ -24,7 +24,6 @@ $btn-color-hover: #fff;
     margin-top: 1em;
     padding-left: 1em;
     color: $property-color;
-    transition: backgrond .2s ease-in;
     display: -webkit-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -119,7 +118,6 @@ footer {
     border: none;
     background: transparent;
     font-weight: medium;
-    transition: box-shadow .3s linear;
     &:hover {
       cursor: pointer;
       color: $btn-color-hover;
