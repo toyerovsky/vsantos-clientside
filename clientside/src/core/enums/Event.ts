@@ -27,8 +27,8 @@ export enum Event {
     
     onPlayerEnterVehicle = "onPlayerEnterVehicle",
 
-
     requestWheelMenu = "requestWheelMenu",
     useWheelMenuItem = "useWheelMenuItem",
     showWheelMenu = "showWheelMenu",
+    requestDefaultCamera = "requestDefaultCamera",
 };

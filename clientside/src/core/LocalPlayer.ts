@@ -145,8 +145,6 @@ export default class LocalPlayer {
         this.showRadar = true;
         this.showMoney = true;
 
-        this.restoreDefaultCamera();
-
         mp.players.local.freezePosition(false);
     }
 
