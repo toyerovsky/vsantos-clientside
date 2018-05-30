@@ -1,4 +1,4 @@
-<ng-container *ngIf="character">
+<ng-container *ngIf="true">
   <!-- #region main-->
   <main>
     <section class="content">
@@ -32,7 +32,7 @@
           <img src="https://i.imgur.com/oI37y0a.jpg" />
         </div>
 
-        <div class="character clicked">
+        <div class="character">
           <img src="https://i.imgur.com/oI37y0a.jpg" />
         </div>
 
@@ -48,16 +48,8 @@
 
       <!-- #region buttons -->
       <section class="action-buttons">
-        <button (click)="prev()" class="btn-change previous">
-          Wcześniejsza postać
-        </button>
-
-        <button (click)="select()" class="btn-change start">
+        <button (click)="select()" class="btn-change">
           Graj
-        </button>
-
-        <button (click)="next()" class="btn-change next">
-          Następna postać
         </button>
       </section>
       <!-- #endregion buttons -->
