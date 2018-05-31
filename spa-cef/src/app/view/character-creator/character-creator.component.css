@@ -228,10 +228,8 @@ input[type=range]:focus::-ms-fill-upper {
 }
 main {
   position: absolute;
-  top: 35%;
-  left: 20%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  top: 17vh;
+  left: 12vh;
   width: 26em;
   max-height: 35em;
   background-color: rgba(0, 0, 0, 0.733);
@@ -248,6 +246,7 @@ header {
   font-size: 3em;
   background-color: rgba(72, 177, 72, 0.863);
   text-transform: capitalize;
+  text-shadow: 1px 1px 1px black;
 }
 
 .content {
@@ -287,7 +286,6 @@ footer {
   margin: 1em 0em;
   text-align: center;
   padding-top: 1em;
-  border-top: 1px solid #242424;
 }
 footer .warningMes {
   display: block;

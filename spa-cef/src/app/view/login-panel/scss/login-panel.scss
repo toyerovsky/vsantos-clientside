@@ -1,5 +1,5 @@
 // Local color palette
-$login-box-background:hsla(0, 0%, 0%, 0.432);
+$login-box-background:hsla(0, 0%, 0%, 0.678);
 $title-color:#b9b9b9;
 $form-default-color: #ffffff;
 $form-input-border-bottom:hsla(125, 67%, 57%, 0.557);
@@ -17,10 +17,9 @@ $button-background-hover: #4fc94b;
     height: auto;
     background-color: $login-box-background;
     position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
+    top: 34vh;
+    left: 12vh;
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.39);
     .title {
         width: 100%;
         padding: 1em 1em;

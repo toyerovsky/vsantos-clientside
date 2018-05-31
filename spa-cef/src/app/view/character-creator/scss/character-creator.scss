@@ -19,13 +19,11 @@ $saveFirst-background: #44b156;
 $saveFirst-background-hover: #158828;
 $saveFirst-color: #ffffff;
 
-$footer-border: #242424;
 
 main{
   position: absolute;
-  top: 35%;
-  left: 20%;
-  transform: translate(-50%, -50%);
+  top: 17vh;
+  left: 12vh;
   width: 26em;
   max-height: 35em;
   background-color: $creator-box-background;
@@ -42,6 +40,7 @@ header {
   font-size: 3em;
   background-color: $header-background;
   text-transform: capitalize;
+  text-shadow: 1px 1px 1px black;
 }
 
 
@@ -80,7 +79,6 @@ footer {
   margin: 1em 0em;
   text-align: center;
   padding-top: 1em;
-  border-top: 1px solid $footer-border;
   .warningMes {
     display: block;
     width: 100%;

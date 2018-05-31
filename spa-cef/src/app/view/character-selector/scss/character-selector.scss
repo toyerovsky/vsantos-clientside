@@ -1,5 +1,5 @@
 // Local color palette
-$main-background:hsla(0, 0%, 0%, 0.507);
+$main-background:hsla(0, 0%, 0%, 0.589);
 
 $clicked-character-border: #6fa854;
 $static-text-color: #a7b9a8;
@@ -10,8 +10,7 @@ $btn-start-background-hover: #56bb27;
 
 main{
   position: absolute;
-  top: 50%;
-  transform: translate(0%,-50%);
+  top: 30vh;
 
   width: 100%;
   height: auto;
@@ -110,9 +109,9 @@ main{
         background-color: $btn-start-background;
         color: $btn-change-color;
         text-transform: uppercase;
-        padding: .5em 3em;
+        padding: .3em 2em;
         margin: 0em 0em;
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: medium;
         border-radius: .3em;
         -webkit-user-select: none;
@@ -125,7 +124,7 @@ main{
 
       .new_character{
         margin-left: 3vw;
-        padding: .5em 1.7em;
+        padding: .3em 1em;
       }
     }
   }
