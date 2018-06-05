@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://api.cherro.pl'
+  apiUrl: 'http://localhost:53416'
 };
 
 /*

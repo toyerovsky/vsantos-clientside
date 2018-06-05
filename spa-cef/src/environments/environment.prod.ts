@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://api.cherro.pl'
+  apiUrl: 'http://localhost:53416'
 };
