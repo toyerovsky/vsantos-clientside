@@ -15,6 +15,7 @@ import { CharacterCreatorMoreAppearanceComponent } from './view/character-creato
 import { CharacterCreatorClothesComponent } from './view/character-creator/elements/character-creator-clothes/character-creator-clothes.component';
 import { CharacterCreatorCarComponent } from './view/character-creator/elements/character-creator-car/character-creator-car.component';
 import { CharacterCreatorCarModelsComponent } from "./view/character-creator/elements/character-creator-car/character-creator-car-models/character-creator-car-models.component";
+import { CharacterCreatorInfoComponent } from "./view/character-creator/elements/character-creator-info/character-creator-info.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
     {
         path: 'charactercreator', component: CharacterCreatorComponent, children: [
             { path: '', component: CharacterCreatorMenuComponent },
+            { path: 'info', component: CharacterCreatorInfoComponent },
             { path: 'appearance', component: CharacterCreatorAppearanceComponent },
             { path: 'roots', component: CharacterCreatorAppearanceRootsComponent },
             { path: 'features', component: CharacterCreatorFeaturesComponent },
