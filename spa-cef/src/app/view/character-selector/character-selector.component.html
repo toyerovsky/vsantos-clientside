@@ -1,31 +1,35 @@
-<ng-container *ngIf="character">
+<ng-container>
   <!-- #region main-->
   <main>
     <section class="content">
       <!-- #region character-details -->
-      <section class="character-info">
-        <span class="information">
-          <span class="static-text">Imie i Nazwisko: </span>
-          {{character.name}} {{character.surname}}
-        </span>
+      <section>
+        <section class="character-info">
+          <div *ngIf="character">
+            <span class="information">
+              <span class="static-text">Imie i Nazwisko: </span>
+              {{character.name}} {{character.surname}}
+            </span>
 
-        <span class="information">
-          <span class="static-text">Stan konta: </span>
-          ${{character.money}}
-        </span>
+            <span class="information">
+              <span class="static-text">Stan konta: </span>
+              ${{character.money}}
+            </span>
 
-        <span class="information">
-          <span class="static-text">Ostanie logowanie: </span>
-          {{character.lastLoginTime}}
-        </span>
-      </section>
-      <!-- #endregion character-details -->
+            <span class="information">
+              <span class="static-text">Ostanie logowanie: </span>
+              {{character.lastLoginTime}}
+            </span>
+          </div>
+        </section>
+        <!-- #endregion character-details -->
 
-      <!-- #region player_characters -->
-      <section class="characters">
-        <div *ngFor="let character of characters" (click)="clickHandler(character)" class="character">
-          <img src="https://i.imgur.com/oI37y0a.jpg" />
-        </div>
+        <!-- #region player_characters -->
+        <section class="characters">
+          <div *ngFor="let character of characters" (click)="clickHandler(character)" class="character">
+            <img src="https://i.imgur.com/oI37y0a.jpg" />
+          </div>
+        </section>
       </section>
       <!-- #endregion player_characters -->
 
@@ -52,4 +56,3 @@
   </span>
   <!-- #endregion vlogo-->
 </ng-container>
-
