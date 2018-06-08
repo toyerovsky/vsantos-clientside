@@ -19,8 +19,6 @@ import { CharacterCreatorMoreAppearanceComponent } from './view/character-creato
 import { CharacterCreatorClothesComponent } from './view/character-creator/elements/character-creator-clothes/character-creator-clothes.component';
 import { CharacterCreatorCarComponent } from './view/character-creator/elements/character-creator-car/character-creator-car.component';
 import { CharacterCreatorCarModelsComponent } from './view/character-creator/elements/character-creator-car/character-creator-car-models/character-creator-car-models.component';
-import { CharactercreatorcharacterinfoComponent } from './view/character-creator/elements/charactercreatorcharacterinfo/charactercreatorcharacterinfo.component';
-import { CharacterCreatorCharacterInfoComponent } from './view/character-creator/elements/character-creator-character-info/character-creator-character-info.component';
 import { CharacterCreatorInfoComponent } from './view/character-creator/elements/character-creator-info/character-creator-info.component';
 // components
 // services
@@ -45,8 +43,7 @@ import { CharacterCreatorInfoComponent } from './view/character-creator/elements
     CharacterCreatorClothesComponent,
     CharacterCreatorCarComponent,
     CharacterCreatorCarModelsComponent,
-    CharactercreatorcharacterinfoComponent,
-    CharacterCreatorCharacterInfoComponent,
+    CharacterCreatorInfoComponent,
     CharacterCreatorInfoComponent
   ],
   providers: [AccountService, CharacterService],
