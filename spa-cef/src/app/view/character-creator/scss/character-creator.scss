@@ -1,4 +1,5 @@
-@import './subcategories.scss';
+@import './.subcategories.scss';
+@import url("./scss/font-awesome/font-awesome.min.css");
 
 @font-face{
     font-family: 'SignPainter-HouseScript';
@@ -43,7 +44,6 @@ header {
   text-shadow: 1px 1px 1px black;
 }
 
-
 .content {
   max-height: 25em;
   .menu {
@@ -70,6 +70,34 @@ header {
         background-color: $category-background-hover;
       }
     }
+
+    .input{
+      display: -webkit-flex;
+      flex-direction: row;
+      box-sizing: border-box;
+
+      input[type=text]{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        font-size: 1.3em;
+        padding-right: 1em;
+        text-align: right;
+        background: none;
+        outline:none;
+        border:none;
+        color: $category-color;
+        &::placeholder{ color: #d1d1d1; }
+      }
+
+      &:hover{
+        cursor: default;
+        input[type=text]{
+          color: $category-color-hover;
+          &::placeholder{ color: $category-color-hover; }
+        }
+      }
+    }
   }
 }
 
@@ -80,20 +108,21 @@ footer {
   text-align: center;
   padding-top: 1em;
   .warningMes {
+    box-sizing: border-box;
     display: block;
     width: 100%;
     padding: 0em .5em;
     margin-bottom: 1em;
-    font-size: .9em;
+    font-size: .86em;
     color: $warningMes-color;
     text-align: left;
   }
-  .saveFirst {
+  .first {
     margin-top: 1em;
-    padding: .3em 1.3em;
+    padding: .3em 1.1em;
     outline: none;
     border: none;
-    font-size: 1.1em;
+    font-size: 1em;
     background-color: $saveFirst-background;
     color: $saveFirst-color;
     border-radius: .1em;

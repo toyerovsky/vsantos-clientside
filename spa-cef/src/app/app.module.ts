@@ -11,15 +11,14 @@ import { CharacterService } from './service/character.service';
 import { CharacterSelectorComponent } from './view/character-selector/character-selector.component';
 import { LoginPanelComponent } from './view/login-panel/login-panel.component';
 import { CharacterCreatorComponent } from './view/character-creator/character-creator.component';
-import { CharacterCreatorMenuComponent } from './view/character-creator/elements/character-creator-menu/character-creator-menu.component';
-import { CharacterCreatorAppearanceComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-appearance.component';
-import { CharacterCreatorAppearanceRootsComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-appearance-roots/character-creator-appearance-roots.component';
-import { CharacterCreatorFeaturesComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-features/character-creator-features.component';
-import { CharacterCreatorMoreAppearanceComponent } from './view/character-creator/elements/character-creator-appearance/character-creator-more-appearance/character-creator-more-appearance.component';
-import { CharacterCreatorClothesComponent } from './view/character-creator/elements/character-creator-clothes/character-creator-clothes.component';
-import { CharacterCreatorCarComponent } from './view/character-creator/elements/character-creator-car/character-creator-car.component';
-import { CharacterCreatorCarModelsComponent } from './view/character-creator/elements/character-creator-car/character-creator-car-models/character-creator-car-models.component';
-import { CharacterCreatorInfoComponent } from './view/character-creator/elements/character-creator-info/character-creator-info.component';
+import { CharacterCreatorRoutingComponent } from './view/character-creator/character-creator-routing/character-creator-routing.component';
+import { CharacterCreatorAppearanceComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/character-creator-appearance.component';
+import { CharacterCreatorClothesComponent } from './view/character-creator/character-creator-routing/elements/character-creator-clothes/character-creator-clothes.component';
+import { CharacterCreatorCarComponent } from './view/character-creator/character-creator-routing/elements/character-creator-car/character-creator-car.component';
+import { CharacterCreatorAppearanceRootsComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-roots/character-creator-appearance-roots.component';
+import { CharacterCreatorAppearanceFeaturesComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-features/character-creator-appearance-features.component';
+import { CharacterCreatorAppearanceMoreComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-more/character-creator-appearance-more.component';
+import { CharacterCreatorCarModelsComponent } from './view/character-creator/character-creator-routing/elements/character-creator-car/elements/character-creator-car-models/character-creator-car-models.component';
 // components
 // services
 @NgModule({
@@ -35,16 +34,14 @@ import { CharacterCreatorInfoComponent } from './view/character-creator/elements
     LoginPanelComponent,
     CharacterSelectorComponent,
     CharacterCreatorComponent,
-    CharacterCreatorMenuComponent,
+    CharacterCreatorRoutingComponent,
     CharacterCreatorAppearanceComponent,
-    CharacterCreatorAppearanceRootsComponent,
-    CharacterCreatorFeaturesComponent,
-    CharacterCreatorMoreAppearanceComponent,
     CharacterCreatorClothesComponent,
     CharacterCreatorCarComponent,
-    CharacterCreatorCarModelsComponent,
-    CharacterCreatorInfoComponent,
-    CharacterCreatorInfoComponent
+    CharacterCreatorAppearanceRootsComponent,
+    CharacterCreatorAppearanceFeaturesComponent,
+    CharacterCreatorAppearanceMoreComponent,
+    CharacterCreatorCarModelsComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],

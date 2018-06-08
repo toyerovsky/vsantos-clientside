@@ -1,6 +1,53 @@
 <!-- #region main-->
 <main>
-  <router-outlet></router-outlet>
+  <header>
+    Kreator postaci
+  </header>
+
+  <div class="content">
+    <ul class="menu category">
+      <li class="input">
+        <p>Imie</p>
+        <input type="text" placeholder="Michael">
+      </li>
+
+      <li class="input">
+        <p>Nazwisko</p>
+        <input type="text" placeholder="De Santa">
+      </li>
+
+      <li class="input">
+        <p>Wiek</p>
+        <input type="text" placeholder="45">
+      </li>
+
+      <li routerLink="/charactercreator/appearance">Zmień wygląd postaci</li>
+      <li routerLink="/charactercreator/clothes">Zmień ubiór</li>
+      <li routerLink="/charactercreator/car">Wybierz startowy pojazd</li>
+    </ul>
+  </div>
+
+
+  <footer>
+    <span class="warningMes">
+      Pamiętaj, że wygląd postaci jak i pojazd startowy możesz ustawić tylko teraz. Później nie ma możliwości zmiany wyglądu (rys
+      twarzy, fryzury) postaci.
+    </span>
+
+    <div class="buttons">
+      <button class="first">
+        Losuj Wygląd
+      </button>
+
+      <button class="first">
+        Zapisz Postać
+      </button>
+
+      <button class="first">
+        Anuluj
+      </button>
+    </div>
+  </footer>
 </main>
 <!-- #endregion main-->
 
