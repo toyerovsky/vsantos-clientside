@@ -24,6 +24,7 @@ import { GroupMenuSummaryComponent } from './view/group-menu/elements/group-menu
 import { GroupMenuAboutComponent } from './view/group-menu/elements/group-menu-about/group-menu-about.component';
 import { GroupMenuOnlineComponent } from './view/group-menu/elements/group-menu-online/group-menu-online.component';
 import { GroupMenuManagementComponent } from './view/group-menu/elements/group-menu-management/group-menu-management.component';
+import { CasualJobComponent } from './view/casual-job/casual-job.component';
 // components
 // services
 @NgModule({
@@ -51,7 +52,8 @@ import { GroupMenuManagementComponent } from './view/group-menu/elements/group-m
     GroupMenuSummaryComponent,
     GroupMenuAboutComponent,
     GroupMenuOnlineComponent,
-    GroupMenuManagementComponent
+    GroupMenuManagementComponent,
+    CasualJobComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],

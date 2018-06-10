@@ -1,3 +1,4 @@
+import { CasualJobComponent } from './view/casual-job/casual-job.component';
 // mopdules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -48,7 +49,8 @@ const routes: Routes = [
         { path: 'online', component: GroupMenuOnlineComponent },
         { path: 'management', component: GroupMenuManagementComponent }
       ]
-    }
+    },
+    { path: 'casualjob', component: CasualJobComponent }
 ];
 
 @NgModule({
