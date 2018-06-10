@@ -21,9 +21,12 @@
         <input type="text" placeholder="45">
       </li>
 
-      <li routerLink="/charactercreator/appearance">Zmień wygląd postaci</li>
-      <li routerLink="/charactercreator/clothes">Zmień ubiór</li>
-      <li routerLink="/charactercreator/car">Wybierz startowy pojazd</li>
+      <li class="input">
+        <input class="skin-checkbox" id="skin-checkbox" type="checkbox">
+        <label for="skin-checkbox">Wybierz gotowego skina</label>
+      </li>
+
+      <li routerLink="/charactercreator/appearance">Personalizuj wygląd</li>
     </ul>
   </div>
 
@@ -35,10 +38,6 @@
     </span>
 
     <div class="buttons">
-      <button class="first">
-        Losuj Wygląd
-      </button>
-
       <button class="first">
         Zapisz Postać
       </button>

@@ -37,10 +37,130 @@ img {
   -webkit-user-drag: none;
 }
 
+/* #region window-elements */
+.window{
+  position: absolute;
+  top: 11em;
+  right: 7em;
+  min-width: 25em;
+  max-width: 33em;
+  box-sizing: border-box;
+
+  background: hsla(0, 0%, 0%, 0.733);
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
+
+  .header{
+    width: 100%;
+    padding: .4em 1em;
+    background: hsla(120, 42%, 49%, 0.863);
+
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'SignPainter-HouseScript';
+
+    .big-text{
+      font-size: 3em;
+    }
+
+    .small-text{
+      font-size: 1.6em;
+      margin-top: 1em;
+    }
+  }
+
+  .content{
+    padding-bottom: .7em;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    list-style-type: none;
+    max-height: 25em;
+
+    li{
+      display: block;
+      box-sizing: border-box;
+      overflow: hidden;
+      width: 100%;
+      padding: .1em 1em;
+      margin-top: .8em;
+      font-size: 1.05em;
+    }
+
+    .goto{
+      font-size: 1.2em;
+    }
+
+    .flex{
+      display: -webkit-flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .select{&:hover{
+      cursor: pointer;
+      background-color: #fff;
+      color: #000000;
+      .marginal,.static-text{ color: initial; }
+    }}
+  }
+
+  .footer{
+    width: 100%;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: .4em 0em;
+  }
+
+  /* #region independent elements */
+  .button{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    color: #fff;
+    padding: .6em;
+
+    &:hover{
+      cursor: pointer;
+      color: #b9b9b9;
+    }
+  }
+  .static-text{
+    font-size: 1.15em;
+    padding-right: .3em;
+    color: #a6c2a8;
+    flex: 1;
+  }
+  .marginal{
+    padding-left: .1em;
+    line-height: 250%;
+    font-size: .8em;
+    color: #869180;
+  }
+  .number{
+    font-size: 1.3em;
+  }
+  .biggest-text{
+    font-size: 1.2em;
+  }
+  .input{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    &:placeholder{ color: #fff; }
+    &:focus{color: #5dad5d; &:placeholder{color: #5dad5d; }}
+  }
+  /* #endregion independent elements */
+}
+/* #endregion window-elements */
 
 // SCROLLBAR
 .scrollbar {
-    overflow-y: scroll;
+    overflow-y: scroll!important;
 }
 
 ::-webkit-scrollbar {
