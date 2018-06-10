@@ -1,4 +1,4 @@
-import { CasualJobComponent } from './view/casual-job/casual-job.component';
+import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
 // mopdules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 // components
 import { LoginPanelComponent } from "./view/login-panel/login-panel.component";
 import { CharacterSelectorComponent } from "./view/character-selector/character-selector.component";
+import { CasualJobComponent } from './view/casual-job/casual-job.component';
 // character-creator
 import { CharacterCreatorComponent } from './view/character-creator/character-creator.component';
 import { CharacterCreatorRoutingComponent } from './view/character-creator/character-creator-routing/character-creator-routing.component';
@@ -22,6 +23,7 @@ import { GroupMenuSummaryComponent } from './view/group-menu/elements/group-menu
 import { GroupMenuAboutComponent } from './view/group-menu/elements/group-menu-about/group-menu-about.component';
 import { GroupMenuOnlineComponent } from './view/group-menu/elements/group-menu-online/group-menu-online.component';
 import { GroupMenuManagementComponent } from './view/group-menu/elements/group-menu-management/group-menu-management.component';
+
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -50,7 +52,8 @@ const routes: Routes = [
         { path: 'management', component: GroupMenuManagementComponent }
       ]
     },
-    { path: 'casualjob', component: CasualJobComponent }
+    { path: 'casualjob', component: CasualJobComponent },
+    { path: 'drivethru', component: DriveThruComponent }
 ];
 
 @NgModule({

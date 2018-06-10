@@ -25,7 +25,7 @@ import { GroupMenuAboutComponent } from './view/group-menu/elements/group-menu-a
 import { GroupMenuOnlineComponent } from './view/group-menu/elements/group-menu-online/group-menu-online.component';
 import { GroupMenuManagementComponent } from './view/group-menu/elements/group-menu-management/group-menu-management.component';
 import { CasualJobComponent } from './view/casual-job/casual-job.component';
-// components
+import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
 // services
 @NgModule({
   imports: [
@@ -53,7 +53,8 @@ import { CasualJobComponent } from './view/casual-job/casual-job.component';
     GroupMenuAboutComponent,
     GroupMenuOnlineComponent,
     GroupMenuManagementComponent,
-    CasualJobComponent
+    CasualJobComponent,
+    DriveThruComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],
