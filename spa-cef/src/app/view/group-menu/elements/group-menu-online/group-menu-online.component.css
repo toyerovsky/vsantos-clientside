@@ -1,0 +1,23 @@
+.information{
+  padding: .3em 1.2em;
+  padding-bottom: 0em;
+  padding-right: 6em;
+  text-align: center;
+  color: #6e7e6a;
+  font-size: 1.2em;
+}
+
+li, .information {
+  display: -webkit-flex!important;
+  flex-direction: row!important;
+  justify-content: space-between!important;
+}
+
+.more{
+  font-size: .86em;
+  color: #a1a1a1;
+}
+.more:hover{
+  cursor: pointer;
+  color: #ffffff;
+}

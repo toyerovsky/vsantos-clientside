@@ -1,0 +1,26 @@
+.content{
+  box-sizing: border-box;
+  padding: .3em 1em;
+  border: 1px solid hsla(103, 32%, 33%, 0.384);
+
+  .pearson{
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .rank{
+      font-size: 1em;
+      color: #a6c2a8;
+    }
+  }
+
+  .payment{
+    box-sizing: border-box;
+    padding: 0em 1em;
+    .buttons{
+      .button{
+        font-size: 1em;
+      }
+    }
+  }
+}

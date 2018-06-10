@@ -1,0 +1,41 @@
+<main class="window" style="max-width:50em;">
+  <header class="header">
+    <p class="big-text">Menu grupy</p>
+    <p class="small-text">zarzadzanie</p>
+  </header>
+
+  <ul class="content scrollbar">
+    <!-- #region one-pearson -->
+    <li><div class="content">
+      <div class="pearson">
+        <span class="name">Clarence Morrow
+            <span class="marginal">(<span class="number">21</span>)</span>
+        </span>
+        <span class="rank">President</span>
+      </div>
+
+      <div class="payment">
+        <span class="inputBox">
+          <label>$ </label>
+          <input class="input" type="text" placeholder="Wpisz kwote">
+        </span>
+
+        <span class="buttons">
+          <button class="button">Wpłać</button>
+          <button class="button">Wypłać</button>
+        </span>
+      </div>
+    </div></li>
+    <!-- #endregion one-pearson-->
+  </ul>
+
+  <footer class="footer">
+    <button (click)="previousPage()" class="button">
+      Wróć
+    </button>
+
+    <button class="button">
+      Wyjdź
+    </button>
+  </footer>
+</main>

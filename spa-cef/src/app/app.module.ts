@@ -19,6 +19,11 @@ import { CharacterCreatorAppearanceRootsComponent } from './view/character-creat
 import { CharacterCreatorAppearanceFeaturesComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-features/character-creator-appearance-features.component';
 import { CharacterCreatorAppearanceMoreComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-more/character-creator-appearance-more.component';
 import { CharacterCreatorCarModelsComponent } from './view/character-creator/character-creator-routing/elements/character-creator-car/elements/character-creator-car-models/character-creator-car-models.component';
+import { GroupMenuComponent } from './view/group-menu/group-menu.component';
+import { GroupMenuSummaryComponent } from './view/group-menu/elements/group-menu-summary/group-menu-summary.component';
+import { GroupMenuAboutComponent } from './view/group-menu/elements/group-menu-about/group-menu-about.component';
+import { GroupMenuOnlineComponent } from './view/group-menu/elements/group-menu-online/group-menu-online.component';
+import { GroupMenuManagementComponent } from './view/group-menu/elements/group-menu-management/group-menu-management.component';
 // components
 // services
 @NgModule({
@@ -41,7 +46,12 @@ import { CharacterCreatorCarModelsComponent } from './view/character-creator/cha
     CharacterCreatorAppearanceRootsComponent,
     CharacterCreatorAppearanceFeaturesComponent,
     CharacterCreatorAppearanceMoreComponent,
-    CharacterCreatorCarModelsComponent
+    CharacterCreatorCarModelsComponent,
+    GroupMenuComponent,
+    GroupMenuSummaryComponent,
+    GroupMenuAboutComponent,
+    GroupMenuOnlineComponent,
+    GroupMenuManagementComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],

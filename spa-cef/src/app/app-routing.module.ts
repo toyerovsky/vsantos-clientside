@@ -15,6 +15,12 @@ import { CharacterCreatorAppearanceComponent } from './view/character-creator/ch
 import { CharacterCreatorAppearanceRootsComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-roots/character-creator-appearance-roots.component';
 import { CharacterCreatorAppearanceMoreComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-more/character-creator-appearance-more.component';
 import { CharacterCreatorAppearanceFeaturesComponent } from './view/character-creator/character-creator-routing/elements/character-creator-appearance/elements/character-creator-appearance-features/character-creator-appearance-features.component';
+// group-menu
+import { GroupMenuComponent } from './view/group-menu/group-menu.component';
+import { GroupMenuSummaryComponent } from './view/group-menu/elements/group-menu-summary/group-menu-summary.component';
+import { GroupMenuAboutComponent } from './view/group-menu/elements/group-menu-about/group-menu-about.component';
+import { GroupMenuOnlineComponent } from './view/group-menu/elements/group-menu-online/group-menu-online.component';
+import { GroupMenuManagementComponent } from './view/group-menu/elements/group-menu-management/group-menu-management.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,6 +38,15 @@ const routes: Routes = [
         { path: 'clothes', component: CharacterCreatorClothesComponent },
         { path: 'car', component: CharacterCreatorCarComponent },
           {path: 'car/models', component: CharacterCreatorCarModelsComponent }
+      ]
+    },
+    {
+      path: 'groupmenu', component: GroupMenuComponent, children:
+      [
+        { path: '', component: GroupMenuSummaryComponent },
+        { path: 'about', component: GroupMenuAboutComponent },
+        { path: 'online', component: GroupMenuOnlineComponent },
+        { path: 'management', component: GroupMenuManagementComponent }
       ]
     }
 ];
