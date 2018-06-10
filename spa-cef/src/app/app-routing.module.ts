@@ -1,4 +1,3 @@
-import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
 // mopdules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPanelComponent } from "./view/login-panel/login-panel.component";
 import { CharacterSelectorComponent } from "./view/character-selector/character-selector.component";
 import { CasualJobComponent } from './view/casual-job/casual-job.component';
+import { UrbanShopComponent } from './view/urban-shop/urban-shop.component';
+import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
 // character-creator
 import { CharacterCreatorComponent } from './view/character-creator/character-creator.component';
 import { CharacterCreatorRoutingComponent } from './view/character-creator/character-creator-routing/character-creator-routing.component';
@@ -53,7 +54,8 @@ const routes: Routes = [
       ]
     },
     { path: 'casualjob', component: CasualJobComponent },
-    { path: 'drivethru', component: DriveThruComponent }
+    { path: 'drivethru', component: DriveThruComponent },
+    { path: 'urbanshop', component: UrbanShopComponent }
 ];
 
 @NgModule({
