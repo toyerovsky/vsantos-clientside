@@ -13,5 +13,5 @@ export class CharacterCreatorRoutingComponent implements OnInit {
   ngOnInit() {
   }
 
-  private previousPage(){ this.location.back(); }
+  private previousPage() { this.location.back(); }
 }

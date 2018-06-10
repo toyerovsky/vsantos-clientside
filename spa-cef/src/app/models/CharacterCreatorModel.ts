@@ -1,0 +1,42 @@
+export class CharacterCreatorModel {
+    name: string;
+    surname: string;
+    model: string;
+    gender: string;
+    age: number;
+    characterLook: {
+        accessoryId: number;
+        accessoryTexture: number;
+        earsId: number;
+        earsTexture: number;
+        eyebrowsId: number;
+        eyeBrowsOpacity: number;
+        fatherId: number;
+        shoesId: number;
+        shoesTexture: number;
+        firstEyebrowsColor: number;
+        firstLipstickColor: number;
+        firstMakeupColor: number;
+        glassesId: number;
+        glassesTexture: number;
+        hairId: number;
+        hairTexture: number;
+        hairColor: number;
+        hatId: number;
+        hatTexture: number;
+        legsId: number;
+        legsTexture: number;
+        lipstickOpacity: number;
+        makeupId: number;
+        makeupOpacity: number;
+        motherId: number;
+        secondEyebrowsColor: number;
+        secondLipstickColor: number;
+        secondMakeupColor: number;
+        shapeMix: number;
+        topId: number;
+        topTexture: number;
+        torsoId: number;
+        undershirtId: number;
+    };
+}
