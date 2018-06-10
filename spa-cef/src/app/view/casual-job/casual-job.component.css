@@ -1,3 +1,8 @@
+.select-options{
+  padding-top: .15em;
+  float:left;
+}
+
 .select-options select {
   display: inline-block;
   width: 100%;
@@ -18,8 +23,7 @@
   display: none;
 }
 
-.select-options select:hover,
-.select-options select:focus {
+.select-options select:hover {
   color: #000000;
 }
 
