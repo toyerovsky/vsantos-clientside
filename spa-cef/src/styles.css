@@ -172,6 +172,9 @@ img {
       -ms-flex: 1;
           flex: 1;
 }
+.window .biggest-text {
+  font-size: 1.2em !important;
+}
 .window .marginal {
   padding-left: .1em;
   line-height: 250%;
