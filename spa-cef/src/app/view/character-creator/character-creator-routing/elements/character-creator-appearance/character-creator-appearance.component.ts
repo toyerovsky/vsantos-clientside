@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ISelectorElement } from '../../../../../components/selector/interfaces/ISelectorElement';
 
 @Component({
   selector: 'app-character-creator-appearance',
@@ -6,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../../character-creator.component.css']
 })
 export class CharacterCreatorAppearanceComponent implements OnInit {
+  private _genderList: ISelectorElement[] = [
+    {
+      displayName: 'Mężczyzna'
+    },
+    {
+      displayName: 'Kobieta'
+    }
+  ]
 
   constructor() { }
 

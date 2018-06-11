@@ -1,6 +1,7 @@
 import { environment } from '../../environments/environment';
 
 import { CharacterModel } from '../models/CharacterModel';
+import { CharacterCreatorModel } from '../models/CharacterCreatorModel';
 
 import { Injectable } from '@angular/core';
 
@@ -11,7 +12,8 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService extends AbstractService {
-
+    public characterCreatorModel: CharacterCreatorModel;
+    
     constructor(private _http: HttpClient) {
         super();
     }

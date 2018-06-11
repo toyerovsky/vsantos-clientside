@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from '../../service/character.service';
+import { CharacterCreatorModel } from '../../models/CharacterCreatorModel';
 
 @Component({
   selector: 'app-character-creator',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-creator.component.css']
 })
 export class CharacterCreatorComponent implements OnInit {
+  private _freemodeCharacter: Boolean = false;
 
-  constructor() { }
+  constructor(private _characterService: CharacterService) { }
 
   ngOnInit() {
+    this._characterService.characterCreatorModel = new CharacterCreatorModel();
   }
-
 }

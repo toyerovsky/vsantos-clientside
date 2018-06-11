@@ -7,26 +7,26 @@
   <div class="content">
     <ul class="menu category">
       <li class="input">
-        <p>Imie</p>
-        <input type="text" placeholder="Michael">
+        <p>Imię</p>
+        <input [(ngModel)]="this._characterService.characterCreatorModel.name" type="text" maxlength="20" placeholder="Imię">
       </li>
 
       <li class="input">
         <p>Nazwisko</p>
-        <input type="text" placeholder="De Santa">
+        <input [(ngModel)]="this._characterService.characterCreatorModel.surname" type="text" maxlength="20" placeholder="Nazwisko">
       </li>
 
       <li class="input">
         <p>Wiek</p>
-        <input type="text" placeholder="45">
+        <input [(ngModel)]="this._characterService.characterCreatorModel.age" type="text" maxlength="2" placeholder="Wiek">
       </li>
 
       <li class="input">
-        <input class="skin-checkbox" id="skin-checkbox" type="checkbox">
-        <label for="skin-checkbox">Wybierz gotowego skina</label>
+        <input [(ngModel)]="this._freemodeCharacter" class="skin-checkbox" id="skin-checkbox" type="checkbox">
+        <label for="skin-checkbox">Dostosuj unikalny wygląd</label>
       </li>
 
-      <li routerLink="/charactercreator/appearance">Personalizuj wygląd</li>
+      <li routerLink="this._freemodeCharacter ? /charactercreator/appearance : /charactercreator/appearance">Wygląd</li>
     </ul>
   </div>
 

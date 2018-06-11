@@ -30,6 +30,7 @@ import { UrbanShopComponent } from './view/urban-shop/urban-shop.component';
 import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
 import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
 import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
+import { SelectorComponent } from './components/selector/selector.component';
 // services
 @NgModule({
   imports: [
@@ -62,7 +63,8 @@ import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars
     UrbanShopComponent,
     BankMenuComponent,
     PlayerCarsComponent,
-    PlayerCarsMoreComponent
+    PlayerCarsMoreComponent,
+    SelectorComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],
