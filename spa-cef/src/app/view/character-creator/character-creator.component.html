@@ -26,7 +26,11 @@
         <label for="skin-checkbox">Dostosuj unikalny wygląd</label>
       </li>
 
-      <li routerLink="this._freemodeCharacter ? /charactercreator/appearance : /charactercreator/appearance">Wygląd</li>
+      <li *ngIf="this._freemodeCharacter" routerLink="/charactercreator/appearance">Wygląd</li>
+      <li class="input">
+        <p>Skin</p>
+        <app-selector *ngIf="!this._freemodeCharacter" [elements]="this._skins"></app-selector>
+      </li>
     </ul>
   </div>
 
