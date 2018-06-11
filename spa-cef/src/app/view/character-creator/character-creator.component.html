@@ -27,9 +27,9 @@
       </li>
 
       <li *ngIf="this._freemodeCharacter" routerLink="/charactercreator/appearance">Wygląd</li>
-      <li class="input">
+      <li *ngIf="!this._freemodeCharacter" class="input">
         <p>Skin</p>
-        <app-selector *ngIf="!this._freemodeCharacter" [elements]="this._skins"></app-selector>
+        <app-selector [elements]="this._skins"></app-selector>
       </li>
     </ul>
   </div>

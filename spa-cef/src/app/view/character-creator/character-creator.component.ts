@@ -16,6 +16,5 @@ export class CharacterCreatorComponent implements OnInit {
   constructor(private _characterService: CharacterService) { }
 
   ngOnInit() {
-    this._characterService.characterCreatorModel = new CharacterCreatorModel();
   }
 }

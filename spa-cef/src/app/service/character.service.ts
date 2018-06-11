@@ -12,8 +12,8 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService extends AbstractService {
-    public characterCreatorModel: CharacterCreatorModel;
-    
+    public characterCreatorModel: CharacterCreatorModel = new CharacterCreatorModel();
+
     constructor(private _http: HttpClient) {
         super();
     }

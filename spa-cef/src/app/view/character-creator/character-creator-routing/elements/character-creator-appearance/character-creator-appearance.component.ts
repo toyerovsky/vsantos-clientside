@@ -14,7 +14,7 @@ export class CharacterCreatorAppearanceComponent implements OnInit {
     {
       displayName: 'Kobieta'
     }
-  ]
+  ];
 
   constructor() { }
 
