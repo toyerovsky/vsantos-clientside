@@ -24,4 +24,9 @@ export class CharacterService extends AbstractService {
                 catchError(this.handleError('character.service getByAccountId()'))
             );
     }
+
+    public post(character: CharacterCreatorModel): Observable<CharacterCreatorModel> {
+        this._http.post<CharacterCreatorModel>(`${environment.apiUrl}/api/character`, character);
+
+    }
 }

@@ -22,7 +22,7 @@ export class SelectorComponent implements OnInit {
   next() {
     this._currentIndex++;
     this._currentIndex = this._currentIndex % this.elements.length;
-    let element = this.elements[this._currentIndex];
+    let element = this.elements[Math.abs(this._currentIndex)];
     this._currentElement = element.displayName;
     this.change.emit(element);
   }
