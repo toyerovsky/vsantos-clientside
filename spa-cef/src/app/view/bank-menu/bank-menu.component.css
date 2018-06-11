@@ -1,0 +1,30 @@
+.inputSpace{
+  box-sizing: border-box;
+  width: 14.5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  padding: .2em;
+  border-radius: 10px;
+  /* border: 1px solid #379737; */
+  background: hsla(0, 0%, 0%, 0.219);
+}
+.dolar{
+  position: absolute;
+  top: 2.86em;
+  font-size: 2em;
+  padding-left: .2em;
+}
+input{
+  width: 100%;
+  height: 100%;
+  height: 2.2em;
+  box-sizing: border-box;
+  /* text-align: center; */
+  font-size: 2em!important;
+  padding-left: .9em;
+}
+
+.content{
+  text-align: center!important;
+}

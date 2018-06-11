@@ -8,6 +8,7 @@ import { CharacterSelectorComponent } from "./view/character-selector/character-
 import { CasualJobComponent } from './view/casual-job/casual-job.component';
 import { UrbanShopComponent } from './view/urban-shop/urban-shop.component';
 import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
+import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
 // character-creator
 import { CharacterCreatorComponent } from './view/character-creator/character-creator.component';
 import { CharacterCreatorRoutingComponent } from './view/character-creator/character-creator-routing/character-creator-routing.component';
@@ -55,7 +56,8 @@ const routes: Routes = [
     },
     { path: 'casualjob', component: CasualJobComponent },
     { path: 'drivethru', component: DriveThruComponent },
-    { path: 'urbanshop', component: UrbanShopComponent }
+    { path: 'urbanshop', component: UrbanShopComponent },
+    { path: 'bankmenu', component: BankMenuComponent }
 ];
 
 @NgModule({

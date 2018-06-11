@@ -27,6 +27,7 @@ import { GroupMenuManagementComponent } from './view/group-menu/elements/group-m
 import { CasualJobComponent } from './view/casual-job/casual-job.component';
 import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
 import { UrbanShopComponent } from './view/urban-shop/urban-shop.component';
+import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
 // services
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { UrbanShopComponent } from './view/urban-shop/urban-shop.component';
     GroupMenuManagementComponent,
     CasualJobComponent,
     DriveThruComponent,
-    UrbanShopComponent
+    UrbanShopComponent,
+    BankMenuComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],
