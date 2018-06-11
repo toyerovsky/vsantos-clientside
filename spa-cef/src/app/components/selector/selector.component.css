@@ -1,0 +1,28 @@
+@import url("../../../assets/font-awesome/font-awesome.min.css");
+
+.value{
+  display: block;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.value i{
+  display: block;
+  padding: .3em .35em;
+  padding-bottom: 0;
+  font-weight: medium;
+}
+
+.value i:hover{
+  cursor: pointer;
+  color:#3ba130;
+}
+
+.name{
+  display: block;
+}
+
+.similarity-value{
+  display: -webkit-flex;
+}
