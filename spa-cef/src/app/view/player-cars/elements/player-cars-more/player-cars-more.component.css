@@ -1,0 +1,22 @@
+.img{
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.img img{
+  max-height: 200px;
+  border: 2px solid black;
+  border-bottom: 0;
+  border-top:0;
+  /* border-radius: 10px; */
+}
+
+.marginal{
+  font-size: 1em;
+  line-height: 0%;
+}

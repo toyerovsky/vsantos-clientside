@@ -28,6 +28,8 @@ import { CasualJobComponent } from './view/casual-job/casual-job.component';
 import { DriveThruComponent } from './view/drive-thru/drive-thru.component';
 import { UrbanShopComponent } from './view/urban-shop/urban-shop.component';
 import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
+import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
+import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
 // services
 @NgModule({
   imports: [
@@ -58,7 +60,9 @@ import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
     CasualJobComponent,
     DriveThruComponent,
     UrbanShopComponent,
-    BankMenuComponent
+    BankMenuComponent,
+    PlayerCarsComponent,
+    PlayerCarsMoreComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],

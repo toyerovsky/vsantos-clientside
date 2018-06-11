@@ -1,0 +1,70 @@
+.window {
+  width: 30em !important;
+}
+
+.table-information {
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: .3em 2em;
+  padding-right: 13.1em;
+  text-transform: uppercase;
+  color: #7c997b;
+  background: rgba(0, 0, 0, 0.274);
+}
+
+.buttons .button{
+  padding: 0em .4em;
+  font-size: 1em;
+  color: #d2e7d3;
+}
+.buttons .button:hover{
+  color:#87c28d;
+}
+.content {
+  margin-top: -.2em;
+}
+.content li {
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-height: 15em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.content li input {
+  text-align: center;
+  width: 3em;
+}
+
+.name {
+  width: 30%;
+  /* background: red; */
+}
+
+.buttons {
+  width: 37%;
+  text-align: center;
+}
+.course{
+  width: 30%;
+  text-align: center;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.274);
+}
+footer button{
+  padding: .2em 2em;
+}

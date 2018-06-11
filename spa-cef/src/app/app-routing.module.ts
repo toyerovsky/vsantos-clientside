@@ -1,3 +1,5 @@
+import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
+import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
 // mopdules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -57,7 +59,9 @@ const routes: Routes = [
     { path: 'casualjob', component: CasualJobComponent },
     { path: 'drivethru', component: DriveThruComponent },
     { path: 'urbanshop', component: UrbanShopComponent },
-    { path: 'bankmenu', component: BankMenuComponent }
+    { path: 'bankmenu', component: BankMenuComponent },
+    { path: 'playercars', component: PlayerCarsComponent },
+      { path: 'playercarsmore', component: PlayerCarsMoreComponent }
 ];
 
 @NgModule({

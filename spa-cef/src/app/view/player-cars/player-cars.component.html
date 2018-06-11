@@ -1,0 +1,47 @@
+<main class="window">
+  <header class="header">
+    <p class="big-text">Twoje pojazdy</p>
+  </header>
+
+  <div class="table-information" style="padding-left: 0em;">
+    <div class="name" style="text-align: center;width: 11em;">Nazwa</div>
+    <div class="course">Przebieg</div>
+  </div>
+
+  <ul class="content scrollbar">
+    <li>
+      <div class="name">Bagger</div>
+      <div class="course">20 000 km</div>
+      <div class="buttons">
+        <button class="button">Unspawn</button>
+        <button routerLink="/playercarsmore" class="button">Więcej</button>
+      </div>
+    </li>
+
+    <!-- #region example-data -->
+    <li>
+        <div class="name">Emperor</div>
+        <div class="course">20 000 000 km</div>
+        <div class="buttons">
+          <button class="button">Spawn</button>
+          <button routerLink="/playercarsmore" class="button">Więcej</button>
+        </div>
+      </li>
+
+      <li>
+          <div class="name">Monroe</div>
+          <div class="course">0 km</div>
+          <div class="buttons">
+            <button class="button">Spawn</button>
+            <button routerLink="/playercarsmore" class="button">Więcej</button>
+          </div>
+        </li>
+    <!-- #endregion example-data -->
+  </ul>
+
+  <footer class="footer">
+    <button class="button">
+      Wyjdź
+    </button>
+  </footer>
+</main>
