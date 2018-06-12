@@ -31,6 +31,8 @@ import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
 import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
 import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
 import { SelectorComponent } from './components/selector/selector.component';
+import { PlayerItemsComponent } from './view/player-items/player-items.component';
+import { PlayerItemsInfoComponent } from './view/player-items/elements/player-items-info/player-items-info.component';
 // services
 @NgModule({
   imports: [
@@ -64,7 +66,9 @@ import { SelectorComponent } from './components/selector/selector.component';
     BankMenuComponent,
     PlayerCarsComponent,
     PlayerCarsMoreComponent,
-    SelectorComponent
+    SelectorComponent,
+    PlayerItemsComponent,
+    PlayerItemsInfoComponent
   ],
   providers: [AccountService, CharacterService],
   bootstrap: [AppComponent],
