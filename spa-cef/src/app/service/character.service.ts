@@ -26,7 +26,6 @@ export class CharacterService extends AbstractService {
     }
 
     public post(character: CharacterCreatorModel): Observable<CharacterCreatorModel> {
-        this._http.post<CharacterCreatorModel>(`${environment.apiUrl}/api/character`, character);
-
+        return this._http.post<CharacterCreatorModel>(`${environment.apiUrl}/api/character`, character);
     }
 }
