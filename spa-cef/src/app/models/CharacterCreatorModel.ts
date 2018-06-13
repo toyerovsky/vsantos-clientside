@@ -1,9 +1,10 @@
 export class CharacterCreatorModel {
+    account: number;
     name: string;
     surname: string;
     model: string;
     gender: string;
-    age: number;
+    bornDate: Date;
     characterLook: {
         accessoryId: number;
         accessoryTexture: number;

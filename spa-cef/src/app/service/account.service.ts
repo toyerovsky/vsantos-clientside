@@ -9,8 +9,8 @@ import AbstractService from './abstract.service';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService extends AbstractService {
-    public static currentAccountGuid: string;
-    public static currentAccountId: number;
+    public currentAccountGuid: string;
+    public currentAccountId: number;
 
     constructor(private _http: HttpClient) {
         super();

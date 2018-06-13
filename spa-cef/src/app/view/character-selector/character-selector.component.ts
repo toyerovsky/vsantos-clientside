@@ -15,11 +15,14 @@ export class CharacterSelectorComponent implements OnInit {
 
   private _currentIndex: number = 0;
 
-  constructor(private _characterService: CharacterService) { }
+  constructor(
+    private _characterService: CharacterService,
+    private _accountService: AccountService) {
+  }
 
   ngOnInit() {
     this._characterService
-      .getByAccountId(AccountService.currentAccountId)
+      .getByAccountId(this._accountService.currentAccountId)
       .subscribe(characters => {
         this.characters = characters;
 
@@ -38,6 +41,6 @@ export class CharacterSelectorComponent implements OnInit {
 
   select() {
     // @ts-ignore
-    mp.trigger("characterSelectRequested", AccountService.currentAccountId, this.characters.indexOf(this.character));
+    mp.trigger("characterSelectRequested", this._accountService.currentAccountId, this.characters.indexOf(this.character));
   }
 }

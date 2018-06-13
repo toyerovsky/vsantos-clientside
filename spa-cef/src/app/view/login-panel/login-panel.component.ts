@@ -30,15 +30,16 @@ export class LoginPanelComponent implements OnInit {
     this._accountService
       .login(this.loginModel.email, this.loginModel.password)
       .subscribe(data => {
-        if (typeof (data) == undefined) {
+        if (typeof (data) === undefined) {
           // TODO: error handling via notification
           return;
         }
-        AccountService.currentAccountGuid = data.userGuid;
-        AccountService.currentAccountId = data.accountId;
-        // @ts-ignore
-        mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
+        this._accountService.currentAccountGuid = data.userGuid;
+        this._accountService.currentAccountId = data.accountId;
         this._router.navigate(["characterselector"]);
+
+        // @ts-ignore  
+        mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
       });
   }
 }

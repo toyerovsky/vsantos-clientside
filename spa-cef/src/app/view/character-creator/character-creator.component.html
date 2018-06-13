@@ -16,10 +16,11 @@
         <input [(ngModel)]="this._characterService.characterCreatorModel.surname" type="text" maxlength="20" placeholder="Nazwisko">
       </li>
 
-      <li class="input">
+      <!-- <li class="input">
         <p>Wiek</p>
-        <input [(ngModel)]="this._characterService.characterCreatorModel.age" type="text" maxlength="2" placeholder="Wiek">
-      </li>
+        <input [(ngModel)]="" type="text" maxlength="2"
+          placeholder="Wiek">
+      </li> -->
 
       <li class="input">
         <input [(ngModel)]="this._freemodeCharacter" class="skin-checkbox" id="skin-checkbox" type="checkbox">
@@ -29,7 +30,7 @@
       <li *ngIf="this._freemodeCharacter" routerLink="/charactercreator/appearance">Wygląd</li>
       <li *ngIf="!this._freemodeCharacter" class="input">
         <p>Skin</p>
-        <app-selector [elements]="this._skins"></app-selector>
+        <app-selector *ngIf="this._skins" [elements]="this._skins" (change)="setSkin($event)"></app-selector>
       </li>
     </ul>
   </div>
@@ -42,7 +43,7 @@
     </span>
 
     <div class="buttons">
-      <button class="first">
+      <button (click)="saveCharacter()" class="first">
         Zapisz Postać
       </button>
 

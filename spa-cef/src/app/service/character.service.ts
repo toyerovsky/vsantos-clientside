@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AbstractService from './abstract.service';
 import { catchError } from 'rxjs/operators';
+import { httpOptions } from './options';
+import { AccountService } from './account.service';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService extends AbstractService {
@@ -26,7 +28,6 @@ export class CharacterService extends AbstractService {
     }
 
     public post(character: CharacterCreatorModel): Observable<CharacterCreatorModel> {
-        this._http.post<CharacterCreatorModel>(`${environment.apiUrl}/api/character`, character);
-
+        return this._http.post<CharacterCreatorModel>(`${environment.apiUrl}/api/character`, character, httpOptions);
     }
 }

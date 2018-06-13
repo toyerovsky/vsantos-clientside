@@ -31,6 +31,7 @@ import { BankMenuComponent } from './view/bank-menu/bank-menu.component';
 import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
 import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
 import { SelectorComponent } from './components/selector/selector.component';
+import { JsonService } from './service/json.service';
 // services
 @NgModule({
   imports: [
@@ -66,7 +67,7 @@ import { SelectorComponent } from './components/selector/selector.component';
     PlayerCarsMoreComponent,
     SelectorComponent
   ],
-  providers: [AccountService, CharacterService],
+  providers: [AccountService, CharacterService, JsonService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
