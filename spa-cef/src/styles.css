@@ -28,6 +28,7 @@
   font-family: 'SignPainter-HouseScript';
   src: url("assets/fonts/SignPainter-HouseScript.ttf");
 }
+/* #region NORMALIZE */
 * {
   padding: 0;
   margin: 0;
@@ -66,147 +67,8 @@ img {
   -webkit-user-drag: none;
 }
 
-/* #region window-elements */
-.window {
-  position: absolute;
-  top: 11em;
-  right: 7em;
-  min-width: 25em;
-  max-width: 33em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.733);
-  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
-  /* #region independent elements */
-  /* #endregion independent elements */
-}
-.window .header {
-  width: 100%;
-  padding: .4em 1em;
-  background: rgba(72, 177, 72, 0.863);
-  display: -webkit-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-family: 'SignPainter-HouseScript';
-}
-.window .header .big-text {
-  font-size: 3em;
-  text-shadow: 1px 1px 1px black;
-}
-.window .header .small-text {
-  font-size: 1.6em;
-  text-shadow: 1px 1px 1px black;
-  margin-top: 1em;
-}
-.window .content {
-  padding-bottom: .7em;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-  list-style-type: none;
-  max-height: 25em;
-}
-.window .content li {
-  display: block;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-  width: 100%;
-  padding: .1em 1em;
-  margin-top: .8em;
-  font-size: 1.05em;
-}
-.window .content .goto {
-  font-size: 1.2em;
-}
-.window .content .flex {
-  display: -webkit-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-.window .content .select:hover {
-  cursor: pointer;
-  background-color: #fff;
-  color: #000000;
-}
-.window .content .select:hover .marginal, .window .content .select:hover .static-text {
-  color: initial;
-}
-.window .footer {
-  width: 100%;
-  display: -webkit-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: .4em 0em;
-}
-.window .button {
-  background: none;
-  border: none;
-  outline: none;
-  font-size: 1.2em;
-  color: #fff;
-  padding: .6em;
-}
-.window .button:hover {
-  cursor: pointer;
-  color: #b9b9b9;
-}
-.window .static-text {
-  font-size: 1.15em;
-  padding-right: .3em;
-  color: #a6c2a8;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.window .biggest-text {
-  font-size: 1.2em !important;
-}
-.window .marginal {
-  padding-left: .1em;
-  line-height: 250%;
-  font-size: .8em;
-  color: #869180;
-}
-.window .number {
-  font-size: 1.3em;
-}
-.window .biggest-text {
-  font-size: 1.2em;
-}
-.window .input {
-  background: none;
-  border: none;
-  outline: none;
-  font-size: 1em;
-  color: #fff;
-}
-.window .input:placeholder {
-  color: #fff;
-}
-.window .input:focus {
-  color: #5dad5d;
-}
-.window .input:focus:placeholder {
-  color: #5dad5d;
-}
-
-/* #endregion window-elements */
+/* #endregion NORMALIZE */
+/* #region scrollbar */
 .scrollbar {
   overflow-y: scroll !important;
 }
@@ -251,4 +113,174 @@ img {
 
 ::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+/* #endregion scrollbar */
+.window {
+  position: absolute;
+  top: 11em;
+  right: 7em;
+  min-width: 25em;
+  max-width: 50em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.733);
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
+}
+
+.header {
+  width: 100%;
+  padding: .4em 1em;
+  background: rgba(72, 177, 72, 0.863);
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'SignPainter-HouseScript';
+}
+.header .big-text {
+  font-size: 3em;
+  text-shadow: 1px 1px 1px black;
+}
+.header .small-text {
+  font-size: 1.6em;
+  text-shadow: 1px 1px 1px black;
+  margin-top: 1em;
+}
+
+.content {
+  padding-bottom: .7em;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  list-style-type: none;
+  max-height: 25em;
+}
+.content li {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+  padding: .1em 1em;
+  margin-top: .8em;
+  font-size: 1.05em;
+}
+.content .goto {
+  font-size: 1.2em;
+}
+.content .flex {
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.content .select:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000000;
+}
+.content .select:hover .marginal, .content .select:hover .static-text {
+  color: initial;
+}
+
+.footer {
+  width: 100%;
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: .4em 0em;
+}
+
+.black-footer {
+  background: rgba(0, 0, 0, 0.274);
+}
+
+.button {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  color: #fff;
+  padding: .6em;
+}
+.button:hover {
+  cursor: pointer;
+  color: #b9b9b9;
+}
+
+.static-text {
+  font-size: 1.15em;
+  padding-right: .3em;
+  color: #a6c2a8;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.biggest-text {
+  font-size: 1.2em !important;
+}
+
+.marginal {
+  padding-left: .1em;
+  line-height: 250%;
+  font-size: .8em;
+  color: #869180;
+}
+
+.number {
+  font-size: 1.3em;
+}
+
+.biggest-text {
+  font-size: 1.2em;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #fff;
+}
+.input:placeholder {
+  color: #fff;
+}
+.input:focus {
+  color: #5dad5d;
+}
+.input:focus:placeholder {
+  color: #5dad5d;
+}
+
+.additional-info {
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: .3em 2em;
+  text-transform: uppercase;
+  color: #7c997b;
+  background: rgba(0, 0, 0, 0.274);
 }

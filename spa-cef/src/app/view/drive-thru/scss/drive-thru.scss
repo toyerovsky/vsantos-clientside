@@ -2,19 +2,6 @@
   width: 30em!important;
 }
 
-.table-information{
-  display: -webkit-flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-sizing: border-box;
-  width: 100%;
-
-  padding: .3em 2em;
-  text-transform: uppercase;
-  color: #7c997b;
-  background: hsla(0, 0%, 0%, 0.274);
-}
-
 .content{
   margin-top: -.2em;
   li{
@@ -37,8 +24,4 @@
 .weight, .prize{
   width: 15%;
   text-align: center;
-}
-
-footer{
-  background: hsla(0, 0%, 0%, 0.274);
 }

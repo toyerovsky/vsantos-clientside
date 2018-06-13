@@ -2,25 +2,6 @@
   width: 20em !important;
 }
 
-.table-information {
-  display: -webkit-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  padding: .3em 2em;
-  padding-right: 13.1em;
-  text-transform: uppercase;
-  color: #7c997b;
-  background: rgba(0, 0, 0, 0.274);
-}
-
 .buttons .button{
   padding: 0em .4em;
   font-size: 1em;
@@ -60,10 +41,6 @@
 .course{
   width: 30%;
   text-align: center;
-}
-
-footer {
-  background: rgba(0, 0, 0, 0.274);
 }
 footer button{
   padding: .2em 2em;

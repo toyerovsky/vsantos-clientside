@@ -4,6 +4,7 @@
   src: url('assets/fonts/SignPainter-HouseScript.ttf');
 }
 
+/* #region NORMALIZE */
 * {
   padding: 0;
   margin: 0;
@@ -36,176 +37,210 @@ img {
   -webkit-user-select: none;
   -webkit-user-drag: none;
 }
+/* #endregion NORMALIZE */
 
-/* #region window-elements */
+
+/* #region scrollbar */
+.scrollbar {
+  overflow-y: scroll!important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 0px none #c0c0c0;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5dad5d;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #5dad5d;
+}
+
+::-webkit-scrollbar-track {
+  background: #464646;
+  border: 0px none #c0c0c0;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #464646;
+}
+
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/* #endregion scrollbar */
+
+
+
 .window{
   position: absolute;
   top: 11em;
   right: 7em;
   min-width: 25em;
-  max-width: 33em;
+  max-width: 50em;
   box-sizing: border-box;
 
   background: hsla(0, 0%, 0%, 0.733);
   -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.24);
+}
 
-  .header{
-    width: 100%;
-    padding: .4em 1em;
-    background: hsla(120, 42%, 49%, 0.863);
 
-    display: -webkit-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-family: 'SignPainter-HouseScript';
+.header{
+  width: 100%;
+  padding: .4em 1em;
+  background: hsla(120, 42%, 49%, 0.863);
 
-    .big-text{
-      font-size: 3em;
-      text-shadow: 1px 1px 1px black;
-    }
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'SignPainter-HouseScript';
 
-    .small-text{
-      font-size: 1.6em;
-      text-shadow: 1px 1px 1px black;
-      margin-top: 1em;
-    }
+  .big-text{
+    font-size: 3em;
+    text-shadow: 1px 1px 1px black;
   }
 
-  .content{
-    padding-bottom: .7em;
-    width: 100%;
+  .small-text{
+    font-size: 1.6em;
+    text-shadow: 1px 1px 1px black;
+    margin-top: 1em;
+  }
+}
+
+
+.content{
+  padding-bottom: .7em;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  list-style-type: none;
+  max-height: 25em;
+
+  li{
+    display: block;
     box-sizing: border-box;
     overflow: hidden;
-    list-style-type: none;
-    max-height: 25em;
-
-    li{
-      display: block;
-      box-sizing: border-box;
-      overflow: hidden;
-      width: 100%;
-      padding: .1em 1em;
-      margin-top: .8em;
-      font-size: 1.05em;
-    }
-
-    .goto{
-      font-size: 1.2em;
-    }
-
-    .flex{
-      display: -webkit-flex;
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-
-    .select{&:hover{
-      cursor: pointer;
-      background-color: #fff;
-      color: #000000;
-      .marginal,.static-text{ color: initial; }
-    }}
+    width: 100%;
+    padding: .1em 1em;
+    margin-top: .8em;
+    font-size: 1.05em;
   }
 
-  .footer{
-    width: 100%;
+  .goto{
+    font-size: 1.2em;
+  }
+
+  .flex{
     display: -webkit-flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: .4em 0em;
+    justify-content: flex-start;
   }
 
-  /* #region independent elements */
-  .button{
-    background: none;
-    border: none;
-    outline: none;
-    font-size: 1.2em;
-    color: #fff;
-    padding: .6em;
+  .select{&:hover{
+    cursor: pointer;
+    background-color: #fff;
+    color: #000000;
+    .marginal,.static-text{ color: initial; }
+  }}
+}
 
-    &:hover{
-      cursor: pointer;
-      color: #b9b9b9;
-    }
+
+.footer{
+  width: 100%;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: .4em 0em;
+}
+.black-footer{
+  background: hsla(0, 0%, 0%, 0.274);
+}
+
+
+.button{
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  color: #fff;
+  padding: .6em;
+
+  &:hover{
+    cursor: pointer;
+    color: #b9b9b9;
   }
-  .static-text{
-    font-size: 1.15em;
-    padding-right: .3em;
-    color: #a6c2a8;
-    flex: 1;
-  }
-  .biggest-text{
-    font-size: 1.2em!important;
-  }
-  .marginal{
-    padding-left: .1em;
-    line-height: 250%;
-    font-size: .8em;
-    color: #869180;
-  }
-  .number{
-    font-size: 1.3em;
-  }
-  .biggest-text{
-    font-size: 1.2em;
-  }
-  .input{
-    background: none;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: #fff;
-    &:placeholder{ color: #fff; }
-    &:focus{color: #5dad5d; &:placeholder{color: #5dad5d; }}
-  }
-  /* #endregion independent elements */
-}
-/* #endregion window-elements */
-
-// SCROLLBAR
-.scrollbar {
-    overflow-y: scroll!important;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+
+.static-text{
+  font-size: 1.15em;
+  padding-right: .3em;
+  color: #a6c2a8;
+  flex: 1;
 }
 
-::-webkit-scrollbar-button {
-    width: 0px;
-    height: 0px;
+
+.biggest-text{
+  font-size: 1.2em!important;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #c0c0c0;
-    border: 0px none #c0c0c0;
-    border-radius: 50px;
+
+.marginal{
+  padding-left: .1em;
+  line-height: 250%;
+  font-size: .8em;
+  color: #869180;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #5dad5d;
+
+.number{
+  font-size: 1.3em;
 }
 
-::-webkit-scrollbar-thumb:active {
-    background: #5dad5d;
+
+.biggest-text{
+  font-size: 1.2em;
 }
 
-::-webkit-scrollbar-track {
-    background: #464646;
-    border: 0px none #c0c0c0;
-    border-radius: 50px;
+
+.input{
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #fff;
+  &:placeholder{ color: #fff; }
+  &:focus{color: #5dad5d; &:placeholder{color: #5dad5d; }}
 }
 
-::-webkit-scrollbar-track:hover {
-    background: #464646;
-}
 
-::-webkit-scrollbar-track:active {
-    background: #333333;
-}
+.additional-info{
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
 
-::-webkit-scrollbar-corner {
-    background: transparent;
+  padding: .3em 2em;
+  text-transform: uppercase;
+  color: #7c997b;
+  background: hsla(0, 0%, 0%, 0.274);
 }
