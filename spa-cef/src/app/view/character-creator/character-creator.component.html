@@ -22,7 +22,16 @@
           placeholder="Wiek">
       </li> -->
 
-      <li routerLink="/charactercreator/appearance">Dopasuj wygląd</li>
+      <li class="input">
+        <input [(ngModel)]="this._freemodeCharacter" class="skin-checkbox" id="skin-checkbox" type="checkbox">
+        <label for="skin-checkbox">Dostosuj unikalny wygląd</label>
+      </li>
+
+      <li *ngIf="this._freemodeCharacter" routerLink="/charactercreator/appearance">Wygląd</li>
+      <li *ngIf="!this._freemodeCharacter" class="input">
+        <p>Skin</p>
+        <app-selector *ngIf="this._skins" [elements]="this._skins" (change)="setSkin($event)"></app-selector>
+      </li>
     </ul>
   </div>
 
