@@ -34,6 +34,7 @@ import { SelectorComponent } from './components/selector/selector.component';
 import { JsonService } from './service/json.service';
 import { PlayerItemsComponent } from './view/player-items/player-items.component';
 import { PlayerItemsInfoComponent } from './view/player-items/elements/player-items-info/player-items-info.component';
+import { BusStopComponent } from './view/bus-stop/bus-stop.component';
 // services
 @NgModule({
   imports: [
@@ -69,7 +70,8 @@ import { PlayerItemsInfoComponent } from './view/player-items/elements/player-it
     PlayerCarsMoreComponent,
     SelectorComponent,
     PlayerItemsComponent,
-    PlayerItemsInfoComponent
+    PlayerItemsInfoComponent,
+    BusStopComponent
   ],
   providers: [AccountService, CharacterService, JsonService],
   bootstrap: [AppComponent],
