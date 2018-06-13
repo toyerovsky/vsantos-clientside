@@ -27,7 +27,7 @@
         <!-- #region player_characters -->
         <section class="characters">
           <div *ngFor="let character of characters" (click)="clickHandler(character)" class="character">
-            <img src="https://i.imgur.com/oI37y0a.jpg" />
+            <img *ngIf="character.model" ng-src="https://v-rp.pl/skins/58px-{{character.model}}" />
           </div>
         </section>
       </section>
