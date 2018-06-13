@@ -1,5 +1,3 @@
-import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
-import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
 // mopdules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -27,6 +25,12 @@ import { GroupMenuSummaryComponent } from './view/group-menu/elements/group-menu
 import { GroupMenuAboutComponent } from './view/group-menu/elements/group-menu-about/group-menu-about.component';
 import { GroupMenuOnlineComponent } from './view/group-menu/elements/group-menu-online/group-menu-online.component';
 import { GroupMenuManagementComponent } from './view/group-menu/elements/group-menu-management/group-menu-management.component';
+// player-cars
+import { PlayerCarsMoreComponent } from './view/player-cars/elements/player-cars-more/player-cars-more.component';
+import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
+// player-items
+import { PlayerItemsComponent } from './view/player-items/player-items.component';
+import { PlayerItemsInfoComponent } from './view/player-items/elements/player-items-info/player-items-info.component';
 
 
 const routes: Routes = [
@@ -61,7 +65,9 @@ const routes: Routes = [
     { path: 'urbanshop', component: UrbanShopComponent },
     { path: 'bankmenu', component: BankMenuComponent },
     { path: 'playercars', component: PlayerCarsComponent },
-      { path: 'playercarsmore', component: PlayerCarsMoreComponent }
+      { path: 'playercars/more', component: PlayerCarsMoreComponent },
+    { path: 'playeritems', component: PlayerItemsComponent },
+      { path: 'playeritems/info', component: PlayerItemsInfoComponent }
 ];
 
 @NgModule({
