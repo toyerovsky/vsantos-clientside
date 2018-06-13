@@ -1,10 +1,12 @@
 export class CharacterCreatorModel {
-    account: number;
+    accountId: number;
     name: string;
     surname: string;
     model: string;
     gender: string;
     bornDate: Date;
+    isAlive: Boolean;
+    createTime: Date;
     characterLook: {
         accessoryId: number;
         accessoryTexture: number;

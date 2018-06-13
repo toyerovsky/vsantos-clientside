@@ -3,9 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AbstractService from './abstract.service';
-import { catchError } from 'rxjs/operators';
-import { httpOptions } from './options';
-import { AccountService } from './account.service';
 import { SimpleSelectorElement } from '../components/selector/classes/SimpleSelectorElement';
 
 @Injectable({ providedIn: 'root' })

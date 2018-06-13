@@ -32,46 +32,45 @@ import { PlayerCarsComponent } from './view/player-cars/player-cars.component';
 import { PlayerItemsComponent } from './view/player-items/player-items.component';
 import { PlayerItemsInfoComponent } from './view/player-items/elements/player-items-info/player-items-info.component';
 
-
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', component: LoginPanelComponent },
-    { path: 'characterselector', component: CharacterSelectorComponent },
-    { path: 'charactercreator/menu', component: CharacterCreatorComponent },
-    {
-      path: 'charactercreator', component: CharacterCreatorRoutingComponent, children:
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginPanelComponent },
+  { path: 'characterselector', component: CharacterSelectorComponent },
+  { path: 'charactercreator/menu', component: CharacterCreatorComponent },
+  {
+    path: 'charactercreator', component: CharacterCreatorRoutingComponent, children:
       [
         { path: '', redirectTo: '/charactercreator/menu', pathMatch: 'full' },
         { path: 'appearance', component: CharacterCreatorAppearanceComponent },
-          { path: 'appearance/roots', component: CharacterCreatorAppearanceRootsComponent },
-          { path: 'appearance/features', component: CharacterCreatorAppearanceFeaturesComponent },
-          { path: 'appearance/more', component: CharacterCreatorAppearanceMoreComponent },
+        { path: 'appearance/roots', component: CharacterCreatorAppearanceRootsComponent },
+        { path: 'appearance/features', component: CharacterCreatorAppearanceFeaturesComponent },
+        { path: 'appearance/more', component: CharacterCreatorAppearanceMoreComponent },
         { path: 'clothes', component: CharacterCreatorClothesComponent },
         { path: 'car', component: CharacterCreatorCarComponent },
-          {path: 'car/models', component: CharacterCreatorCarModelsComponent }
+        { path: 'car/models', component: CharacterCreatorCarModelsComponent }
       ]
-    },
-    {
-      path: 'groupmenu', component: GroupMenuComponent, children:
+  },
+  {
+    path: 'groupmenu', component: GroupMenuComponent, children:
       [
         { path: '', component: GroupMenuSummaryComponent },
         { path: 'about', component: GroupMenuAboutComponent },
         { path: 'online', component: GroupMenuOnlineComponent },
         { path: 'management', component: GroupMenuManagementComponent }
       ]
-    },
-    { path: 'casualjob', component: CasualJobComponent },
-    { path: 'drivethru', component: DriveThruComponent },
-    { path: 'urbanshop', component: UrbanShopComponent },
-    { path: 'bankmenu', component: BankMenuComponent },
-    { path: 'playercars', component: PlayerCarsComponent },
-      { path: 'playercars/more', component: PlayerCarsMoreComponent },
-    { path: 'playeritems', component: PlayerItemsComponent },
-      { path: 'playeritems/info', component: PlayerItemsInfoComponent }
+  },
+  { path: 'casualjob', component: CasualJobComponent },
+  { path: 'drivethru', component: DriveThruComponent },
+  { path: 'urbanshop', component: UrbanShopComponent },
+  { path: 'bankmenu', component: BankMenuComponent },
+  { path: 'playercars', component: PlayerCarsComponent },
+  { path: 'playercars/more', component: PlayerCarsMoreComponent },
+  { path: 'playeritems', component: PlayerItemsComponent },
+  { path: 'playeritems/info', component: PlayerItemsInfoComponent }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

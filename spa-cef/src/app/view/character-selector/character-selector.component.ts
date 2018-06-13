@@ -24,14 +24,10 @@ export class CharacterSelectorComponent implements OnInit {
     this._characterService
       .getByAccountId(this._accountService.currentAccountId)
       .subscribe(characters => {
+        alert(JSON.stringify(characters))
         this.characters = characters;
-
-        if (this.characters.length <= 0) {
-          // notify player about no characters on his account
-          return;
-        }
-
         this.character = characters[0];
+        
       });
   }
 

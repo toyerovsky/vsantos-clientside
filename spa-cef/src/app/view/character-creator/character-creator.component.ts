@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../../service/character.service';
-import { CharacterCreatorModel } from '../../models/CharacterCreatorModel';
 import { SimpleSelectorElement } from '../../components/selector/classes/SimpleSelectorElement';
 import { JsonService } from '../../service/json.service';
 import { AccountService } from '../../service/account.service';
-import { ISelectorElement } from '../../components/selector/interfaces/ISelectorElement';
 
 @Component({
   selector: 'app-character-creator',
@@ -22,9 +20,10 @@ export class CharacterCreatorComponent implements OnInit {
   }
 
   saveCharacter() {
-    this._characterService.characterCreatorModel.account = this._accountService.currentAccountId;
-    alert(JSON.stringify(this._characterService.characterCreatorModel));
-    this._characterService.post(this._characterService.characterCreatorModel);
+    this._characterService.characterCreatorModel.accountId = this._accountService.currentAccountId;
+    this._characterService.characterCreatorModel.isAlive = true;
+    this._characterService.characterCreatorModel.createTime = new Date();
+    this._characterService.post(this._characterService.characterCreatorModel).subscribe();
   }
 
   ngOnInit() {
