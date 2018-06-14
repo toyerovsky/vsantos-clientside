@@ -13,7 +13,8 @@ public vehicleModel = new VehicleModel;
     super();
   }
 
-  public getByCharacterId(characterId: number): Observable<VehicleModel[]> {
-    //return this._http.get;
-  }
+  // public getByCharacterId(characterId: number): Observable<VehicleModel[]> {
+  //   //return this._http.get;
+  //   return;
+  // }
 }
