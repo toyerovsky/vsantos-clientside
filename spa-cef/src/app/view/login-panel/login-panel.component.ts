@@ -34,8 +34,6 @@ export class LoginPanelComponent implements OnInit {
           // TODO: error handling via notification
           return;
         }
-        this._accountService.currentAccountGuid = data.userGuid;
-        this._accountService.currentAccountId = data.accountId;
         this._router.navigate(["characterselector"]);
 
         // @ts-ignore  

@@ -9,15 +9,13 @@ import AbstractService from './abstract.service';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService extends AbstractService {
-    public currentAccountGuid: string;
-    public currentAccountId: number;
 
     constructor(private _http: HttpClient) {
         super();
     }
 
-    public login(email: string, password: string): Observable<{ userGuid: string, accountId: number }> {
-        return this._http.post<{ userGuid: string, accountId: number }>(`${environment.apiUrl}/api/account/login/`, { email, password })
+    public login(email: string, password: string): Observable<void> {
+        return this._http.post<void>(`${environment.apiUrl}/api/account/login/`, { email, password })
             .pipe(
                 catchError(this.handleError('account.service login()'))
             );

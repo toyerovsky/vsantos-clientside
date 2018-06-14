@@ -22,12 +22,10 @@ export class CharacterSelectorComponent implements OnInit {
 
   ngOnInit() {
     this._characterService
-      .getByAccountId(this._accountService.currentAccountId)
+      .getByAccountId()
       .subscribe(characters => {
-        alert(JSON.stringify(characters))
         this.characters = characters;
         this.character = characters[0];
-        
       });
   }
 
@@ -36,6 +34,7 @@ export class CharacterSelectorComponent implements OnInit {
   }
 
   select() {
+    this._characterService.selectCharacter(this.character.id);
     // @ts-ignore
     mp.trigger("characterSelectRequested", this._accountService.currentAccountId, this.characters.indexOf(this.character));
   }

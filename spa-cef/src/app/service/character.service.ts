@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AbstractService from './abstract.service';
 import { catchError } from 'rxjs/operators';
-import { postOptions } from './options';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService extends AbstractService {
@@ -19,8 +18,15 @@ export class CharacterService extends AbstractService {
         super();
     }
 
-    public getByAccountId(accountId: number): Observable<CharacterModel[]> {
-        return this._http.get<CharacterModel[]>(`${environment.apiUrl}/api/character/account/${accountId}`)
+    public selectCharacter(id: number): Observable<void> {
+        return this._http.post<void>(`${environment.apiUrl}/api/character/select/`, id)
+            .pipe(
+                catchError(this.handleError('character.service selectCharacter()'))
+            );
+    }
+
+    public getByAccountId(): Observable<CharacterModel[]> {
+        return this._http.get<CharacterModel[]>(`${environment.apiUrl}/api/character/account/`)
             .pipe(
                 catchError(this.handleError('character.service getByAccountId()'))
             );

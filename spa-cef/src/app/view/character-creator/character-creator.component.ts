@@ -15,12 +15,10 @@ export class CharacterCreatorComponent implements OnInit {
 
   constructor(
     private _characterService: CharacterService,
-    private _accountService: AccountService,
     private _jsonService: JsonService) {
   }
 
   saveCharacter() {
-    this._characterService.characterCreatorModel.accountId = this._accountService.currentAccountId;
     this._characterService.characterCreatorModel.isAlive = true;
     this._characterService.characterCreatorModel.createTime = new Date();
     this._characterService.post(this._characterService.characterCreatorModel).subscribe();
