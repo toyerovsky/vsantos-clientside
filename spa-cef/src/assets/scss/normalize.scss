@@ -11,7 +11,8 @@
 }
 
 body {
-  background: transparent!important;
+  background: url('https://img.gta5-mods.com/q95/images/single-player-garage/0d552a-Grand_Theft_Auto_V_2015-05-25_23-04-32.jpg');
+  // background: transparent!important;
   font-family: 'Poppins', sans-serif;
   color: #fff;
 }
@@ -92,8 +93,8 @@ img {
 
 .window{
   position: absolute;
-  top: 11em;
-  right: 7em;
+  top: 11vh;
+  right: 7vh;
   min-width: 25em;
   max-width: 50em;
   box-sizing: border-box;
@@ -105,7 +106,7 @@ img {
 
 .header{
   width: 100%;
-  padding: .4em 1em;
+  padding: .4vw 1vw;
   background: hsla(120, 42%, 49%, 0.863);
 
   display: -webkit-flex;
@@ -114,14 +115,14 @@ img {
   font-family: 'SignPainter-HouseScript';
 
   .big-text{
-    font-size: 3em;
+    font-size: 5vh;
     text-shadow: 1px 1px 1px black;
   }
 
   .small-text{
-    font-size: 1.6em;
+    font-size: 2.6vh;
     text-shadow: 1px 1px 1px black;
-    margin-top: 1em;
+    margin-top: 2.6vh;
   }
 }
 
@@ -132,7 +133,7 @@ img {
   box-sizing: border-box;
   overflow: hidden;
   list-style-type: none;
-  max-height: 25em;
+  max-height: 40vh;
 
   li{
     display: block;
@@ -141,11 +142,11 @@ img {
     width: 100%;
     padding: .1em 1em;
     margin-top: .8em;
-    font-size: 1.05em;
+    font-size: 1em;
   }
 
   .goto{
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   .flex{
@@ -168,7 +169,7 @@ img {
   display: -webkit-flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: .4em 0em;
+  padding: .4vh 0hv;
 }
 .black-footer{
   background: hsla(0, 0%, 0%, 0.274);
@@ -179,9 +180,9 @@ img {
   background: none;
   border: none;
   outline: none;
-  font-size: 1.2em;
+  font-size: 2vh;
   color: #fff;
-  padding: .6em;
+  padding: 1.2vh;
 
   &:hover{
     cursor: pointer;
@@ -191,33 +192,33 @@ img {
 
 
 .static-text{
-  font-size: 1.15em;
-  padding-right: .3em;
+  font-size: 1vw;
+  padding-right: .6vh;
   color: #a6c2a8;
   flex: 1;
 }
 
 
 .biggest-text{
-  font-size: 1.2em!important;
+  font-size: 2.2vh!important;
 }
 
 
 .marginal{
   padding-left: .1em;
-  line-height: 250%;
-  font-size: .8em;
+  // line-height: 250%;
+  font-size: 1.4vh;
   color: #869180;
 }
 
 
 .number{
-  font-size: 1.3em;
+  font-size: 2vh;
 }
 
 
 .biggest-text{
-  font-size: 1.2em;
+  font-size: 2.2vh;
 }
 
 
@@ -225,7 +226,7 @@ img {
   background: none;
   border: none;
   outline: none;
-  font-size: 1em;
+  font-size: 1.8vh;
   color: #fff;
   &:placeholder{ color: #fff; }
   &:focus{color: #5dad5d; &:placeholder{color: #5dad5d; }}

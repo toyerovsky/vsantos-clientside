@@ -377,8 +377,8 @@ footer .first:hover {
 }
 .skin-checkbox + label:before {
   position: absolute;
-  right: -12em;
-  top: .3em;
+  right: -8vw;
+  top: .1vw;
   content: '';
   margin-top: 2.5px;
   margin-right: 10px;
