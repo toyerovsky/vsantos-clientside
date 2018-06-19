@@ -1,3 +1,4 @@
+import { CarShowroomComponent } from './view/car-showroom/car-showroom.component';
 // mopdules
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -66,7 +67,8 @@ const routes: Routes = [
   { path: 'playercars', component: PlayerCarsComponent },
   { path: 'playercars/more', component: PlayerCarsMoreComponent },
   { path: 'playeritems', component: PlayerItemsComponent },
-  { path: 'playeritems/info', component: PlayerItemsInfoComponent }
+  { path: 'playeritems/info', component: PlayerItemsInfoComponent },
+  { path: 'carshowroom', component: CarShowroomComponent }
 ];
 
 @NgModule({
