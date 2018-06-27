@@ -3,11 +3,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
+// components
 import { AppComponent } from './app.component';
-import { AccountService } from './service/account.service';
-import { CharacterService } from './service/character.service';
 import { CharacterSelectorComponent } from './view/character-selector/character-selector.component';
 import { LoginPanelComponent } from './view/login-panel/login-panel.component';
 import { CharacterCreatorComponent } from './view/character-creator/character-creator.component';
@@ -34,7 +33,11 @@ import { SelectorComponent } from './components/selector/selector.component';
 import { JsonService } from './service/json.service';
 import { PlayerItemsComponent } from './view/player-items/player-items.component';
 import { PlayerItemsInfoComponent } from './view/player-items/elements/player-items-info/player-items-info.component';
+
 // services
+import { AccountService } from './service/account.service';
+import { CharacterService } from './service/character.service';
+
 @NgModule({
   imports: [
 

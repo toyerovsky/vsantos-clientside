@@ -7,6 +7,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AbstractService from './abstract.service';
 
+
 @Injectable({ providedIn: 'root' })
 export class AccountService extends AbstractService {
 
@@ -15,9 +16,10 @@ export class AccountService extends AbstractService {
     }
 
     public login(email: string, password: string): Observable<void> {
-        return this._http.post<void>(`${environment.apiUrl}/api/account/login/`, { email, password })
-            .pipe(
-                catchError(this.handleError('account.service login()'))
-            );
+        return this._http.post<void>(`${environment.apiUrl}/api/account/login/`,
+            { email, password }, { withCredentials: true }
+        ).pipe(
+            catchError(this.handleError('account.service login()'))
+        );
     }
 }

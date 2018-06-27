@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../../service/character.service';
 import { SimpleSelectorElement } from '../../components/selector/classes/SimpleSelectorElement';
 import { JsonService } from '../../service/json.service';
-import { AccountService } from '../../service/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-creator',
@@ -15,13 +15,17 @@ export class CharacterCreatorComponent implements OnInit {
 
   constructor(
     private _characterService: CharacterService,
-    private _jsonService: JsonService) {
+    private _jsonService: JsonService,
+    private _router: Router) {
   }
 
   saveCharacter() {
     this._characterService.characterCreatorModel.isAlive = true;
     this._characterService.characterCreatorModel.createTime = new Date();
-    this._characterService.post(this._characterService.characterCreatorModel).subscribe();
+    this._characterService.post(this._characterService.characterCreatorModel)
+      .subscribe(data => {
+        this._router.navigate(["characterselector"]);
+      });
   }
 
   ngOnInit() {
