@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +44,9 @@ import { CarShowroomComponent } from './view/car-showroom/car-showroom.component
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -73,7 +77,7 @@ import { CarShowroomComponent } from './view/car-showroom/car-showroom.component
     PlayerItemsInfoComponent,
     CarShowroomComponent
   ],
-  providers: [AccountService, CharacterService, JsonService],
+  providers: [AccountService, CharacterService, JsonService, ToastrService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

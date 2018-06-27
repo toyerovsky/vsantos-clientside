@@ -18,8 +18,8 @@ export class CharacterService extends AbstractService {
         super();
     }
 
-    public selectCharacter(id: number): Observable<void> {
-        return this._http.post<void>(`${environment.apiUrl}/api/character/select/`, id)
+    public selectCharacter(id: number): Observable<any> {
+        return this._http.post<any>(`${environment.apiUrl}/api/character/select/`, id)
             .pipe(
                 catchError(this.handleError('character.service selectCharacter()'))
             );

@@ -14,8 +14,8 @@ export class AccountService extends AbstractService {
         super();
     }
 
-    public login(email: string, password: string): Observable<void> {
-        return this._http.post<void>(`${environment.apiUrl}/api/account/login/`, { email, password })
+    public login(email: string, password: string): Observable<any> {
+        return this._http.post<any>(`${environment.apiUrl}/api/account/login/`, { email, password })
             .pipe(
                 catchError(this.handleError('account.service login()'))
             );
