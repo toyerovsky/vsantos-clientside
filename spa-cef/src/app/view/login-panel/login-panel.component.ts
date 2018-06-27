@@ -27,25 +27,20 @@ export class LoginPanelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      this.test();
-   }
-
-   test() {
-    setTimeout(() => this._notification.success('test', 'test_title'));
-   }
+  }
 
   login() {
     this._accountService
       .login(this.loginModel.email, this.loginModel.password)
       .subscribe(data => {
-        if (typeof (data) === undefined) {
-          // TODO: error handling via notification
-          return;
+        if (typeof (data) == 'undefined') {
+          setTimeout(() => this._notification.error('Podane dane logowania są niepoprawne.'));
+        } else {
+          this._router.navigate(["characterselector"]);
+          setTimeout(() => this._notification.success(`Logowanie pomyślne.`));
+          // @ts-ignore
+          mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
         }
-        this._router.navigate(["characterselector"]);
-
-        // @ts-ignore
-        mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
       });
   }
 }
