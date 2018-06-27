@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { LoginModel } from './../../models/LoginModel';
 import { AccountService } from './../../service/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-login-panel",
@@ -21,10 +22,17 @@ export class LoginPanelComponent implements OnInit {
 
   constructor(
     private _accountService: AccountService,
-    private _router: Router
+    private _router: Router,
+    private _notification: ToastrService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+      this.test();
+   }
+
+   test() {
+    setTimeout(() => this._notification.success('test', 'test_title'));
+   }
 
   login() {
     this._accountService
@@ -37,7 +45,7 @@ export class LoginPanelComponent implements OnInit {
         this._router.navigate(["characterselector"]);
         alert(JSON.stringify(this._cookieService.getAll()));
 
-        // @ts-ignore  
+        // @ts-ignore
         mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
       });
   }
