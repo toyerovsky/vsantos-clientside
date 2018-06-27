@@ -43,7 +43,6 @@ export class LoginPanelComponent implements OnInit {
           return;
         }
         this._router.navigate(["characterselector"]);
-        alert(JSON.stringify(this._cookieService.getAll()));
 
         // @ts-ignore
         mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
