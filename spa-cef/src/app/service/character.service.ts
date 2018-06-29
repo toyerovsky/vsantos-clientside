@@ -21,21 +21,36 @@ export class CharacterService extends AbstractService {
     public selectCharacter(id: number): Observable<void> {
         return this._http.post<void>(`${environment.apiUrl}/api/character/select/`, id, { withCredentials: true })
             .pipe(
-                catchError(this.handleError('character.service selectCharacter()'))
+                catchError((error: any) => {
+                  this.handleError('character.service selectCharacter()');
+
+                    return Observable.throw(error);
+                })
+
             );
+
     }
 
     public getByAccountId(): Observable<CharacterModel[]> {
         return this._http.get<CharacterModel[]>(`${environment.apiUrl}/api/character/account/`, { withCredentials: true })
             .pipe(
-                catchError(this.handleError('character.service getByAccountId()'))
+                catchError((error: any) => {
+                 this.handleError('character.service getByAccountId()');
+
+                    return Observable.throw(error);
+                })
             );
     }
 
     public post(character: CharacterCreatorModel): Observable<CharacterCreatorModel> {
         return this._http.post<CharacterCreatorModel>(`${environment.apiUrl}/api/character`, character, { withCredentials: true })
             .pipe(
-                catchError(this.handleError('character.service post()'))
+
+                catchError((error: any) => {
+                  this.handleError('character.service post()');
+
+                     return Observable.throw(error);
+                 })
             );
 
     }
