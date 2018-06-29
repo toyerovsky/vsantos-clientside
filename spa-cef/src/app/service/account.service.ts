@@ -15,11 +15,19 @@ export class AccountService extends AbstractService {
         super();
     }
 
-    public login(email: string, password: string): Observable<void> {
-        return this._http.post<void>(`${environment.apiUrl}/api/account/login/`,
+    public login(email: string, password: string): Observable<{}> {
+        return this._http.post<{}>(`${environment.apiUrl}/api/account/login/`,
             { email, password }, { withCredentials: true }
         ).pipe(
-            catchError(this.handleError('account.service login()'))
+
+            catchError((error: any) =>{
+              this.handleError('account.service login()');
+              if(error.status === 404)
+                return of(undefined);
+              else
+                return Observable.throw(error);
+
+            })
         );
     }
 }
