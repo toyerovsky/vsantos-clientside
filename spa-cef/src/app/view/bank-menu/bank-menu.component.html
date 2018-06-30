@@ -6,19 +6,19 @@
   <div class="content">
     <div class="inputSpace">
       <span class="dolar">$</span>
-        <input class="input" type="number" min="0" placeholder="wpisz kwote" autofocus>
+        <input [(ngModel)]="inputMoney" class="input" type="number" min="0" placeholder="wpisz kwote" autofocus>
     </div>
-    <span class="marginal">
-      Stan konta: $500
+    <span class="marginal" >
+      Stan konta: $ {{characterBank.bankMoney}}
     </span>
   </div>
 
   <footer class="footer">
-    <button class="button">
+    <button class="button" (click)="this.payOff()">
       Wypłać
     </button>
 
-    <button class="button">
+    <button class="button" (click)="this.payIn()" >
       Wpłać
     </button>
 
