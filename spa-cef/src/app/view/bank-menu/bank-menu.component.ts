@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from '../../service/character.service';
 
 @Component({
   selector: 'app-bank-menu',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankMenuComponent implements OnInit {
 
-  constructor() { }
+  private _accountBalance: number;
+  public get accountBalance(): number{
+    return this._accountBalance;
+  }
+  public set accountBalance(n: number){
+    this._accountBalance = n;
+  }
+  constructor(private _characterService: CharacterService) { }
 
   ngOnInit() {
+
   }
 
 }

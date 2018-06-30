@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Observable, of, Subscription } from 'rxjs';
+import { Observable, of, Subscription, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AbstractService from './abstract.service';
 
@@ -22,10 +22,10 @@ export class AccountService extends AbstractService {
 
             catchError((error: any) =>{
               this.handleError('account.service login()');
-              if(error.status === 404)
+              if(error.status === 404 || error.status === 500 || error.status === 0)
                 return of(undefined);
               else
-                return Observable.throw(error);
+                return throwError(error);
 
             })
         );

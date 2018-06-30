@@ -5,10 +5,11 @@ import { CharacterCreatorModel } from '../models/CharacterCreatorModel';
 
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import AbstractService from './abstract.service';
 import { catchError } from 'rxjs/operators';
+import { BankAccountModel } from '../models/BankAccountModel';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService extends AbstractService {
@@ -24,7 +25,7 @@ export class CharacterService extends AbstractService {
                 catchError((error: any) => {
                   this.handleError('character.service selectCharacter()');
 
-                    return Observable.throw(error);
+                  return throwError(error);
                 })
 
             );
@@ -49,9 +50,8 @@ export class CharacterService extends AbstractService {
                 catchError((error: any) => {
                   this.handleError('character.service post()');
 
-                     return Observable.throw(error);
+                  return throwError(error);
                  })
             );
 
     }
-}
