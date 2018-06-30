@@ -55,3 +55,4 @@ export class CharacterService extends AbstractService {
             );
 
     }
+  }
