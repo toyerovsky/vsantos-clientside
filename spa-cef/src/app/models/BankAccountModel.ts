@@ -1,4 +1,4 @@
 export class BankAccountModel{
-  bankAccountNumber: number;
-  bankMoney: number;
+  public bankAccountNumber: number;
+  public bankMoney: number;
 }
