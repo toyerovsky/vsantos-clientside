@@ -38,11 +38,12 @@
 
     <!-- IF USER HASNT SPAWN CAR DELETE "Namierz"  AND CHANGE NAME "Unspawn" TO "Spawn" -->
 
-    <button class="button">
-       Unspawn
+    <button class="button" (click)="this.spawnVehicle()">
+       <span *ngIf="this.isSpawned">Unspawn</span>
+       <span *ngIf="!this.isSpawned">Spawn</span>
     </button>
 
-    <button class="button">
+    <button class="button" *ngIf="this.isSpawned" (click)="this.trackVehicle()">
       Namierz
     </button>
 
