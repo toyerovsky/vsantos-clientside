@@ -31,8 +31,9 @@
   </ul>
 
   <footer class="footer">
-    <button class="button">
-      Służba
+    <button class="button" (click)="this.duty()">
+     <span *ngIf="!this.isOnDuty">Wejdź na służbe</span>
+     <span *ngIf="this.isOnDuty">Zejdź ze służby</span>
     </button>
 
     <button routerLink="/groupmenu/about" class="button">

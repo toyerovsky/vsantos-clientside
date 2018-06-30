@@ -17,12 +17,12 @@
       <div class="payment">
         <span class="inputBox">
           <label>$ </label>
-          <input class="input" type="text" placeholder="Wpisz kwote">
+          <input class="input" [(ngModel)]="this.inputMoney" type="text" placeholder="Wpisz kwote">
         </span>
 
         <span class="buttons">
-          <button class="button">Wpłać</button>
-          <button class="button">Wypłać</button>
+          <button class="button" (click)="this.payIn()">Wpłać</button>
+          <button class="button" (click)="this.payOff()">Wypłać</button>
         </span>
       </div>
     </div></li>
