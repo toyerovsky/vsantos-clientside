@@ -29,12 +29,12 @@ export class CharacterSelectorComponent implements OnInit {
       });
   }
 
-  clickHandler(character: CharacterModel) {
+  characterClickHandler(character: CharacterModel) {
     this.character = character;
   }
 
   select() {
-    this._characterService.selectCharacter(this.character.id);
+    this._characterService.selectCharacter(this.character.id).subscribe();
     // @ts-ignore
     mp.trigger("characterSelectRequested", this._accountService.currentAccountId, this.characters.indexOf(this.character));
   }

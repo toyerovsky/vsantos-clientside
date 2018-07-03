@@ -14,6 +14,7 @@ import { catchError } from 'rxjs/operators';
 export class CharacterService extends AbstractService {
     public characterCreatorModel: CharacterCreatorModel = new CharacterCreatorModel();
     public currentCharacterId: number;
+
     constructor(private _http: HttpClient) {
         super();
     }
