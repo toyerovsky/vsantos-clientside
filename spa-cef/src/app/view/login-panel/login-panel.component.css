@@ -117,3 +117,7 @@
   cursor: pointer;
   background: #4fc94b;
 }
+.login-box .under-form .right-box button:disabled{
+  cursor: default;
+  background: grey;
+}

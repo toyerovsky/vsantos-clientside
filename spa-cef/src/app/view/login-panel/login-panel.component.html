@@ -1,16 +1,17 @@
 <ng-container *ngIf="loginModel">
   <!-- #region main-->
   <main>
+      <form id="login_form" >
     <section class="login-box">
       <header class="title">
         Zaloguj się
       </header>
 
       <div class="form">
-        <input [(ngModel)]="loginModel.email" type="text" name="email" placeholder="E-Mail" autocomplete="off">
+        <input [(ngModel)]="loginModel.email"   type="text" name="email" placeholder="E-Mail" autocomplete="off" required>
 
 
-        <input [(ngModel)]="loginModel.password" type="password" name="password" placeholder="Hasło" autocomplete="off">
+        <input [(ngModel)]="loginModel.password" type="password" name="password" placeholder="Hasło" autocomplete="off" required>
 
       </div>
 
@@ -20,12 +21,15 @@
         </div>
 
         <div class="right-box">
-          <button (click)="login()">
+          <button (click)="login()" >
             Zaloguj się
           </button>
         </div>
+
       </div>
     </section>
+    </form>
+
   </main>
   <!-- #endregion main-->
 

@@ -5,6 +5,7 @@ import { LoginModel } from './../../models/LoginModel';
 import { AccountService } from './../../service/account.service';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: "app-login-panel",
   templateUrl: "./login-panel.component.html",
@@ -30,7 +31,14 @@ export class LoginPanelComponent implements OnInit {
   }
 
   login() {
-    this._accountService
+    if(!this.loginModel.email){
+      setTimeout(() => this._notification.error('Wpisz email!'));
+    }
+    if(!this.loginModel.password){
+      setTimeout(() => this._notification.error('Wpisz hasło!'));
+    }
+    if(this.loginModel.email && this.loginModel.password){
+      this._accountService
       .login(this.loginModel.email, this.loginModel.password)
       .subscribe(data => {
         if (typeof (data) == 'undefined') {
@@ -42,5 +50,7 @@ export class LoginPanelComponent implements OnInit {
           mp.trigger("playerLoginRequested", AccountService.currentAccountGuid);
         }
       });
+    }
+
   }
 }
