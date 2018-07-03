@@ -5,4 +5,5 @@ export class CharacterModel {
     public money: number;
     public lastLoginTime: Date;
     public model: string;
+    public bankMoney: number;
 }
