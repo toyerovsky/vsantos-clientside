@@ -25,7 +25,6 @@ export class BankMenuComponent implements OnInit {
     this._characterService
     .getSelectedCharacter()
     .subscribe((ch)=>{
-      console.log(ch);
       this.player = ch;
     });
 

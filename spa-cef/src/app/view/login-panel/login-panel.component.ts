@@ -41,7 +41,8 @@ export class LoginPanelComponent implements OnInit {
       this._accountService
       .login(this.loginModel.email, this.loginModel.password)
       .subscribe(data => {
-        if (typeof (data) == 'undefined') {
+        console.log(data);
+        if (data === undefined || data === null) {
           setTimeout(() => this._notification.error('Podane dane logowania są niepoprawne.'));
         } else {
           this._router.navigate(["characterselector"]);
