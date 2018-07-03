@@ -38,7 +38,7 @@ export class CharacterService extends AbstractService {
                 catchError((error: any) => {
                  this.handleError('character.service getByAccountId()');
 
-                    return Observable.throw(error);
+                    return throwError(error);
                 })
             );
     }
@@ -55,4 +55,16 @@ export class CharacterService extends AbstractService {
             );
 
     }
+
+    public getSelectedCharacter(): Observable<CharacterModel>{
+      return this._http.get<CharacterModel>(`${environment.apiUrl}/api/character/selectedcharacter`,{ withCredentials: true })
+        .pipe(
+          catchError((error: any) => {
+            this.handleError('character.service getSelectedCharacter()');
+
+               return throwError(error);
+          })
+        );
+    }
+
   }

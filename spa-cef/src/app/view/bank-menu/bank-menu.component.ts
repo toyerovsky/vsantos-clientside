@@ -11,9 +11,8 @@ import { CharacterModel } from '../../models/CharacterModel';
 })
 export class BankMenuComponent implements OnInit {
 
-  public characterBank: BankAccountModel = new BankAccountModel();
   public  inputMoney: number;
-  public  player: CharacterModel = new CharacterModel();
+  public  player: CharacterModel = new CharacterModel;
 
   constructor(
     private _characterService: CharacterService,
@@ -21,10 +20,14 @@ export class BankMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.characterBank.bankMoney = 502;
-    this.characterBank.bankAccountNumber = 666;
-    //Test
-    this.player.money = 600;
+
+
+    this._characterService
+    .getSelectedCharacter()
+    .subscribe((ch)=>{
+      console.log(ch);
+      this.player = ch;
+    });
 
   }
 
@@ -32,11 +35,11 @@ export class BankMenuComponent implements OnInit {
     if(this.inputMoney === undefined){
       this._notification.error("Najpierw wprowadź wartość!","BANK");
     }
-    if(this.inputMoney > this.characterBank.bankMoney){
+    if(this.inputMoney > this.player.bankMoney){
       this._notification.info("Nie masz tylu pieniędzy na koncie!","BANK");
     }
     else{
-      this.characterBank.bankMoney  -= this.inputMoney;
+      this.player.bankMoney  -= this.inputMoney;
       // Add money to Player
       this.player.money += this.inputMoney;
       // API: bank money substract
@@ -53,7 +56,7 @@ export class BankMenuComponent implements OnInit {
       this._notification.info("Nie masz tylu pieniędzy przy sobie!","BANK");
     }
     else{
-      this.characterBank.bankMoney  += this.inputMoney;
+      this.player.bankMoney  += this.inputMoney;
       // Substract money from Player
       this.player.money -= this.inputMoney;
       // API: bank money substract
