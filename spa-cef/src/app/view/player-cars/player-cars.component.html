@@ -8,22 +8,12 @@
   </div>
 
   <ul class="content scrollbar">
-    <li>
-      <div class="name">Bagger</div>
-      <button routerLink="/playercars/more" class="button">Więcej</button>
+    <li *ngFor="let veh of playerVehicles">
+      <div class="name">{{veh.name}}</div>
+      <button (click)="this.getDatails(veh.id)" class="button">Więcej</button>
     </li>
 
-    <!-- #region example-data -->
-    <li>
-        <div class="name">Emperor</div>
-        <button routerLink="/playercars/more" class="button">Więcej</button>
-    </li>
 
-    <li>
-      <div class="name">Monroe</div>
-      <button routerLink="/playercars/more" class="button">Więcej</button>
-    </li>
-    <!-- #endregion example-data -->
   </ul>
 
   <footer class="footer black-footer">

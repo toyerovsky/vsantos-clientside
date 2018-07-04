@@ -65,7 +65,7 @@ const routes: Routes = [
   { path: 'urbanshop', component: UrbanShopComponent },
   { path: 'bankmenu', component: BankMenuComponent },
   { path: 'playercars', component: PlayerCarsComponent },
-  { path: 'playercars/more', component: PlayerCarsMoreComponent },
+  { path: 'playercars/more/:id', component: PlayerCarsMoreComponent },
   { path: 'playeritems', component: PlayerItemsComponent },
   { path: 'playeritems/info', component: PlayerItemsInfoComponent },
   { path: 'carshowroom', component: CarShowroomComponent }

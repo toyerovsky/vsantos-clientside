@@ -1,8 +1,9 @@
 export class VehicleModel {
+public id: number;
 public name: string;
 public fuelTank: number;
-public millage: number;
-public FuelConsumption: number;
+public milage: number;
+public fuelConsumption: number;
 public isSpawned: boolean;
 
 }
