@@ -7,11 +7,11 @@
   </div>
 
   <ul class="content scrollbar">
-    <li>
-      <div class="name">Kij baseballowy <span class="marginal">(<span class="number">1</span>)</span></div>
+    <li *ngFor="let item of playerItems">
+      <div class="name">{{item.name}} <span class="marginal">(<span class="number">1</span>)</span></div>
       <div class="buttons">
           <button class="button">Użyj</button>
-          <button routerLink="/playeritems/info" class="button">Więcej</button>
+          <button (click)="this.getItemDetails(item.id)" class="button">Więcej</button>
       </div>
     </li>
   </ul>
